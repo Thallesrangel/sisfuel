@@ -20,7 +20,7 @@ class ControllerCatCombustivel extends ClsCatCombustivel
 	{  
 		$breadcrumb = [
 			'Início' => '',
-			'Ipva' => 'categoria_combustivel/list',
+			'Categoria Combustível' => 'categoria_combustivel/list',
 			'Listagem' => ''
 		];
 

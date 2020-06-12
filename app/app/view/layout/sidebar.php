@@ -19,7 +19,7 @@
 		
 		<?php if (in_array(4, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2 && $_SESSION['flag_tanque'] == 1) {?>
 			<li>
-				<a href="<?=DIRPAGE?>/registrar_transito/list"><i data-feather="shuffle"></i> Movimento em Trânsito</a>
+				<a href="<?=DIRPAGE?>/movimento-transito/list"><i data-feather="shuffle"></i> Movimento em Trânsito</a>
 			</li>
 		<?php } ?>
 		

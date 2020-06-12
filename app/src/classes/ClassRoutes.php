@@ -21,6 +21,7 @@ class ClassRoutes
         "categoriaveiculo"        =>  "ControllerCatModelo",
         "movimento_entrada"       =>  "ControllerMovEntrada",
         "movimento_saida"         =>  "ControllerMovSaida",
+        "movimento-transito"      => "ControllerMovTransito",
         "seguro"                  =>  "ControllerSeguro", 
         "categoria_veiculo"       =>  "ControllerCatVeiculo",
         "fabricante"              =>  "ControllerFabricante",
