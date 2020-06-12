@@ -1,0 +1,21 @@
+{
+    "name": "sisfuel/mvc",
+    "description": "sistema de gestao de combustiveis",
+    "minimum-stability": "beta",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "thallesrangel",
+            "email": "rangelthr@gmail.com",
+            "role" : "Developer",
+            "homepage" : "http://www.sisfuel.com.br"
+        }
+    ],
+    "require": {}, 
+    "autoload": {
+            "psr-4" : {
+                "App\\" : "../app/",
+                "Src\\" : "../src/"
+            }
+    }
+}

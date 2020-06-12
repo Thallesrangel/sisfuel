@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+body{
+	font-family: 'Montserrat', sans-serif;
+	background: #f3f4fa;
+	color: #42526E;
+	letter-spacing: .1px;
+	line-height: 1.4;
+}
+h4{
+	color: #253858;
+}
+.feather{
+   color: #1abc9c;
+}
+.feather:hover{
+	color: #16a085;
+}
+.btn-success{
+	background: #3d3d3d;
+	border: #3d3d3d;
+}
+.btn-success:hover{
+	background: #4b4b4b;
+}
+.iconExcluir{
+	color: #636e72;
+	width: 20px;
+}
+.iconExcluir:hover{
+	color: #2d3436;
+}
+.iconArquivo{
+	color: #7f8c8d;
+	width: 20px;
+}
+.iconArquivo:hover{
+	color:#2d3436;
+}
+.iconEditar{
+	color: #636e72;
+	width: 20px;
+}
+.iconCardCredit {
+	color: #16a085;
+}
+.iconEditar:hover{
+	color:#2d3436;
+}
+.height-100{
+	height: 90vh;
+	background: #FFF;
+	border: 1px solid #ecf0f1;
+	padding: 1%;
+	border-radius: 2px;
+}
+
+p{
+	font-family: 'Montserrat', sans-serif;
+ 	font-size: 1em;
+	font-weight: 300;
+	line-height: 1.7em;
+	color: #34495e;
+}
+a,
+a:hover,
+a:focus{
+	color: inherit;
+	text-decoration: none;
+	transition: all 0.3s;
+}
+.navbar{
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+.navbar-btn{
+	box-shadow: none;
+	outline: none!important;
+	border: none;
+}
+.line{
+	width: 100%;
+	height: 1px;
+	border-bottom: 1px dashed #34495e;
+}
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+}
+.d-flex.flex-column{
+	width: 100%;
+	height: 100%;
+}
+#sidebar {
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 260px;
+	max-width: 260px;
+	height: 100%;
+	border-right: 1px solid #ecf0f1;
+    background: #FFF;
+    color: #3d3d3d;
+    transition: all 0.3s;
+}
+#sidebar.active{
+	margin-left: -270px;
+}
+#sidebar ul.components{
+	padding: 5px 0px;
+	border-bottom: 1px solid #FFF;
+}
+
+#sidebar ul p{
+	padding: 5px;
+	font-size: 1.1em;
+	display: block;
+}
+
+#sidebar ul li a{
+	padding: 10px;
+	font-size: 1em;
+	display: block;
+}
+#sidebar ul li a:hover {
+    color: #3d3d3d;
+    background: #ecf0f1;
+}
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    background: #ecf0f1;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+}
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+#content {
+    width: 100%;
+    padding: 10px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* CARDS DASHBOARD*/
+#sidebar .sidebar-header{
+	padding: 1%;
+	background: #FFF;
+}
+.border-left-primary{
+	border-left: .20rem solid #16a085 !important;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+.shadow {
+    box-shadow: 0 .15rem 1.75rem 0 
+    rgba(58,59,69,.15) !important;
+}
+.card {
+	margin-top: 2%;
+	margin-left: 2%;
+	width: 22%;
+    word-wrap: break-word;
+}
+.text-xs {
+    font-size: 13px;
+}
+.iconDashboard {
+	color: #bdc3c7;
+}
+/*FIM CARD DASHBOARD*/
+
+/* BTN CADASTRAR */
+.btnCadastrar{
+	background:#3d3d3d !important;
+	color: #FFF !important;
+}
+.btnCadastrar:hover{
+	background:#4b4b4b !important;
+}
+.form-check
+{	margin-left:20px;
+	float:left;
+	
+}
+/* Tela de erro */
+@media(max-width:768px){
+	#sidebar{margin-left: -250px;}
+	#sidebar.active{
+		margin-left: 0px;
+	}
+	#sidebarCollapse span{
+		display: none;
+	}
+
+	.card {
+		margin-top: 2%;
+		width: 70%;
+		word-wrap: break-word;
+	}
+}
+
+.divTanque{
+	border: 1px solid #bdc3c7;
+	border-radius: 7px;
+	background-color: #FFF;
+	float:left;
+	width: auto;
+	text-align: center;
+	padding: 5px 15px;	
+	margin-left: 4px;
+	margin-top: 4px;
+}
+
+/*Progress Bar Padrão*/
+progress{
+	background: #ecf0f1;
+	border-radius: 4px;
+}
+progress::-moz-progress-bar { background: #1abc9c; }
+progress::-webkit-progress-value { background: #1abc9c; }
+
+/* Select2*/
+.js-select{
+	width: 250px;
+}
+
+/*DataTables*/
+.dataTables_filter input{
+	border:1px solid #bdc3c7;
+	border-radius: 4px;
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+ border-bottom:1px solid #f3f4fa !important;
+}
