@@ -23,7 +23,6 @@ unset($_SESSION["mensagem"]);
       <table  id="table" class="table table-sm table-hover" id="table"> 
         <thead>
           <tr>
-            <th title="ID Abastecimento">ID</th>
             <th title="Tanque Registrado">Tanque</th>
             <th>Fornecedor</th>
             <th title="Quantidade de Combustível">Qtd</th>
@@ -41,14 +40,13 @@ unset($_SESSION["mensagem"]);
                 $dataEntrada = date_create($value['data_entrada']);
             ?>
                 <tr>
-                    <td><?=$value['id_entrada']?></td>
                     <td><?=$value['nome_tanque']?></td>
                     <td><?=ucwords($value['razao_social'])?></td>
                     <td><?=$value['quantidade'] . '-' . $value['abreviacao_medida']?></td>
                     <td><?=$value['nota_fiscal']?></td>
                     <td><?=date("d/m/Y H:i", strtotime($value['data_entrada']));?></td>
-                    <td><?=$value['valor_unitario']?></td>
-                    <td><?=$value['valor_total']?></td>
+                    <td class="valor-unitario"><?=$value['valor_unitario']?></td>
+                    <td class="valor-limite"><?=$value['valor_total']?></td>
                     <td>
                       <a href="<?=DIRPAGE?>/movimento_entrada/editar/<?=$value['id_entrada']?>">
                       <i data-feather="edit" class="iconEditar"></i>

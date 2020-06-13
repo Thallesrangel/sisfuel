@@ -21,7 +21,6 @@ unset($_SESSION["mensagem"]);
       <table class="table table-sm table-hover" id="table"> 
         <thead>
           <tr>
-            <th>ID</th>
             <th>Apólice</th>
             <th>Veículo</th>
             <th>Seguradora</th>
@@ -37,7 +36,6 @@ unset($_SESSION["mensagem"]);
               foreach ($seguros as $key => $value) {
             ?>
                 <tr>
-                    <td><?=$value['id_seguro']?></td>
                     <td><?=$value['apolice']?></td>
                     <td><?=$value['placa']?></td>
                     <td><?=$value['razao_social']?></td>

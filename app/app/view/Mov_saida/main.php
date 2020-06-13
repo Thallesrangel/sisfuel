@@ -20,7 +20,6 @@ unset($_SESSION["mensagem"]);
       <table class="table table-sm table-hover" id="table"> 
         <thead>
           <tr>
-          <th>ID</th>
             <th>Motorista</th>
             <th>Veículo</th>
             <th>Km</th>
@@ -38,7 +37,6 @@ unset($_SESSION["mensagem"]);
                 $dataSaida = date_create($value['data_hora']);
             ?>
                 <tr>
-                    <td><?=$value['id_saida']?></td>
                     <td><?=ucwords($value['nome_motorista'])?></td>
                     <td><?=strtoupper($value['placa'])?></td>
                     <td><?=$value['km']?></td>

@@ -43,11 +43,16 @@ use App\model\Conexao;
           <input class="form-control form-control-sm" type="email" name="email" placeholder="Digite o e-mail do usuário" required />
         </div>
 
-
         <div class="form-group">
           <label>Senha</label>
           <input class="form-control form-control-sm" type="password" name="senha" placeholder="Digite uma senha provisória" required />
         </div>
+
+        <div class="form-group">
+          <span>Contato:</span>
+          <input  maxlength="10" type="int"  placeholder="Digite seu contato" name="text" required class="form-control form-control-sm telefone">
+        </div>
+
       </div>
 
     </div>

@@ -23,7 +23,6 @@ unset($_SESSION["mensagem"]);
       <table class="table table-sm table-hover text-center" id="table"> 
         <thead>
           <tr>
-            <th>ID</th>
             <th>Fornecedor</th>
             <th>Qtd</th>
             <th>Data</th>
@@ -42,7 +41,6 @@ unset($_SESSION["mensagem"]);
                 $dataEntrada = date_create($value['data_hora']);
             ?>
                 <tr>
-                    <td><?=$value['id_tanque']?></td>
                     <td><?=ucwords($value['razao_social'])?></td>
                     <td><?=ucwords($value['quantidade'])?></td>
                     <td><?=date("d/m/Y H:i", strtotime($value['data_hora']));?></td>

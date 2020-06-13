@@ -68,7 +68,7 @@ $veiculos = $veiculos->listar($veiculos);
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
           <span>Valor</span>
-          <input type="number" name="valor" class="form-control form-control-sm">
+          <input type="text" name="valor" class="form-control form-control-sm valor-limite">
         </div>
       </div>
 

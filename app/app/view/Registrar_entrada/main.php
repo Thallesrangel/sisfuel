@@ -37,7 +37,7 @@ $tanques = $tanques->listar($tanques);
       <div class="col-2">
         <div class="form-group">
           <span>Quantidade</span> 
-          <input  maxlength="20" min="1" type="number" name="quantidade" class="form-control form-control-sm" required>
+          <input  maxlength="20" min="1" type="text" name="quantidade" class="form-control form-control-sm quantidade" required>
         </div>
       </div>
 
@@ -92,7 +92,7 @@ $tanques = $tanques->listar($tanques);
       <div class="col-2">
         <div class="form-group">
           <span>Valor unitário:</span>
-          <input  maxlength="10" type="int" name="valor_unitario" class="form-control form-control-sm" required>
+          <input maxlength="5" max="5" min="0" type="text" name="valor_unitario" class="form-control form-control-sm valor-unitario" required>
         </div>
       </div>
 

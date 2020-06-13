@@ -50,7 +50,7 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
           <span>Quantidade</span><br>
-          <input  maxlength="20" type="number" name="quantidade" class="form-control form-control-sm">
+          <input  maxlength="20" type="text" name="quantidade" class="form-control form-control-sm quantidade">
         </div>
       </div>
 
@@ -106,14 +106,14 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
           <span>Quilometragem</span><br>
-          <input type="number" name="quilometragem" class="form-control form-control-sm">
+          <input type="text" name="quilometragem" class="form-control form-control-sm quantidade">
         </div>
       </div>
 
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
           <span>Valor Un. /L</span><br>
-          <input type="number" name="valorUnitario" class="form-control form-control-sm">
+          <input type="text" name="valorUnitario" class="form-control form-control-sm valor-unitario">
         </div>
       </div>
 

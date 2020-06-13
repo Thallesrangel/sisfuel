@@ -58,7 +58,7 @@ use App\controller\ControllerMotorista;
       <div class="col-2">
         <div class="form-group">
           <span>Quantidade (L)</span> 
-          <input  maxlength="20" type="number" name="quantidade" class="form-control form-control-sm" required>
+          <input  maxlength="20" type="text" name="quantidade" class="form-control form-control-sm quantidade" required>
         </div>
       </div>
 

@@ -37,7 +37,7 @@ unset($_SESSION["mensagem"]);
                     <td><?=$value['id_fornecedor']?></td>
                     <td><?=ucwords($value['razao_social'])?></td>
                     <td><?=ucwords($value['area_atuacao'])?></td>
-                    <td><?=$value['cnpj']?></td>
+                    <td class="cnpj"><?=$value['cnpj']?></td>
                     <td>
                       <a href="<?=DIRPAGE?>/fornecedor/alterar/<?=$value['id_fornecedor']?>" alt="Editar Cadastro" title="Alterar Fornecedor">
                         <i data-feather="edit" class="iconEditar"></i>
@@ -74,7 +74,7 @@ unset($_SESSION["mensagem"]);
                 </div>
 
                 <div class="form-group">
-                    <input placeholder="CNPJ" type="int" id="cnpj" name="cnpj" class="form-control form-control-sm">
+                    <input placeholder="CNPJ" type="text" id="cnpj" name="cnpj" class="form-control form-control-sm cnpj">
                 </div>
 
                 <div class="form-group">

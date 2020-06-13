@@ -82,16 +82,16 @@ unset($_SESSION["mensagem"]);
 
                   <div class="form-group">
                     <span> Vencimento CNH</span>
-                      <input type="date" name="vencimento_cnh" class="form-control">
+                      <input type="date" name="vencimento_cnh" class="form-control quantidade">
                   </div>
 
                   <div class="form-group">
-                      <input placeholder="CPF" type="text" name="cpf" class="form-control">
+                      <input placeholder="CPF" type="text" name="cpf" class="form-control cpf">
                   </div>
 
                   <div class="form-group">
                     <span> Data de Nascimento</span>
-                      <input type="date" name="data_nascimento" class="form-control">
+                      <input type="date" name="data_nascimento" class="form-control data">
                   </div>
 
                   <div class="form-group">

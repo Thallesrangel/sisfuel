@@ -80,11 +80,11 @@ unset($_SESSION["mensagem"]);
                </div>
                
                 <div class="form-group">
-                  <input maxlength="20" placeholder="Capacidade Maxima" type="int" name="capacidade" class="form-control" id="message-text">
+                  <input maxlength="20" placeholder="Capacidade Maxima" type="int" name="capacidade" class="form-control quantidade">
                 </div>
 
                 <div class="form-group col-5">
-                  <input maxlength="5" placeholder="Alerta de Limite" type="int" name="limite" class="form-control">
+                  <input maxlength="7" max="100" min="0" placeholder="Alerta de Limite" type="int" name="limite" class="form-control porcentagem">
                 </div>
 
                 <div class="form-group">
