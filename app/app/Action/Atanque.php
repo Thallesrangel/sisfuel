@@ -39,6 +39,7 @@ abstract class Atanque
     if (isset($_POST)) {
       $nomeTanque = trim($_POST['tanque']);
       $capacidade = trim($_POST['capacidade']);
+      $limite = trim($_POST['limite']);
       $tipocombustivel = trim($_POST['tipoCombustivel']);
       $idUnidadeMedida = trim($_POST['id_medida']);
     } else {
@@ -49,6 +50,7 @@ abstract class Atanque
     $init->setNome($nomeTanque);
     $init->setIdCliente($_SESSION['id_cliente']);
     $init->setCapacidade($capacidade);
+    $init->setLimite($limite);
     $init->setCombustivel($tipocombustivel);
     $init->setUnidadeMedida($idUnidadeMedida);
     $cadastrar = $init->cadastrar($init);

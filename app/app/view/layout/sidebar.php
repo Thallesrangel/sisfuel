@@ -7,19 +7,19 @@
 		
 		<?php if (in_array(1, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2 && $_SESSION['flag_tanque'] == 1) {?>
 			<li>
-				<a href="<?=DIRPAGE?>/movimento_entrada/list"><i data-feather="arrow-up"></i> Movimento de Entrada </a>
+				<a href="<?=DIRPAGE?>/movimento_entrada/list"><i data-feather="arrow-up-circle"></i> Movimento de Entrada </a>
 			</li>
 		<?php } ?>
 		
 		<?php if (in_array(2, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2 && $_SESSION['flag_tanque'] == 1) {?>
 			<li>
-				<a href="<?=DIRPAGE?>/movimento_saida/list"><i data-feather="arrow-down"></i> Movimento de Saída</a>
+				<a href="<?=DIRPAGE?>/movimento_saida/list"><i data-feather="arrow-down-circle"></i> Movimento de Saída</a>
 			</li>
 		<?php } ?>
 		
 		<?php if (in_array(4, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2 && $_SESSION['flag_tanque'] == 1) {?>
 			<li>
-				<a href="<?=DIRPAGE?>/movimento-transito/list"><i data-feather="shuffle"></i> Movimento em Trânsito</a>
+				<a href="<?=DIRPAGE?>/movimento-transito/list"><i data-feather="compass"></i> Movimento em Trânsito</a>
 			</li>
 		<?php } ?>
 		
@@ -42,7 +42,7 @@
 		<?php } ?>
 
 			<li>
-   				<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i data-feather="edit-3"></i> Cadastro Geral</a>
+   				<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i data-feather="folder-plus"></i> Cadastro Geral</a>
    				<ul class="collapse list-unstyled" id="pageSubmenu">
    					<li>
    						<a href="<?=DIRPAGE?>/veiculo/list"><i data-feather="chevron-right"></i> Veículos</a>
@@ -67,20 +67,16 @@
 					<li>
    						<a href="<?=DIRPAGE?>/modelo-veiculo/list"><i data-feather="chevron-right"></i> Modelos dos Veículos</a>
 					</li>
+
+					<li>
+   						<a href="<?=DIRPAGE?>/categoria_veiculo/list"><i data-feather="chevron-right"></i> Categoria Veículo</a>
+   					</li>
+
+   					<li>
+   						<a href="<?=DIRPAGE?>/categoria_combustivel/list"><i data-feather="chevron-right"></i>Categoria Combustíveis</a>
+   					</li>
 					   
    				</ul> 
-   			</li>
-
-			<li>
-   				<a href="#categoriaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i data-feather="tag"></i> Categorias</a>
-   				<ul class="collapse list-unstyled" id="categoriaSubmenu">
-					<li>
-   						<a href="<?=DIRPAGE?>/categoria_veiculo/list"><i data-feather="chevron-right"></i> Veículo</a>
-   					</li>
-   					<li>
-   						<a href="<?=DIRPAGE?>/categoria_combustivel/list"><i data-feather="chevron-right"></i> Combustíveis</a>
-   					</li>
-				</ul> 
    			</li>
 
    			<li>

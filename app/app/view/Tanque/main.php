@@ -23,6 +23,7 @@ unset($_SESSION["mensagem"]);
               <th>ID</th>
               <th>Tanque</th>
               <th>Capacidade</th>
+              <th>Limite</th>
               <th>Quantidade Disponível</th>
               <th>Combustível</th>
               <th>Unidade</th>
@@ -40,6 +41,7 @@ unset($_SESSION["mensagem"]);
                       <td><?=$value['id_tanque']?></td>
                       <td><?=$value['nome_tanque']?></td>
                       <td><?=$value['capacidade']?></td>
+                      <td><?=$value['alerta_limite']?></td>
                       <td><?=$qtdCombustivelDisponivel . '-' . $value['abreviacao_medida']?></td>
                       <td><?=$value['categoria_combustivel']?></td>
                       <td><?=$value['unidade_medida'] . '-' . $value['abreviacao_medida']?></td>
@@ -74,11 +76,15 @@ unset($_SESSION["mensagem"]);
             <div class="modal-body">
                 <form action="<?=DIRPAGE.'/tanque/novo/'?>" method="POST">
                 <div class="form-group">
-                    <input maxlength="25" placeholder="Identificação do tanque" type="text" name="tanque" class="form-control" id="message-text">
+                  <input maxlength="25" placeholder="Identificação do tanque" type="text" name="tanque" class="form-control" id="message-text">
                </div>
                
                 <div class="form-group">
-                    <input maxlength="25" placeholder="Capacidade Maxima" type="int" name="capacidade" class="form-control" id="message-text">
+                  <input maxlength="20" placeholder="Capacidade Maxima" type="int" name="capacidade" class="form-control" id="message-text">
+                </div>
+
+                <div class="form-group col-5">
+                  <input maxlength="5" placeholder="Alerta de Limite" type="int" name="limite" class="form-control">
                 </div>
 
                 <div class="form-group">

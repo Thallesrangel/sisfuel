@@ -10,16 +10,13 @@ abstract class ClsTanque extends Conexao{
 	private $idCliente;
 	private $placa;
 	private $capacidade;
+	private $limite;
 	private $quantidade;
 	private $tipocombustivel;
 	private $unidadeMedida;
 	private $strCampo;
 	private $strValor;	
 
-	// Paginacao
-	private $pagina_inicial;
-	private $registo_por_pagina;
-	
 	public $tabela = "tbtanque";
 	public $keyId = "id_tanque";
 	
@@ -35,6 +32,9 @@ abstract class ClsTanque extends Conexao{
 	public function getQuantidade(){ return $this->quantidade; }	
 	public function setQuantidade($quantidade){ $this->quantidade = $quantidade; }
 
+	public function getLimite(){ return $this->limite; }	
+	public function setLimite($limite){ $this->limite = $limite; }
+
 	public function getCapacidade(){ return $this->capacidade; }	
 	public function setCapacidade($capacidade){ $this->capacidade = $capacidade; }
 	
@@ -43,13 +43,6 @@ abstract class ClsTanque extends Conexao{
 
 	public function getUnidadeMedida(){ return $this->unidadeMedida; }	
 	public function setUnidadeMedida($unidadeMedida){ $this->unidadeMedida = $unidadeMedida; }
-		
-	// Paginacao 
-	public function getPaginaInicial(){ return $this->pagina_inicial; }
-	public function setPaginaInicial($pagina_inicial){ $this->pagina_inicial = $pagina_inicial; }
-
-	public function getRegistroPorPagina(){ return $this->registo_por_pagina; }
-	public function setRegistroPorPagina($registo_por_pagina) { $this->registo_por_pagina = $registo_por_pagina; }
 
 }
 
@@ -74,13 +67,14 @@ class DaoTanque implements itfTanque{
 	
 		$pdo = Conexao::getConn();
 		
-		$sql = " INSERT INTO ".$objClass->tabela." (nome_tanque, id_cliente, capacidade, id_combustivel, id_medida)
-		 values (:nome_tanque, :id_cliente,:capacidade,:id_combustivel, :id_medida)";
+		$sql = " INSERT INTO ".$objClass->tabela." (nome_tanque, id_cliente, capacidade, alerta_limite, id_combustivel, id_medida)
+		 values (:nome_tanque, :id_cliente,:capacidade, :alerta_limite, :id_combustivel, :id_medida)";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(":nome_tanque", $objClass->getNome());
 		$stmt->bindValue(":id_cliente", $objClass->getIdCliente());
 		$stmt->bindValue(":capacidade", $objClass->getCapacidade());
+		$stmt->bindValue(":alerta_limite", $objClass->getLimite());
 		$stmt->bindValue(":id_combustivel", $objClass->getCombustivel());
 		$stmt->bindValue(":id_medida", $objClass->getUnidadeMedida());
 		$stmt->execute();
