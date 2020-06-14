@@ -1,15 +1,16 @@
 <div class="d-flex flex-column">
 <nav class="navbar-expand navbar-light bg-white  mb-2 static-top shadow-sm">
-<!--   
-  <button type="button" id="sidebarCollapse" class="btn btn-default btn-sm">
-    <i data-feather="menu"></i>
-  </button> -->
 
   <div class="collapse navbar-collapse" id="navbarNav">
   <ul class="navbar-nav navbar-left">
       <li class="nav-item">
+          <li class="nav-link">
+            <button type="button" id="sidebarCollapse" class="btn btn-link btn-sm">
+              <i data-feather="menu"></i>
+            </button> 
+          </li>
           <li class=nav-link>
-         
+
             <?php if($_SESSION['id_tipo'] == 1){
             ?>
               <span class="nav-link"><b>Usuário: </b><?= $_SESSION['nome_usuario'] .' - <b>Cliente:</b>'. $_SESSION['razao_social_cliente'] ?></span>  
