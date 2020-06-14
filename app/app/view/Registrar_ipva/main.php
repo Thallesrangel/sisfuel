@@ -14,13 +14,13 @@ Use App\model\Conexao;
 <div class="starter-template height-100">
   <h4>Registrar IPVA</h4>
   
-  <form action="<?=DIRPAGE.'/ipva/registrar'?>" method="POST">
+  <form id="form" action="<?=DIRPAGE.'/ipva/registrar'?>" method="POST">
   
     <div class="row">
 
-      <div class="col-3">
+      <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
-          <span>Veículos</span> 
+          <span>Veículos</span><br>
             <select class="form-control form-control-sm js-select" name="veiculo">
             <?php
               foreach($veiculos as $veiculo){
@@ -36,7 +36,7 @@ Use App\model\Conexao;
             
 
 
-      <div class="col-3">
+      <div class="col-sm-12 col-md-2 col-lg-2">
         <div class="form-group">
           <span>Data Vencimento</span>
           <input id="datetime" type="date" value="<?= date("d/m/Y");?>" name="data_vencimento" class="form-control form-control-sm">
@@ -44,16 +44,16 @@ Use App\model\Conexao;
       </div>
 
 
-        <div class="col-2">
+        <div class="col-sm-12 col-md-2 col-lg-2">
             <div class="form-group">
             <span>Valor</span>
             <input  maxlength="10" type="int" name="valor" class="form-control form-control-sm valor-limite">
             </div>
         </div>
         
-        <div class="col-2">
+        <div class="col-sm-12 col-md-2 col-lg-3">
             <div class="form-group">
-            <span>Situação</span>
+            <span>Situação</span><br>
             
                 <select class="form-control form-control-sm js-select" name="situacao">
                 <?php

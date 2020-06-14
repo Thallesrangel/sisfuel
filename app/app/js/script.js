@@ -20,7 +20,7 @@ $(document).ready( function () {
         },
 
     } );
-} );
+});
 
 $(document).ready(function(){
     $('.telefone').mask('(00) 0000-0000');
@@ -34,6 +34,3 @@ $(document).ready(function(){
 });
 
 
-$('#form').submit(function(){
-
-});
