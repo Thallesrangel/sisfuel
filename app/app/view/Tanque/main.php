@@ -24,7 +24,7 @@ unset($_SESSION["mensagem"]);
               <th>Tanque</th>
               <th>Capacidade</th>
               <th>Limite</th>
-              <th>Quantidade Disponível</th>
+              <th title="Quantidade Disponível">Disponível</th>
               <th>Combustível</th>
               <th>Unidade</th>
               <th>Acões</th>
