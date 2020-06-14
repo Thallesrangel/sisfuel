@@ -26,7 +26,6 @@ unset($_SESSION["mensagem"]);
         <thead>
           <tr>
             <th>ID</th>
-         
             <th>Motorista</th>
             <th>Validade Cartão</th>
             <th>Valor Limite</th>

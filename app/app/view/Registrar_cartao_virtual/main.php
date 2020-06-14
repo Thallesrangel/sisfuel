@@ -18,9 +18,9 @@ Use App\model\Conexao;
   
     <div class="row">
 
-      <div class="col-3">
+      <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
-          <span>Motorista</span> 
+          <span>Motorista</span><br>
             <select class="form-control form-control-sm js-select" name="motorista">
             <?php
               foreach($motoristas as $motorista){
@@ -34,23 +34,23 @@ Use App\model\Conexao;
           </div>  
         </div>
 
-        <div class="col-3">
+        <div class="col-sm-12 col-md-3 col-lg-3">
             <div class="form-group">
             <span>Validade do cartão</span>
             <input id="datetime" type="date" value="<?= date("d/m/Y");?>" name="data_validade" class="form-control form-control-sm">
             </div>
         </div>
     
-        <div class="col-2">
+        <div class="col-sm-12 col-md-2 col-lg-2">
             <div class="form-group">
             <span>Valor limite</span>
             <input type="text" name="valor_limite" class="form-control form-control-sm valor-limite">
             </div>
         </div>
         
-        <div class="col-2">
+        <div class="col-sm-12 col-md-2 col-lg-2">
             <div class="form-group">
-            <span>Situação</span>
+            <span>Situação</span><br>
             
                 <select class="form-control form-control-sm js-select" name="situacao">
                 <?php
@@ -68,7 +68,7 @@ Use App\model\Conexao;
             </div>
         </div>
            
-        <div class="col-3">
+        <div class="col-sm-12 col-md-3 col-lg-3">
             <div class="form-group">
             <span>Renovação automática do limite</span>
             

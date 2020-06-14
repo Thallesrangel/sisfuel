@@ -19,9 +19,9 @@ $tanques = $tanques->listar($tanques);
   <form action="<?=DIRPAGE.'/movimento_entrada/registrar'?>" method="POST">
     <div class="row">
     
-      <div class="col-3">
+      <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
-          <span>Fornecedor</span> 
+          <span>Fornecedor</span><br>
             <select class="form-control form-control-sm js-select" id="fornecedor"  name="fornecedor" required>
             <?php
               foreach($fornecedores as $fornecedor){
@@ -34,16 +34,16 @@ $tanques = $tanques->listar($tanques);
           </div>  
         </div>
       
-      <div class="col-2">
+      <div class="col-sm-12 col-md-2 col-lg-2">
         <div class="form-group">
-          <span>Quantidade</span> 
+          <span>Quantidade</span><br>
           <input  maxlength="20" min="1" type="text" name="quantidade" class="form-control form-control-sm quantidade" required>
         </div>
       </div>
 
-      <div class="col-3">
+      <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
-          <span>Tanque</span> 
+          <span>Tanque</span><br>
             <select class="form-control form-control-sm js-select" name="tanque" required>
             <?php
               foreach($tanques as $tanque){
@@ -57,7 +57,7 @@ $tanques = $tanques->listar($tanques);
           </div>  
         </div>
 
-      <div class="col-3">
+      <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
           <span>Data</span>
           <input id="datetime" type="datetime" value="<?php echo date("d/m/Y h:i");?>" name="data" class="form-control form-control-sm" required>
@@ -67,14 +67,14 @@ $tanques = $tanques->listar($tanques);
 
     <div class="row">
 
-     <div class="col-3">
+     <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
           <span>Nº Nota Fiscal</span>
           <input type="text" name="nf" class="form-control form-control-sm" required>
         </div>
       </div>
 
-      <div class="col-3">
+      <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
           <span>Motorista</span>
           <input maxlength="35" type="text" name="motorista" autocomplete="off" class="form-control form-control-sm" required>
@@ -82,14 +82,14 @@ $tanques = $tanques->listar($tanques);
       </div>
 
       
-      <div class="col-2">
+      <div class="col-sm-12 col-md-2 col-lg-2">
         <div class="form-group">
           <span>Placa:</span>
           <input  maxlength="10" type="int" name="placa" class="form-control form-control-sm" required>
         </div>
       </div>
 
-      <div class="col-2">
+      <div class="col-sm-12 col-md-2 col-lg-2">
         <div class="form-group">
           <span>Valor unitário:</span>
           <input maxlength="5" max="5" min="0" type="text" name="valor_unitario" class="form-control form-control-sm valor-unitario" required>
