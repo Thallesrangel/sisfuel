@@ -67,10 +67,10 @@ $tanques = $tanques->listar($tanques);
 
     <div class="row">
 
-     <div class="col-2">
+     <div class="col-3">
         <div class="form-group">
           <span>Nº Nota Fiscal</span>
-          <input type="number" name="nf" class="form-control form-control-sm" required>
+          <input type="text" name="nf" class="form-control form-control-sm" required>
         </div>
       </div>
 

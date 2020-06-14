@@ -24,7 +24,6 @@ unset($_SESSION["mensagem"]);
       <table class="table table-sm table-hover" id="table"> 
         <thead>
           <tr>
-            <th title="ID IPVA">ID</th>
             <th title="Placa do veículo">Veículo</th>
             <th title="Data de vencimento">Vencimento</th>
             <th>Valor</th>
@@ -38,7 +37,6 @@ unset($_SESSION["mensagem"]);
               foreach ($entrada as $key => $value) {
             ?>
                 <tr>
-                    <td><?=$value['id_ipva']?></td>
                     <td><?=strtoupper($value['placa'])?></td>
                     <td><?=date("d/m/Y", strtotime($value['data_vencimento']));?></td>
                     <td><?=$value['valor']?></td>

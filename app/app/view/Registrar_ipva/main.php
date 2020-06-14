@@ -47,7 +47,7 @@ Use App\model\Conexao;
         <div class="col-2">
             <div class="form-group">
             <span>Valor</span>
-            <input  maxlength="10" type="int" name="valor" class="form-control form-control-sm">
+            <input  maxlength="10" type="int" name="valor" class="form-control form-control-sm valor-limite">
             </div>
         </div>
         

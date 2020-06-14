@@ -63,7 +63,7 @@ use App\model\Conexao;
    Senha <input type="password" name="senha" maxlength="40">
     <br><br>
 
-    CNPJ/CPF <input type="text" name="documento">
+    CNPJ/CPF <input type="text" class="cnpj" name="documento">
     <br><br>
 
     Endereço <input type="text" name="endereco">
@@ -72,7 +72,7 @@ use App\model\Conexao;
 
     Contato <input type="text" name="contato">
     <br><br>
-
+    <a href="javascript:history.back()" class="btn btn-secondary btn-sm">Voltar</a>
     <input class="btn btn-primary" type="submit" value="Enviar">
 </form>
 </div>

@@ -97,7 +97,7 @@ use App\controller\ControllerVeiculo;
 
     </div>
     
-    <a href="javascript:history.back()" class="btn btn-secondary btn-sm"">Voltar</a>
+    <a href="javascript:history.back()" class="btn btn-secondary btn-sm">Voltar</a>
     <input id="solicitar" class="btn btn-success btn-sm" type="submit" value="Registrar">
   
   </form>
