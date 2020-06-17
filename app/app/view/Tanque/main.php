@@ -40,9 +40,9 @@ unset($_SESSION["mensagem"]);
                   <tr>
                       <td><?=$value['id_tanque']?></td>
                       <td><?=$value['nome_tanque']?></td>
-                      <td><?=$value['capacidade']?></td>
-                      <td><?=$value['alerta_limite']?></td>
-                      <td><?=$qtdCombustivelDisponivel . '-' . $value['abreviacao_medida']?></td>
+                      <td class="quantidade"><?=$value['capacidade']?></td>
+                      <td class="porcentagem"><?=$value['alerta_limite']?></td>
+                      <td><span class="quantidade"><?=$qtdCombustivelDisponivel ?> </span> - <?= $value['abreviacao_medida']?></td>
                       <td><?=$value['categoria_combustivel']?></td>
                       <td><?=$value['unidade_medida'] . '-' . $value['abreviacao_medida']?></td>
                       <td>

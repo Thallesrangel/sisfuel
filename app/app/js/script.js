@@ -24,7 +24,6 @@ $(document).ready( function () {
 
 
 $(document).submit(function(){
-    $('.quantidade').unmask();
     $('.porcentagem').unmask();
 });
 

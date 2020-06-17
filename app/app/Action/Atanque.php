@@ -38,7 +38,8 @@ abstract class Atanque
   {
     if (isset($_POST)) {
       $nomeTanque = trim($_POST['tanque']);
-      $capacidade = trim($_POST['capacidade']);
+      $capacidade_formatada = trim($_POST['capacidade']);
+      $capacidade = str_replace(',', '.',str_replace('.', '', $capacidade_formatada));
       $limite = trim($_POST['limite']);
       $tipocombustivel = trim($_POST['tipoCombustivel']);
       $idUnidadeMedida = trim($_POST['id_medida']);
