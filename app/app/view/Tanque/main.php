@@ -75,16 +75,17 @@ unset($_SESSION["mensagem"]);
             </div>
             <div class="modal-body">
                 <form action="<?=DIRPAGE.'/tanque/novo/'?>" method="POST">
+               
                 <div class="form-group">
                   <input maxlength="25" placeholder="Identificação do tanque" type="text" name="tanque" class="form-control" id="message-text">
                </div>
                
                 <div class="form-group">
-                  <input maxlength="20" placeholder="Capacidade Maxima" type="int" name="capacidade" class="form-control quantidade">
+                  <input maxlength="20" placeholder="Capacidade Maxima" type="text" name="capacidade" class="form-control quantidade">
                 </div>
 
                 <div class="form-group col-5">
-                  <input maxlength="7" max="100" min="0" placeholder="Alerta de Limite" type="int" name="limite" class="form-control porcentagem">
+                  <input maxlength="7" max="100" min="0" placeholder="Alerta de Limite" type="text" name="limite" class="form-control porcentagem">
                 </div>
 
                 <div class="form-group">
