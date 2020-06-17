@@ -3,6 +3,7 @@ namespace App\Action;
 
 use App\controller\ControllerTanque;
 
+use Src\traits\TratarDados;
 
 # Usado para calcular quantidade de combustível disponível nos tanques
 use App\controller\ControllerMovEntrada;
@@ -10,6 +11,8 @@ use App\controller\ControllerMovSaida;
 
 abstract class Atanque
 {
+  use TratarDados;
+  
   public function excluirAction($id)
   {        
     $init = new ControllerTanque();
@@ -38,9 +41,9 @@ abstract class Atanque
   {
     if (isset($_POST)) {
       $nomeTanque = trim($_POST['tanque']);
-      $capacidade_formatada = trim($_POST['capacidade']);
-      $capacidade = str_replace(',', '.',str_replace('.', '', $capacidade_formatada));
-      $limite = trim($_POST['limite']);
+      $capacidade = TratarDados::tratarCapacidade($_POST['capacidade']);
+      $limite = TratarDados::tratarPorcentagem($_POST['limite']);
+      var_dump($limite);
       $tipocombustivel = trim($_POST['tipoCombustivel']);
       $idUnidadeMedida = trim($_POST['id_medida']);
     } else {

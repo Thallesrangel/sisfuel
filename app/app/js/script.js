@@ -24,7 +24,7 @@ $(document).ready( function () {
 
 
 $(document).submit(function(){
-    $('.porcentagem').unmask();
+   
 });
 
 $(document).ready(function(){
