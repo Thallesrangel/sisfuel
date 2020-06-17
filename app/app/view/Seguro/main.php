@@ -40,7 +40,7 @@ unset($_SESSION["mensagem"]);
                     <td><?=$value['placa']?></td>
                     <td><?=$value['razao_social']?></td>
                     <td><?=date("d/m/Y", strtotime($value['data_vencimento']));?></td>
-                    <td><?=$value['valor']?></td>
+                    <td class="valor-limite"><?=$value['valor']?></td>
                     <td><?=$value['situacao']?></td>
                     <td>
                       <a href="<?=DIRPAGE?>/seguro/editar/<?=$value['id_seguro']?>" >

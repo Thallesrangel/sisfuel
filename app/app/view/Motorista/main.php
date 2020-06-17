@@ -39,7 +39,7 @@ unset($_SESSION["mensagem"]);
                     <td><?=$value['id_motorista']?></td>
                     <td><?=ucwords($value['nome_motorista'])?></td>
                     <td><?=$value['cnh']?></td>
-                    <td><?=$value['cpf']?></td>
+                    <td class="cpf"><?=$value['cpf']?></td>
                     <td><?=date("d/m/Y", strtotime($value['data_vencimento_cnh']));?></td>
                     <td><?=date("d/m/Y", strtotime($value['data_nascimento']));?></td>
                     <td>

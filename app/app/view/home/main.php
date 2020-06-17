@@ -90,9 +90,9 @@ $tanque = $tanque->listar($tanque);
     <div class="container">
         <div class="divTanque col-sm-12 col-lg-3">
             <h6><?=$value['nome_tanque']?></h6>
-            <label for="idBarProgress"><?=($qtdCombustivelDisponivel * 100 ) / $value['capacidade']?>%</labe><br>
-            <progress id="idBarProgress" value="<?=$qtdCombustivelDisponivel?>" max="<?=$value['capacidade']?>"> </progress>
             <p><?=$qtdCombustivelDisponivel . " / ". $value['capacidade']  . '-' . $value['abreviacao_medida']?></p>
+            <progress id="idBarProgress" value="<?=$qtdCombustivelDisponivel?>" max="<?=$value['capacidade']?>"> </progress><br>
+            <span><?=($qtdCombustivelDisponivel * 100 ) / $value['capacidade']?>%</span><br>
             <p><?=$value['categoria_combustivel']?></p>
         </div>
     </div>
