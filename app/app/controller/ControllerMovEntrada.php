@@ -22,7 +22,7 @@ class ControllerMovEntrada extends ClsMovEntrada{
 		$breadcrumb = [
 			'Início' => '',
 			'Movimento de Entrada' => 'movimento_entrada/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
 		if (in_array(1, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {

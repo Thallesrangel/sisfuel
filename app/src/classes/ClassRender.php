@@ -35,8 +35,13 @@ class ClassRender
         $pegarBread = $this->getBreadCrumb();
 
         foreach ($pegarBread as $key => $value) {
-    
-        echo "<a href=".DIRPAGE."/".$value." > ".$key ."</a>";
+            
+        if($value == 'false'){
+            echo "<span>".$key."</span>";
+        } else{
+            echo "<a href=".DIRPAGE."/".$value." > ".$key ."</a>";
+        }
+        
         echo " / ";
         }
     }
