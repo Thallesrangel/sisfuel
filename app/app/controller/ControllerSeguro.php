@@ -45,8 +45,8 @@ class ControllerSeguro extends ClsSeguro{
 	{  
 		$breadcrumb = [
 			'Início' => '',
-			'Seguro' => 'seguro/',
-			'Novo' => ''
+			'Seguro' => 'seguro/list',
+			'Novo' => 'false'
 		];
 
 		if (in_array(7, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
