@@ -48,10 +48,12 @@
         
   
         <li class="nav-item" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <a class="nav-link" href="#"><i data-feather="user"></i> <?=$_SESSION['nome_usuario']?> </a>
+          <a class="nav-link" href="#"><i data-feather="user"></i></a>
         </li>
         
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <span class="nav-link"><?= $_SESSION['nome_usuario']?></span> 
+          <div class="dropdown-divider"></div>
           <a class="nav-link" href="<?=DIRPAGE.'/configuracao/index'?>"><i data-feather="settings"></i> Configuração</a>
           <div class="dropdown-divider"></div>
           <a class="nav-link" href="<?=DIRPAGE.'/logout'?>"><i data-feather="log-out"></i> Logout</a>
