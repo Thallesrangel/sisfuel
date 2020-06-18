@@ -75,8 +75,7 @@ $tanque = $tanque->listar($tanque);
                     </div>
                 </a>
             </div>
-
-            
+   
         </div>
 
   

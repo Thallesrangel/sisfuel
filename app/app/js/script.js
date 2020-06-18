@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('.js-select').select2();
+    $('.dropdown-toggle').dropdown();
 });
 
 $(document).ready( function () {

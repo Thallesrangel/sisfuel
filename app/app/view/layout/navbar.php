@@ -13,11 +13,11 @@
 
             <?php if($_SESSION['id_tipo'] == 1){
             ?>
-              <span class="nav-link"><b>Usuário: </b><?= $_SESSION['nome_usuario'] .' - <b>Cliente:</b>'. $_SESSION['razao_social_cliente'] ?></span>  
+              <span class="nav-link"><b>Cliente:</b><?= $_SESSION['razao_social_cliente'] ?></span>  
             <?php
             } else {
             ?>
-              <span class="nav-link"><b>Usuário: </b><?= $_SESSION['nome_usuario']?></span>    
+                
             <?php
             }
            ?>
@@ -38,18 +38,25 @@
 
         <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">CNH vencendo</a>
-          <a class="dropdown-item" href="#">Troca de óleo</a>
+           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Combustível baixo</a>
         </div>
       </div>
       
-      <li class="nav-item">
-        <a class="nav-link" href="<?=DIRPAGE.'/configuracao/index'?>"><i data-feather="settings"></i></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="<?=DIRPAGE.'/logout'?>"><i data-feather="log-out"></i></a>
-      </li>
+  
+      <div class="dropdown">
+        
+  
+        <li class="nav-item" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link" href="#"><i data-feather="user"></i> <?=$_SESSION['nome_usuario']?> </a>
+        </li>
+        
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <a class="nav-link" href="<?=DIRPAGE.'/configuracao/index'?>"><i data-feather="settings"></i> Configuração</a>
+          <div class="dropdown-divider"></div>
+          <a class="nav-link" href="<?=DIRPAGE.'/logout'?>"><i data-feather="log-out"></i> Logout</a>
+        </div>
+      </div>
 
     </ul>
   </div>
