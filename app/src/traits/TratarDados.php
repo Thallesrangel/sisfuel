@@ -17,4 +17,16 @@ trait TratarDados
         return str_replace(',','.',str_replace('%', '', $porcentagem));
     }   
 
+    # trata valor unitario
+    public function tratarValorUnitario($valorunitario)
+    {
+    return str_replace(',', '.',str_replace('.', '', $valorunitario));
+    }   
+
+    # trata quantidade
+    public function tratarQuantidade($quantidade)
+    {
+    return str_replace(',', '.',str_replace('.', '', $quantidade));
+    }   
+    
 }

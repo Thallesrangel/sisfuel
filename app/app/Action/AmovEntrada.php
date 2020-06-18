@@ -2,23 +2,27 @@
 
 namespace App\Action;
 
+use Src\traits\TratarDados;
+
 use App\controller\ControllerMovEntrada;
 use App\controller\ControllerMovSaida;
 use App\controller\ControllerTanque;
 
-abstract class AmovEntrada{
+abstract class AmovEntrada
+{
+    use TratarDados;
 
     public function registrarAction()
     {    
         if (isset($_POST)) {
             $fornecedor = trim($_POST['fornecedor']);
-            $quantidade = floatval(trim($_POST['quantidade']));
+            $quantidade = TratarDados::tratarQuantidade($_POST['quantidade']);
             $tanque = trim($_POST['tanque']);
             $dataEntrada = date("Y-m-d H:i",strtotime($_POST['data']));
             $notaFiscal = trim($_POST['nf']);
             $motorista = trim($_POST['motorista']);
             $placa = trim($_POST['placa']);
-            $valor_unitario = trim($_POST['valor_unitario']);
+            $valor_unitario = TratarDados::tratarValorUnitario($_POST['valor_unitario']);
           } else {
             die("Faltam parâmetros POST");
         }

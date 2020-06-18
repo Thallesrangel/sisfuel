@@ -42,7 +42,7 @@ unset($_SESSION["mensagem"]);
                 <tr>
                     <td><?=$value['nome_tanque']?></td>
                     <td><?=ucwords($value['razao_social'])?></td>
-                    <td><?=$value['quantidade'] . '-' . $value['abreviacao_medida']?></td>
+                    <td><span class="quantidade"><?=$value['quantidade']?></span> - <?=$value['abreviacao_medida']?></td>
                     <td><?=$value['nota_fiscal']?></td>
                     <td><?=date("d/m/Y H:i", strtotime($value['data_entrada']));?></td>
                     <td class="valor-unitario"><?=$value['valor_unitario']?></td>
