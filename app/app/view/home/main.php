@@ -78,7 +78,6 @@ $tanque = $tanque->listar($tanque);
    
         </div>
 
-  
 <br>
     <?php
     if($tanque != ""){
@@ -89,7 +88,7 @@ $tanque = $tanque->listar($tanque);
     <div class="container">
         <div class="divTanque col-sm-12 col-lg-3">
             <h6><?=$value['nome_tanque']?></h6>
-            <p><?=$qtdCombustivelDisponivel . " / ". $value['capacidade']  . '-' . $value['abreviacao_medida']?></p>
+            <p> <span class="quantidade"><?=$qtdCombustivelDisponivel?></span> / <span class="quantidade"><?=$value['capacidade']?></span>  -  <?=$value['abreviacao_medida']?></p>
             <progress id="idBarProgress" value="<?=$qtdCombustivelDisponivel?>" max="<?=$value['capacidade']?>"> </progress><br>
             <span><?=($qtdCombustivelDisponivel * 100 ) / $value['capacidade']?>%</span><br>
             <p><?=$value['categoria_combustivel']?></p>

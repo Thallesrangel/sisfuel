@@ -65,13 +65,13 @@ class DaoCliente implements itfCliente{
 	{
 		$pdo = Conexao::getConn();
 		
-		$sql = " INSERT INTO ".$objClass->tabela." (id_plano, id_tipo, razao_social, email, documento, flag_tanque) 
-		values (:id_plano, :id_tipo, :razao_social, :email, :documento, :flag_tanque);";
+		$sql = " INSERT INTO ".$objClass->tabela." (id_plano, id_tipo, razao_social_cliente, email, documento, flag_tanque) 
+		values (:id_plano, :id_tipo, :razao_social_cliente, :email, :documento, :flag_tanque);";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(":id_plano", $objClass->getPlano());
 		$stmt->bindValue(":id_tipo", $objClass->getTipoCliente());
-		$stmt->bindValue(":razao_social", $objClass->getNome());
+		$stmt->bindValue(":razao_social_cliente", $objClass->getNome());
 		$stmt->bindValue(":email", $objClass->getEmail());
 		$stmt->bindValue(":documento", $objClass->getDocumento());
 		$stmt->bindValue(":flag_tanque", $objClass->getFlagTanque());
@@ -86,9 +86,9 @@ class DaoCliente implements itfCliente{
 	{
         $pdo = Conexao::getConn();
 		
-		$sql = "SELECT * FROM " . $objClass->tabela . " WHERE razao_social = :razao_social";
+		$sql = "SELECT * FROM " . $objClass->tabela . " WHERE razao_social_cliente = :razao_social_cliente";
 		$stmt = $pdo->prepare($sql);
-		$stmt->bindValue(":razao_social", $objClass->getEmail()); 
+		$stmt->bindValue(":razao_social_cliente", $objClass->getEmail()); 
 		$stmt->execute();
 	
 		$objResultado = $stmt->fetch(\PDO::FETCH_ASSOC);

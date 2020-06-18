@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $('.js-select').select2();
-    $('.dropdown-toggle').dropdown();
 });
 
 $(document).ready( function () {
@@ -25,7 +24,7 @@ $(document).ready( function () {
 
 
 $(document).submit(function(){
-   
+
 });
 
 $(document).ready(function(){

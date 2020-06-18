@@ -73,8 +73,8 @@ abstract class Atanque
     $retornoQtdTotalSaida->setTanque($IdTanque);
     $totalCombustivelSaida = $retornoQtdTotalSaida->quantidadeTotalSaida($retornoQtdTotalSaida);
     
-    foreach ($totalCombustivelSaida as $key => $value){
-      $valorTotalCombustivelSaida = floatval($value['quantidade']);
+    foreach ($totalCombustivelSaida as $key => $value) {
+      $valorTotalCombustivelSaida = number_format($value['quantidade'], 2, '.', '');
     } 
 
     # Retorna a quantidade total de combustivel da entrada
@@ -82,17 +82,19 @@ abstract class Atanque
     $retornoQtdTotalEntrada->setTanque($IdTanque);
     $totalCombustivelEntrada = $retornoQtdTotalEntrada->quantidadeTotalEntrada($retornoQtdTotalEntrada);
     
-    foreach ($totalCombustivelEntrada as $key => $value){
-      $valorTotalCombustivelEntrada = floatval($value['quantidade']);
+
+    foreach ($totalCombustivelEntrada as $key => $value) {
+      $valorTotalCombustivelEntrada = number_format($value['quantidade'], 2, '.', '');
     } 
-    
+   
     # Retorna o comnbustivel disponivel no tanque - considerando as saidas de combustivel
     $valorAtualTanque = $valorTotalCombustivelEntrada - $valorTotalCombustivelSaida;
     
     if($valorAtualTanque < 0) {
       # Quando se tem mais movimento_saida do que de entrada
       $_SESSION["mensagem"] = "combustivel_faltando";
-    }
-    return $valorAtualTanque;
+    } 
+   
+    return number_format($valorAtualTanque, 2, '.', '');
   }
 }
