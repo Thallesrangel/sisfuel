@@ -12,7 +12,7 @@ class ControllerHome
     public function __construct()
     { 
         $breadcrumb = [
-            'Início' => '',
+            'Início' => 'false',
         ];
         if (isset($_SESSION['id_usuario'])) {
             $render = new ClassRender();

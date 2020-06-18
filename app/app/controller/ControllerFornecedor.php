@@ -22,7 +22,7 @@ class ControllerFornecedor extends ClsFornecedor{
 		$breadcrumb = [
 			'Início' => '',
 			'Fornecedor' => 'fornecedor/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
         if(isset($_SESSION['id_usuario'])){

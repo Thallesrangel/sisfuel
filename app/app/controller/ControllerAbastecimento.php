@@ -21,7 +21,7 @@ class ControllerAbastecimento extends ClsAbastecimento{
 		$breadcrumb = [
 			'Início' => '',
 			'Abastecimento' => 'abastecimento/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
 		if (in_array(3, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
@@ -45,7 +45,7 @@ class ControllerAbastecimento extends ClsAbastecimento{
 		$breadcrumb = [
 			'Início' => 'home',
 			'Abastecimento' => 'abastecimento/list',
-			'Novo' => ''
+			'Novo' => 'false'
 		];
 
 		if (in_array(3, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
@@ -69,7 +69,7 @@ class ControllerAbastecimento extends ClsAbastecimento{
 		$breadcrumb = [
 			'Início' => 'home',
 			'Abastecimento' => 'movimento_saida/list',
-			'Editar' => ''
+			'Editar' => 'false'
 		];
 
 		if (in_array(3, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {

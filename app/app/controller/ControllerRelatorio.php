@@ -13,7 +13,7 @@ class ControllerRelatorio
 	{  
 		$breadcrumb = [
 			'Início' => '',
-			'Relatorio' => 'relatorios/list',
+			'Relatorio' => 'false',
 		];
 
 		if (isset($_SESSION['id_usuario'])) {

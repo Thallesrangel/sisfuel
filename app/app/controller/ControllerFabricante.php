@@ -20,7 +20,7 @@ class ControllerFabricante extends ClsFabricante
 		$breadcrumb = [
 			'Início' => '',
 			'Fabricante' => 'fabricante/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
 		if(isset($_SESSION['id_usuario'])) {

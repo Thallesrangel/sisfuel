@@ -20,7 +20,7 @@ class ControllerMovTransito extends ClsMovTransito
 		$breadcrumb = [
 			'Início' => '',
 			'Movimento em Trânsito' => 'movimento-transito/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
 		if (in_array(3, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
@@ -44,7 +44,7 @@ class ControllerMovTransito extends ClsMovTransito
 		$breadcrumb = [
 			'Início' => 'home',
 			'Movimento em Trânsito' => 'movimento-transito/list',
-			'Novo' => ''
+			'Novo' => 'false'
 		];
 
 		if (in_array(3, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {

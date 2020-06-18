@@ -22,7 +22,7 @@ class ControllerUsuario extends ClsUsuario
 		$breadcrumb = [
 			'Início' => 'home',
 			'usuario' => 'usuario/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
         if ($_SESSION['nivel'] == 2) {
@@ -45,8 +45,8 @@ class ControllerUsuario extends ClsUsuario
 	{  	
 		$breadcrumb = [
 			'Início' => '',
-			'usuario' => 'usuario/',
-			'Novo' => ''
+			'usuario' => 'usuario/list',
+			'Novo' => 'false'
 		];
 
 		if ($_SESSION['nivel'] == 2) {

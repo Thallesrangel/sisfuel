@@ -24,7 +24,7 @@ class ControllerManutencaoVeiculo extends ClsManutencaoVeiculo
 		$breadcrumb = [
 			'Início' => '',
 			'Manutenção' => 'manutencao/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
      	if (in_array(9, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
@@ -44,7 +44,7 @@ class ControllerManutencaoVeiculo extends ClsManutencaoVeiculo
 		$breadcrumb = [
 			'Início' => '',
 			'Manutenção' => 'manutencao/',
-			'Novo' => ''
+			'Novo' => 'false'
 		];
 
 		if (in_array(9, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {

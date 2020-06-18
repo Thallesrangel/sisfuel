@@ -22,7 +22,7 @@ class ControllerTicket extends ClsTicket
 		$breadcrumb = [
 			'Início' => '',
 			'Ticket' => 'ticket/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
         if (in_array(5, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
@@ -45,8 +45,8 @@ class ControllerTicket extends ClsTicket
 	{  
 		$breadcrumb = [
 			'Início' => '',
-			'Ticket ' => 'ticket/',
-			'Novo' => ''
+			'Ticket ' => 'ticket/list',
+			'Novo' => 'false'
 		];
 		
 		if (in_array(5, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {

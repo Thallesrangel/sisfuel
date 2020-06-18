@@ -46,7 +46,7 @@ class ControllerMovEntrada extends ClsMovEntrada{
 		$breadcrumb = [
 			'Início' => '',
 			'Movimento de Entrada' => 'movimento_entrada/',
-			'Novo' => ''
+			'Novo' => 'false'
 		];
 
 		if (in_array(1, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
@@ -70,7 +70,7 @@ class ControllerMovEntrada extends ClsMovEntrada{
 		$breadcrumb = [
 			'Início' => '',
 			'Movimento de Entrada' => 'motorista/',
-			'Editar' => ''
+			'Editar' => 'false'
 		];
 
 		if (in_array(1, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {

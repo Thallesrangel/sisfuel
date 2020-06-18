@@ -21,7 +21,7 @@ class ControllerModeloVeiculo extends ClsModeloVeiculo
 		$breadcrumb = [
 			'Início' => '',
 			'Modelo Veículo' => 'modelo-veiculo/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
 		if(isset($_SESSION['id_usuario']))	{

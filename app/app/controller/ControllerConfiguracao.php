@@ -22,7 +22,7 @@ class ControllerConfiguracao
         $breadcrumb = [
 			'Início' => '',
 			'Configuração' => 'configuracao/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
         if (isset($_SESSION['id_usuario'])) {
             $render = new ClassRender();

@@ -21,7 +21,7 @@ class ControllerCatCombustivel extends ClsCatCombustivel
 		$breadcrumb = [
 			'Início' => '',
 			'Categoria Combustível' => 'categoria_combustivel/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
 		if(isset($_SESSION['id_usuario']))	{

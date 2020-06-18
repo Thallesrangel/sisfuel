@@ -23,7 +23,7 @@ class ControllerVeiculo extends ClsVeiculo
 		$breadcrumb = [
 			'Início' => '',
 			'Veículo' => 'veiculo/list',
-			'Novo' => ''
+			'Novo' => 'false'
 		];
 		
         if (isset($_SESSION['id_usuario'])) {
@@ -44,8 +44,8 @@ class ControllerVeiculo extends ClsVeiculo
 	{  	
 		$breadcrumb = [
 			'Início' => '',
-			'Veículo' => 'veiculo/',
-			'Editar' => ''
+			'Veículo' => 'veiculo/list',
+			'Editar' => 'false'
 		];
 
 		if(isset($_SESSION['id_usuario']))	{

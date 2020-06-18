@@ -22,7 +22,7 @@ class ControllerCartaoVirtual extends ClsCartaoVirtual
 		$breadcrumb = [
 			'Início' => '',
 			'Cartão Virtual' => 'cartao-virtual/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
 		if (in_array(6, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
@@ -45,7 +45,7 @@ class ControllerCartaoVirtual extends ClsCartaoVirtual
 		$breadcrumb = [
 			'Início' => '',
 			'Cartão Virtual' => 'cartao-virtual/list',
-			'Novo' => ''
+			'Novo' => 'false'
 		];
 
 		if (in_array(6, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {

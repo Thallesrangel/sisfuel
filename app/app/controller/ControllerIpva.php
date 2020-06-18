@@ -23,7 +23,7 @@ class ControllerIpva extends ClsIpva
 		$breadcrumb = [
 			'Início' => '',
 			'Ipva' => 'ipva/list',
-			'Listagem' => 'ipva/list'
+			'Listagem' => 'false'
 		];
 
         if (in_array(8, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
@@ -43,7 +43,7 @@ class ControllerIpva extends ClsIpva
 		$breadcrumb = [
 			'Início' => 'home',
 			'IPVA' => 'ipva/',
-			'Novo' => ''
+			'Novo' => 'false'
 		];
 
 		if (in_array(8, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {

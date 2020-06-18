@@ -22,7 +22,7 @@ class ControllerSuporte extends ClsSuporte{
 		$breadcrumb = [
 			'Início' => '',
 			'Suporte' => 'suporte/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
 		if (isset($_SESSION['id_usuario'])) {

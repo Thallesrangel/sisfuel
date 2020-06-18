@@ -23,7 +23,7 @@ class ControllerTanque extends ClsTanque{
 		$breadcrumb = [
 			'Início' => '',
 			'Tanque' => 'tanque/list',
-			'Novo' => ''
+			'Novo' => 'false'
 		];
 
         if (isset($_SESSION['id_usuario'])) {

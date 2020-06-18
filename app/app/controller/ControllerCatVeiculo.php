@@ -18,7 +18,7 @@ class ControllerCatVeiculo extends ClsCatVeiculo
 		$breadcrumb = [
 			'Início' => '',
 			'Categoria Veículos' => 'categoria_veiculo/list',
-			'Listagem' => 'categoria_veiculo/list'
+			'Listagem' => 'false'
 		];
 
 		if (isset($_SESSION['id_usuario'])) {

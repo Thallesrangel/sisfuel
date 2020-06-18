@@ -24,7 +24,7 @@ class ControllerMovSaida extends ClsMovSaida{
 		$breadcrumb = [
 			'Início' => '',
 			'Movimento de Saída' => 'movimento_saida/list',
-			'Listagem' => ''
+			'Listagem' => 'false'
 		];
 
 		if (in_array(2, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
@@ -48,7 +48,7 @@ class ControllerMovSaida extends ClsMovSaida{
 		$breadcrumb = [
 			'Início' => '',
 			'Movimento de Saída' => 'movimento_saida/',
-			'Novo' => ''
+			'Novo' => 'false'
 		];
 
 		if (in_array(2, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
