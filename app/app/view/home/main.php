@@ -13,7 +13,7 @@ $tanque = $tanque->listar($tanque);
         <div class="row justify-content-center">
         
             <div class="card border-left-primary shadow h-100 py-2">
-                <a href="<?=DIRPAGE.'/veiculo/view/'?>">
+                <a href="<?=DIRPAGE.'/veiculo/list'?>">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -29,7 +29,7 @@ $tanque = $tanque->listar($tanque);
             </div>
 
             <div class="card border-left-primary shadow h-100 py-2">
-                <a href="<?=DIRPAGE.'/motorista/view/'?>">
+                <a href="<?=DIRPAGE.'/motorista/list'?>">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -45,7 +45,7 @@ $tanque = $tanque->listar($tanque);
             </div>
             
             <div class="card border-left-primary shadow h-100 py-2">
-                <a href="<?=DIRPAGE.'/ticket/view/'?>">
+                <a href="<?=DIRPAGE.'/ticket/list'?>">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -58,24 +58,7 @@ $tanque = $tanque->listar($tanque);
                         </div>
                     </div>
                 </a>
-            </div>
-
-            <div class="card border-left-primary shadow h-100 py-2">
-                <a href="<?=DIRPAGE.'/ticket/view/'?>">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-uppercase mb-1">Ticket liberados</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
-                            </div>
-                        <div class="col-auto">
-                        <i class="iconDashboard" data-feather="file-minus"></i>
-                        </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-   
+            </div>   
         </div>
 
 <br>
@@ -86,12 +69,12 @@ $tanque = $tanque->listar($tanque);
         $qtdCombustivelDisponivel = Atanque::qtdCombustivelDisponivel($value['id_tanque']);
     ?>
     <div class="container">
-        <div class="divTanque col-sm-12 col-lg-3">
+        <div class="divTanque p-3 col-sm-12 col-lg-3">
             <h6><?=$value['nome_tanque']?></h6>
             <p> <span class="quantidade"><?=$qtdCombustivelDisponivel?></span> / <span class="quantidade"><?=$value['capacidade']?></span>  -  <?=$value['abreviacao_medida']?></p>
             <progress id="idBarProgress" value="<?=$qtdCombustivelDisponivel?>" max="<?=$value['capacidade']?>"> </progress><br>
             <span><?=($qtdCombustivelDisponivel * 100 ) / $value['capacidade']?>%</span><br>
-            <p><?=$value['categoria_combustivel']?></p>
+            <span><?=$value['categoria_combustivel']?></span>
         </div>
     </div>
     <?php
