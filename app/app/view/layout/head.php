@@ -12,10 +12,8 @@
     <meta http-equiv="content-language" content="pt-br">
     <meta name="reply-to" content="rangelthr@gmail.com">
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="<?=DIRJS?>script.js"></script>
-  
+    <script src="<?=DIRJS?>build.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>  
     <link rel="shortcut icon" href="<?=DIRIMG.'icon.png'?>">
   
     <title>Sisfuel - App</title>
