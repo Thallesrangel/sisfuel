@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     $('.js-select').select2();
 });
@@ -37,3 +38,16 @@ $(document).ready(function(){
     $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
     $('.cpf').mask('000.000.000-00', {reverse: true});
 });
+
+
+
+/*
+*   Retorna o tempo de carregamento da paǵina
+*/
+let pagina = {
+   tempo: window.performance.now()
+}
+
+window.onload = function() {
+    console.log(pagina.tempo)
+}

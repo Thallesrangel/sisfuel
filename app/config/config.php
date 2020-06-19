@@ -3,6 +3,7 @@
 $pastaInterna = "sisfuel";
 # CAMINHO ABOSLUTO
 define ("DIRPAGE","http://{$_SERVER['HTTP_HOST']}/{$pastaInterna}/app");
+define ("DIRRAIZ", "http://{$_SERVER['HTTP_HOST']}/{$pastaInterna}");
 
 # CAMINHO FISICO DO SERVIDOR (REQUERIR ARQUIVO)
 # verifica se a ultima letra do servidor é uma barra  - se for ele não coloca e se não tiver ele coloca no else
@@ -19,6 +20,7 @@ if (substr($_SERVER['DOCUMENT_ROOT'],-1) == '/') {
 define ("DIRIMG", DIRPAGE."/public/img/");
 define ("DIRCSS", DIRPAGE."/app/css/");
 define ("DIRJS",  DIRPAGE."/app/js/");
+define ("NODE_MODULES",  DIRRAIZ."/node_modules/");
 
 
 define('HOST', '127.0.0.1');
