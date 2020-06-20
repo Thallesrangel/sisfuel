@@ -41,7 +41,7 @@ unset($_SESSION["mensagem"]);
                     <td><?=strtoupper($value['placa'])?></td>
                     <td><?=$value['km']?></td>
                     <td><?=$value['nome_tanque']?></td>
-                    <td><?=$value['quantidade']?></td>
+                    <td class="quantidade"><?=$value['quantidade']?></td>
                      <td><?=date_format($dataSaida,'d/m/Y H:i');?></td>
                     <td>
                       <a href="<?=DIRPAGE?>/movimento_saida/editar/<?=$value['id_saida']?>" >

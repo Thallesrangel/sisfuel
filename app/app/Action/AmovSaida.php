@@ -2,18 +2,21 @@
 
 namespace App\Action;
 
+use Src\traits\TratarDados;
+
 use App\controller\ControllerMovSaida;
 use App\controller\ControllerMovEntrada;
 
 abstract class AmovSaida
 {
+    use TratarDados;
 
     public function registrarAction()
     {
         if (isset($_POST)) {
 
             $motorista = trim($_POST['motorista']);
-            $quantidade = floatval(trim($_POST['quantidade']));
+            $quantidade = TratarDados::tratarQuantidade($_POST['quantidade']);
             $tanque = trim($_POST['tanque']);
             $dataSaida = trim($_POST['data']);
             $veiculo = trim($_POST['veiculo']);

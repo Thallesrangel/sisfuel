@@ -12,8 +12,7 @@
     <meta http-equiv="content-language" content="pt-br">
     <meta name="reply-to" content="rangelthr@gmail.com">
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script src="<?=DIRJS?>script.js"></script>
+    <script src="<?=DIRJS?>build.bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="<?=DIRJS?>jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -26,9 +25,7 @@
   <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
   <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 
-  <script src="<?=NODE_MODULES?>sweetalert2/dist/sweetalert2.min.js"></script>
-  <link rel="stylesheet" href="<?=NODE_MODULES?>sweetalert2/dist/sweetalert2.min.css">
-    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title><?= $this->getTitle() ?></title>
   
     <?php

@@ -42,7 +42,7 @@ use App\controller\ControllerVeiculo;
       <div class="col-2">
         <div class="form-group">
           <span>Quantidade</span> 
-          <input  maxlength="20" type="number" name="quantidade" class="form-control form-control-sm" required>
+          <input type="text" name="quantidade" class="form-control form-control-sm quantidade" required>
         </div>
       </div>
 
@@ -91,7 +91,7 @@ use App\controller\ControllerVeiculo;
       <div class="col-2">
         <div class="form-group">
           <span>Quilometragem</span>
-          <input type="number" name="quilometragem" class="form-control form-control-sm" required>
+          <input type="text" name="quilometragem" class="form-control form-control-sm"  maxlength="10" required>
         </div>
       </div>
 
