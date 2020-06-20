@@ -1,10 +1,13 @@
 <?php
 namespace App\Action;
+use Src\traits\TratarDados;
 
 use App\controller\ControllerIpva;
 
 abstract class Aipva
 { 
+    use TratarDados;
+
     public function excluirAction($id){
         
         $init = new ControllerIpva();
@@ -32,7 +35,7 @@ abstract class Aipva
     {
         if (isset($_POST)) {
             $id_veiculo = trim($_POST['veiculo']);
-            $valor = trim($_POST['valor']);
+            $valor = TratarDados::tratarValorLimite($_POST['valor']);
             $data_vencimento = date('Y-m-d',strtotime($_POST['data_vencimento']));
             $situacao = trim($_POST['situacao']);
          

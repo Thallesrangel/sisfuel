@@ -23,6 +23,12 @@ trait TratarDados
     return str_replace(',', '.',str_replace('.', '', $valorunitario));
     }   
 
+    # trata valor
+    public function tratarValorLimite($valor)
+    {
+    return str_replace(',', '.',str_replace('.', '', $valor));
+    }   
+
     # trata quantidade
     public function tratarQuantidade($quantidade)
     {

@@ -112,6 +112,25 @@ $veiculos = $veiculos->listar($veiculos);
         </div>
       </div>
 
+      <div class="col-sm-12 col-md-2 col-lg-3">
+          <div class="form-group">
+            <span>Conservação da Manutenção</span><br>
+            <select class="form-control form-control-sm js-select" name="conservacao">
+              <?php
+              $pdo = Conexao::getConn();
+              $sql = "SELECT * FROM tbmanutencao_conservacao";
+              $resultado = $pdo->query($sql);
+
+              foreach($resultado as $value){
+                $idSituacao =  $value['id_conservacao'];
+                $situacao =  $value['conservacao'];
+              ?>
+              <option value="<?= $idSituacao ?>"> <?php echo (ucwords($situacao))?> </option>
+              <?php }?>
+            </select>
+          </div>
+      </div>
+
       <div class="col-sm-12 col-md-6">
         <div class="form-group">
             <label for="descricao">Descrição</label>

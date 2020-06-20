@@ -2,9 +2,13 @@
 
 namespace App\Action;
 
+use Src\traits\TratarDados;
+
 use App\controller\ControllerManutencaoVeiculo;
 
-abstract class AmanutencaoVeiculo{
+abstract class AmanutencaoVeiculo
+{
+    use TratarDados;
 
     public function registrarAction()
     {
@@ -13,16 +17,17 @@ abstract class AmanutencaoVeiculo{
             $titulo = trim($_POST['titulo']);
             $data_vencimento = $_POST['data_vencimento'];
             $veiculo = trim($_POST['veiculo']);
-            $valor = trim($_POST['valor']);
+            $valor = TratarDados::tratarValorLimite($_POST['valor']);
             $situacao_pagamento = trim($_POST['situacao_pagamento']);
             $tipo_manutencao = trim($_POST['tipo_manutencao']);
             $descricao = trim($_POST['descricao']);
+            $condicacao_manutencao = trim($_POST['conservacao']);
         } else {
             die('Não há $_POST aqui ');
         }
 
         $init = new ControllerManutencaoVeiculo(); 
-        $init->setIdCliente($_SESSION['id_usuario']);
+        $init->setIdCliente($_SESSION['id_cliente']);
         $init->setTitulo($titulo);
         $init->setFornecedor($fornecedor);
         $init->setVeiculo($veiculo);
@@ -31,6 +36,7 @@ abstract class AmanutencaoVeiculo{
         $init->setValor($valor);
         $init->setDescricao($descricao);
         $init->setSituacaoPagamento($situacao_pagamento);
+        $init->setCondicaoManutencao($condicacao_manutencao);
 
         $cadastrar = $init->cadastrar($init);
 

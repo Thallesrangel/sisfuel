@@ -51,29 +51,25 @@ Use App\model\Conexao;
             </div>
         </div>
         
-        <div class="col-sm-12 col-md-2 col-lg-3">
-            <div class="form-group">
-            <span>Situação</span><br>
-            
-                <select class="form-control form-control-sm js-select" name="situacao">
-                <?php
-                $pdo = Conexao::getConn();
-                $sql = "SELECT * FROM tbpagamento_situacao";
-                $resultado = $pdo->query($sql);
+      <div class="col-sm-12 col-md-2 col-lg-3">
+        <div class="form-group">
+          <span>Situação</span><br>
+          <select class="form-control form-control-sm js-select" name="situacao">
+            <?php
+            $pdo = Conexao::getConn();
+            $sql = "SELECT * FROM tbpagamento_situacao";
+            $resultado = $pdo->query($sql);
 
-                    foreach($resultado as $value){
-                        $idSituacao =  $value['id_situacao'];
-                        $situacao =  $value['situacao'];
-                ?>
-                <option value="<?= $idSituacao ?>"> <?php echo (ucwords($situacao))?> </option>
-                <?php }?>
-                </select>
-            </div>
+            foreach($resultado as $value){
+              $idSituacao =  $value['id_situacao'];
+              $situacao =  $value['situacao'];
+            ?>
+            <option value="<?= $idSituacao ?>"> <?php echo (ucwords($situacao))?> </option>
+            <?php }?>
+          </select>
         </div>
-
-        
-
-
+    </div>
+    
 </div>
 
     <a href="javascript:history.back()" class="btn btn-secondary btn-sm"">Voltar</a>

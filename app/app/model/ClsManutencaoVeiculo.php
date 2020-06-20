@@ -15,6 +15,7 @@ abstract class ClsManutencaoVeiculo extends Conexao{
 	private $data_vencimento;
 	private $valor;
 	private $descricao;
+	private $condicao_manutencao;
 	private $strCampo;
 	private $strValor;
 
@@ -56,6 +57,9 @@ abstract class ClsManutencaoVeiculo extends Conexao{
 
 	public function getSitucaoPagamento(){ return $this->situacao_pagamento; }	
 	public function setSituacaoPagamento($situacao_pagamento){ $this->situacao_pagamento = $situacao_pagamento; }
+
+	public function getCondicaoManutencao(){ return $this->condicao_manutencao; }	
+	public function setCondicaoManutencao($condicao_manutencao){ $this->condicao_manutencao = $condicao_manutencao; }
 }
 
 interface itfManutencaoVeiculo
@@ -78,8 +82,8 @@ class DaoManutencaoVeiculo implements itfManutencaoVeiculo{
 	public function cadastrar(ClsManutencaoVeiculo $objClass){
 		$pdo = Conexao::getConn();
 		
-		$sql = " INSERT INTO ".$objClass->tabela." (id_cliente, titulo, id_fornecedor, id_veiculo, id_manutencao_tipo, data_vencimento, valor, descricao, id_situacao) 
-		VALUES (:id_cliente, :titulo, :id_fornecedor, :id_veiculo, :id_manutencao_tipo, :data_vencimento, :valor, :descricao, :id_situacao);";
+		$sql = " INSERT INTO ".$objClass->tabela." (id_cliente, titulo, id_fornecedor, id_veiculo, id_manutencao_tipo, data_vencimento, valor, descricao, id_situacao, id_condicao) 
+		VALUES (:id_cliente, :titulo, :id_fornecedor, :id_veiculo, :id_manutencao_tipo, :data_vencimento, :valor, :descricao, :id_situacao, :id_condicao);";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(":id_cliente", $objClass->getIdCliente());
@@ -88,10 +92,10 @@ class DaoManutencaoVeiculo implements itfManutencaoVeiculo{
 		$stmt->bindValue(":id_veiculo", $objClass->getVeiculo());
 		$stmt->bindValue(":id_manutencao_tipo", $objClass->getManutencaoTipo());
 		$stmt->bindValue(":data_vencimento", $objClass->getDataVencimento());
-
 		$stmt->bindValue(":valor", $objClass->getValor());
 		$stmt->bindValue(":descricao", $objClass->getDescricao());
 		$stmt->bindValue(":id_situacao", $objClass->getSitucaoPagamento());
+		$stmt->bindValue(":id_condicao", $objClass->getCondicaoManutencao());
 		$stmt->execute();
 
 		return $pdo->lastInsertId();

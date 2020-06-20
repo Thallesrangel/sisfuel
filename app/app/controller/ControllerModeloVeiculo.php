@@ -63,8 +63,6 @@ class ControllerModeloVeiculo extends ClsModeloVeiculo
 		return $objItf->deletar($objClass);
 	}
 
-
-
 	# Method used in view
 	public function excluir($id)
 	{	
