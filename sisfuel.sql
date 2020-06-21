@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 18/06/2020 às 05:19
+-- Tempo de geração: 21/06/2020 às 05:36
 -- Versão do servidor: 10.4.11-MariaDB
 -- Versão do PHP: 7.4.6
 
@@ -195,7 +195,8 @@ INSERT INTO `tbcategoria_veiculo` (`id_categoria_veiculo`, `categoria_veiculo`) 
 (36, 'Aprendizagem'),
 (38, 'Alugado'),
 (39, 'Fretado'),
-(41, 'Terceiro');
+(41, 'Terceiro'),
+(42, 'Aviões');
 
 -- --------------------------------------------------------
 
@@ -221,7 +222,9 @@ CREATE TABLE `tbclientes` (
 INSERT INTO `tbclientes` (`id_cliente`, `id_plano`, `id_tipo`, `razao_social_cliente`, `email`, `documento`, `flag_tanque`, `flag_excluido`) VALUES
 (11, 2, 1, 'Forte Boi Indústria Alimentos LTDA', 'adm@forteboi.com.br', '81382461000178', 1, 0),
 (12, 1, 1, 'Impacta LTDA', 'impacta@hotmail.com', '213612736127369', 0, 0),
-(13, 1, 2, 'Paulo Santa', 'santa@gmail.com', '321134324324', 0, 0);
+(13, 1, 2, 'Paulo Santa', 'santa@gmail.com', '321134324324', 0, 0),
+(14, 1, 1, 'tintas lat', 'tintas@gmail.com', '11.111.111/1111-11', 1, 0),
+(15, 1, 2, 'Késia', 'kesia@hotmail.com', '11.111.111/1111-11', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -331,6 +334,34 @@ CREATE TABLE `tbipva` (
   `flag_excluido` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Despejando dados para a tabela `tbipva`
+--
+
+INSERT INTO `tbipva` (`id_ipva`, `id_cliente`, `id_veiculo`, `data_vencimento`, `valor`, `id_situacao`, `flag_excluido`) VALUES
+(4, 11, 42, '1970-01-01', '100000.00', 1, 0),
+(5, 11, 42, '1970-01-01', '999999.99', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbmanutencao_conservacao`
+--
+
+CREATE TABLE `tbmanutencao_conservacao` (
+  `id_conservacao` int(11) NOT NULL,
+  `conservacao` varchar(220) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tbmanutencao_conservacao`
+--
+
+INSERT INTO `tbmanutencao_conservacao` (`id_conservacao`, `conservacao`) VALUES
+(1, 'Manutenção corretiva'),
+(2, 'Manutenção preventiva'),
+(3, 'Manutenção preditiva');
+
 -- --------------------------------------------------------
 
 --
@@ -360,7 +391,7 @@ INSERT INTO `tbmanutencao_tipo` (`id_manutencao_tipo`, `tipo_manutencao`) VALUES
 CREATE TABLE `tbmanutencao_veiculo` (
   `id_manutencao` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
-  `titulo` varchar(110) NOT NULL,
+  `titulo` varchar(220) NOT NULL,
   `id_fornecedor` int(11) NOT NULL,
   `id_veiculo` int(11) NOT NULL,
   `id_manutencao_tipo` int(11) NOT NULL,
@@ -368,6 +399,7 @@ CREATE TABLE `tbmanutencao_veiculo` (
   `valor` decimal(10,2) NOT NULL,
   `descricao` varchar(220) DEFAULT NULL,
   `id_situacao` int(11) NOT NULL,
+  `id_condicao` int(11) NOT NULL,
   `flag_excluido` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -375,8 +407,9 @@ CREATE TABLE `tbmanutencao_veiculo` (
 -- Despejando dados para a tabela `tbmanutencao_veiculo`
 --
 
-INSERT INTO `tbmanutencao_veiculo` (`id_manutencao`, `id_cliente`, `titulo`, `id_fornecedor`, `id_veiculo`, `id_manutencao_tipo`, `data_vencimento`, `valor`, `descricao`, `id_situacao`, `flag_excluido`) VALUES
-(3, 48, 'Titulo', 17, 42, 1, '2020-06-12', '21.00', 'Descrição', 1, 0);
+INSERT INTO `tbmanutencao_veiculo` (`id_manutencao`, `id_cliente`, `titulo`, `id_fornecedor`, `id_veiculo`, `id_manutencao_tipo`, `data_vencimento`, `valor`, `descricao`, `id_situacao`, `id_condicao`, `flag_excluido`) VALUES
+(1, 11, 'titulo', 17, 42, 1, '2020-06-20', '2000.00', 'descricao  manutenção', 1, 1, 0),
+(2, 11, '123', 17, 42, 1, '2020-06-20', '1.23', '123', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -451,19 +484,8 @@ CREATE TABLE `tbmov_entrada` (
 --
 
 INSERT INTO `tbmov_entrada` (`id_entrada`, `id_cliente`, `nota_fiscal`, `quantidade`, `id_fornecedor`, `id_tanque`, `motorista`, `data_entrada`, `placa`, `valor_unitario`, `valor_total`, `flag_excluido`) VALUES
-(183, 11, 30, 10000.00, 14, 40, 'Luan Roberto Ribeiro', '2020-06-09 06:15:00', 'PPS2314', '3.20', '32000.00', 1),
-(184, 11, 21321, 123.00, 14, 40, 'thalles', '2020-06-09 11:04:00', 'PPS1232', '10.00', '1230.00', 1),
-(185, 11, 12, 10.00, 14, 41, 'Paulino', '2020-11-06 02:52:00', 'PPS21312', '2.00', '20.00', 1),
-(186, 11, 123, 10000.00, 14, 45, 'Paulina Robertina', '2020-11-06 04:11:00', 'PPPS123', '3.00', '30000.00', 1),
-(187, 11, 22, 100.00, 14, 40, '22', '2020-11-06 04:15:00', '2', '2.00', '200.00', 1),
-(188, 11, 21123, 490.00, 14, 41, 'Palunioa', '2020-11-06 04:25:00', 'PPS2', '2.00', '980.00', 1),
-(189, 11, 82782, 20000.00, 14, 46, 'Motoro', '2020-11-06 04:28:00', 'PPS23', '3.20', '64000.00', 1),
-(190, 11, 213, 100.00, 14, 48, 'Thalles', '2020-12-06 03:52:00', 'PPS232', '22.00', '2200.00', 1),
-(191, 11, 12, 1000.00, 14, 50, 'Humberto', '1970-01-01 01:00:00', 'PPP2342', '2.30', '2300.00', 1),
-(192, 11, 10000, 1.00, 14, 73, '0000', '1970-01-01 01:00:00', 'ppPP2', '1.20', '1.20', 1),
-(193, 11, 1000, 1.00, 14, 73, 'Talll', '1970-01-01 01:00:00', 'PPS2342', '2.02', '2.02', 1),
-(194, 11, 29388, 100.00, 14, 73, 'Paulo', '1970-01-01 01:00:00', 'ppps2', '2.22', '222.00', 1),
-(195, 11, 1223, 1000.00, 14, 74, 'Jonas', '1970-01-01 01:00:00', 'PPPS231', '3.20', '3200.00', 0);
+(200, 11, 1000, 10000.00, 14, 77, 'MOTO', '1970-01-01 01:00:00', 'ppps21', '2.22', '22200.00', 0),
+(201, 11, 998, 10000.00, 14, 77, 'Jonas', '1970-01-01 01:00:00', 'PPS2132', '2.22', '22200.00', 0);
 
 -- --------------------------------------------------------
 
@@ -478,7 +500,7 @@ CREATE TABLE `tbmov_saida` (
   `id_tanque` int(11) NOT NULL,
   `id_motorista` int(11) NOT NULL,
   `km` float NOT NULL,
-  `quantidade` float NOT NULL,
+  `quantidade` double(10,2) NOT NULL,
   `data_hora` datetime NOT NULL,
   `flag_excluido` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -488,8 +510,11 @@ CREATE TABLE `tbmov_saida` (
 --
 
 INSERT INTO `tbmov_saida` (`id_saida`, `id_cliente`, `id_veiculo`, `id_tanque`, `id_motorista`, `km`, `quantidade`, `data_hora`, `flag_excluido`) VALUES
-(51, 11, 42, 40, 41, 123, 100, '2020-06-11 00:00:00', 1),
-(52, 11, 42, 50, 41, 2500, 100, '2020-06-13 00:00:00', 0);
+(55, 11, 42, 77, 41, 12, 10.00, '2020-06-18 00:00:00', 1),
+(56, 11, 42, 77, 41, 123, 123.00, '2020-06-18 00:00:00', 1),
+(57, 11, 42, 77, 41, 12, 1000.00, '2020-06-19 00:00:00', 1),
+(58, 11, 42, 77, 41, 23000, 1.00, '2020-06-20 00:00:00', 1),
+(59, 11, 42, 77, 41, 123, 1000.00, '2020-06-20 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -727,8 +752,11 @@ INSERT INTO `tbtanque` (`id_tanque`, `id_cliente`, `nome_tanque`, `capacidade`, 
 (70, 11, 'TYY', 2000.00, 20.00, 43, 13, 1),
 (71, 11, 'KKKK', 2220.00, 20.00, 43, 13, 1),
 (72, 11, 'TANQ', 2000.00, 10000.00, 43, 5, 1),
-(73, 11, 'TTT', 200.00, 20.00, 43, 13, 0),
-(74, 11, 'OOOO', 2000.00, 12.22, 43, 4, 0);
+(73, 11, 'TTT', 200.00, 20.00, 43, 13, 1),
+(74, 11, 'OOOO', 2000.00, 12.22, 43, 4, 1),
+(75, 11, 'TYYYY', 2000.00, 20.00, 43, 4, 1),
+(76, 11, 'T-21', 1000.00, 20.00, 43, 4, 1),
+(77, 11, 'TANQUE2', 20000.00, 20.00, 43, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -823,7 +851,9 @@ INSERT INTO `tbusuarios` (`id_usuario`, `id_cliente`, `nome_usuario`, `email`, `
 (50, 12, 'Thalles Rangel', 'rangelthr@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 3, NULL, 'ativado'),
 (51, 13, 'Paulo Santa', 'santa@gmail.com', '202cb962ac59075b964b07152d234b70', 2, NULL, 'ativado'),
 (53, 11, 'Thalles Parão', 'padraothalles@gmail.com', '202cb962ac59075b964b07152d234b70', 5, 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"5\";}', 'ativado'),
-(54, 11, 'Humberto Martins', 'humberto@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 3, NULL, 'ativado');
+(54, 11, 'Humberto Martins', 'humberto@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 3, NULL, 'ativado'),
+(55, 14, 'Paulo', 'tintas@gmail.com', '202cb962ac59075b964b07152d234b70', 2, NULL, 'ativado'),
+(56, 15, 'Késia', 'kesia@hotmail.com', '202cb962ac59075b964b07152d234b70', 2, NULL, 'ativado');
 
 -- --------------------------------------------------------
 
@@ -833,22 +863,61 @@ INSERT INTO `tbusuarios` (`id_usuario`, `id_cliente`, `nome_usuario`, `email`, `
 
 CREATE TABLE `tbveiculo` (
   `id_veiculo` int(11) NOT NULL,
-  `id_cliente` int(11) DEFAULT NULL,
-  `placa` varchar(25) NOT NULL,
-  `renavam` varchar(30) NOT NULL,
-  `id_fabricante` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `placa` varchar(100) NOT NULL,
+  `renavam` varchar(100) DEFAULT NULL,
+  `cor` varchar(100) DEFAULT NULL,
+  `ano_fabricacao` date NOT NULL,
+  `ano_modelo` date NOT NULL,
+  `quantidade_tanque` double(10,2) NOT NULL,
+  `chassi` varchar(220) DEFAULT NULL,
+  `id_modelo` int(11) NOT NULL,
   `id_combustivel` int(11) NOT NULL,
   `id_categoria_veiculo` int(11) NOT NULL,
+  `id_tipo_veiculo` int(11) NOT NULL,
+  `flag_ativo` int(11) NOT NULL DEFAULT 0,
   `flag_excluido` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `tbveiculo`
 --
 
-INSERT INTO `tbveiculo` (`id_veiculo`, `id_cliente`, `placa`, `renavam`, `id_fabricante`, `id_combustivel`, `id_categoria_veiculo`, `flag_excluido`) VALUES
-(42, 11, 'PPS232', '213123213128', 1, 43, 35, 0),
-(43, 12, 'pps223', '231283728\'', 1, 43, 34, 0);
+INSERT INTO `tbveiculo` (`id_veiculo`, `id_cliente`, `placa`, `renavam`, `cor`, `ano_fabricacao`, `ano_modelo`, `quantidade_tanque`, `chassi`, `id_modelo`, `id_combustivel`, `id_categoria_veiculo`, `id_tipo_veiculo`, `flag_ativo`, `flag_excluido`) VALUES
+(1, 11, '12321', '123', '213', '1970-01-01', '1970-01-01', 213.00, '123213213123', 2, 43, 34, 1, 0, 0),
+(2, 11, '123123', '', '', '1970-01-01', '1970-01-01', 123.00, '', 2, 43, 34, 1, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbveiculo_tipo`
+--
+
+CREATE TABLE `tbveiculo_tipo` (
+  `id_tipo_veiculo` int(11) NOT NULL,
+  `tipo_veiculo` varchar(220) NOT NULL,
+  `flag_excluido` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tbveiculo_tipo`
+--
+
+INSERT INTO `tbveiculo_tipo` (`id_tipo_veiculo`, `tipo_veiculo`, `flag_excluido`) VALUES
+(1, 'Aviões', 0),
+(2, 'Helicópteros', 0),
+(3, 'Barcos', 0),
+(4, 'Carros', 0),
+(5, 'Caminhões', 0),
+(6, 'Cavalo Mecânico', 0),
+(7, 'Máquinas Pesadas', 0),
+(8, 'Motos', 0),
+(9, 'Reboques', 0),
+(10, 'Utilitários', 0),
+(11, 'Veículos Avulsos', 0),
+(12, 'Ônibus', 0),
+(13, 'Outros', 0),
+(14, 'RC', 0);
 
 --
 -- Índices de tabelas apagadas
@@ -956,6 +1025,12 @@ ALTER TABLE `tbipva`
   ADD KEY `id_veiculo` (`id_veiculo`);
 
 --
+-- Índices de tabela `tbmanutencao_conservacao`
+--
+ALTER TABLE `tbmanutencao_conservacao`
+  ADD PRIMARY KEY (`id_conservacao`);
+
+--
 -- Índices de tabela `tbmanutencao_tipo`
 --
 ALTER TABLE `tbmanutencao_tipo`
@@ -969,7 +1044,8 @@ ALTER TABLE `tbmanutencao_veiculo`
   ADD KEY `id_fornecedor` (`id_fornecedor`),
   ADD KEY `id_veiculo` (`id_veiculo`),
   ADD KEY `id_manutencao_tipo` (`id_manutencao_tipo`),
-  ADD KEY `id_situacao` (`id_situacao`);
+  ADD KEY `id_situacao` (`id_situacao`),
+  ADD KEY `id_condicao` (`id_condicao`);
 
 --
 -- Índices de tabela `tbmodelo_veiculo`
@@ -1092,9 +1168,16 @@ ALTER TABLE `tbusuarios`
 --
 ALTER TABLE `tbveiculo`
   ADD PRIMARY KEY (`id_veiculo`),
-  ADD KEY `id_modelo` (`id_fabricante`),
+  ADD KEY `id_modelo` (`id_modelo`),
   ADD KEY `id_combustivel` (`id_combustivel`),
-  ADD KEY `id_categoria_veiculo` (`id_categoria_veiculo`);
+  ADD KEY `id_categoria_veiculo` (`id_categoria_veiculo`),
+  ADD KEY `id_tipo_veiculo` (`id_tipo_veiculo`);
+
+--
+-- Índices de tabela `tbveiculo_tipo`
+--
+ALTER TABLE `tbveiculo_tipo`
+  ADD PRIMARY KEY (`id_tipo_veiculo`);
 
 --
 -- AUTO_INCREMENT de tabelas apagadas
@@ -1146,13 +1229,13 @@ ALTER TABLE `tbcategoria_combustivel`
 -- AUTO_INCREMENT de tabela `tbcategoria_veiculo`
 --
 ALTER TABLE `tbcategoria_veiculo`
-  MODIFY `id_categoria_veiculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_categoria_veiculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `tbclientes`
 --
 ALTER TABLE `tbclientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `tbclientes_tipo`
@@ -1182,7 +1265,13 @@ ALTER TABLE `tbfornecedor_atuacao`
 -- AUTO_INCREMENT de tabela `tbipva`
 --
 ALTER TABLE `tbipva`
-  MODIFY `id_ipva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_ipva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `tbmanutencao_conservacao`
+--
+ALTER TABLE `tbmanutencao_conservacao`
+  MODIFY `id_conservacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbmanutencao_tipo`
@@ -1194,7 +1283,7 @@ ALTER TABLE `tbmanutencao_tipo`
 -- AUTO_INCREMENT de tabela `tbmanutencao_veiculo`
 --
 ALTER TABLE `tbmanutencao_veiculo`
-  MODIFY `id_manutencao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_manutencao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbmodelo_veiculo`
@@ -1212,13 +1301,13 @@ ALTER TABLE `tbmotorista`
 -- AUTO_INCREMENT de tabela `tbmov_entrada`
 --
 ALTER TABLE `tbmov_entrada`
-  MODIFY `id_entrada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
+  MODIFY `id_entrada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- AUTO_INCREMENT de tabela `tbmov_saida`
 --
 ALTER TABLE `tbmov_saida`
-  MODIFY `id_saida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_saida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de tabela `tbmov_transito`
@@ -1272,7 +1361,7 @@ ALTER TABLE `tbsuporte_situacao`
 -- AUTO_INCREMENT de tabela `tbtanque`
 --
 ALTER TABLE `tbtanque`
-  MODIFY `id_tanque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id_tanque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT de tabela `tbticket`
@@ -1290,13 +1379,19 @@ ALTER TABLE `tbunidade_medida`
 -- AUTO_INCREMENT de tabela `tbusuarios`
 --
 ALTER TABLE `tbusuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT de tabela `tbveiculo`
 --
 ALTER TABLE `tbveiculo`
-  MODIFY `id_veiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_veiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `tbveiculo_tipo`
+--
+ALTER TABLE `tbveiculo_tipo`
+  MODIFY `id_tipo_veiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restrições para dumps de tabelas
@@ -1356,7 +1451,8 @@ ALTER TABLE `tbmanutencao_veiculo`
   ADD CONSTRAINT `tbmanutencao_veiculo_ibfk_1` FOREIGN KEY (`id_fornecedor`) REFERENCES `tbfornecedor` (`id_fornecedor`),
   ADD CONSTRAINT `tbmanutencao_veiculo_ibfk_2` FOREIGN KEY (`id_veiculo`) REFERENCES `tbveiculo` (`id_veiculo`),
   ADD CONSTRAINT `tbmanutencao_veiculo_ibfk_3` FOREIGN KEY (`id_manutencao_tipo`) REFERENCES `tbmanutencao_tipo` (`id_manutencao_tipo`),
-  ADD CONSTRAINT `tbmanutencao_veiculo_ibfk_4` FOREIGN KEY (`id_situacao`) REFERENCES `tbpagamento_situacao` (`id_situacao`);
+  ADD CONSTRAINT `tbmanutencao_veiculo_ibfk_4` FOREIGN KEY (`id_situacao`) REFERENCES `tbpagamento_situacao` (`id_situacao`),
+  ADD CONSTRAINT `tbmanutencao_veiculo_ibfk_5` FOREIGN KEY (`id_condicao`) REFERENCES `tbmanutencao_conservacao` (`id_conservacao`);
 
 --
 -- Restrições para tabelas `tbmodelo_veiculo`
@@ -1427,9 +1523,10 @@ ALTER TABLE `tbusuarios`
 -- Restrições para tabelas `tbveiculo`
 --
 ALTER TABLE `tbveiculo`
-  ADD CONSTRAINT `tbveiculo_ibfk_1` FOREIGN KEY (`id_fabricante`) REFERENCES `tbfabricante_veiculo` (`id_fabricante`),
+  ADD CONSTRAINT `tbveiculo_ibfk_1` FOREIGN KEY (`id_modelo`) REFERENCES `tbmodelo_veiculo` (`id_modelo`),
   ADD CONSTRAINT `tbveiculo_ibfk_2` FOREIGN KEY (`id_combustivel`) REFERENCES `tbcategoria_combustivel` (`id_combustivel`),
-  ADD CONSTRAINT `tbveiculo_ibfk_3` FOREIGN KEY (`id_categoria_veiculo`) REFERENCES `tbcategoria_veiculo` (`id_categoria_veiculo`);
+  ADD CONSTRAINT `tbveiculo_ibfk_3` FOREIGN KEY (`id_categoria_veiculo`) REFERENCES `tbcategoria_veiculo` (`id_categoria_veiculo`),
+  ADD CONSTRAINT `tbveiculo_ibfk_4` FOREIGN KEY (`id_tipo_veiculo`) REFERENCES `tbveiculo_tipo` (`id_tipo_veiculo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
