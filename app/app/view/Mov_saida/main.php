@@ -42,7 +42,7 @@ unset($_SESSION["mensagem"]);
                     <td><?=$value['km']?></td>
                     <td><?=$value['nome_tanque']?></td>
                     <td class="quantidade"><?=$value['quantidade']?></td>
-                     <td><?=date_format($dataSaida,'d/m/Y H:i');?></td>
+                    <td><?=date_format($dataSaida,'d/m/Y H:i');?></td>
                     <td>
                       <a href="<?=DIRPAGE?>/movimento_saida/editar/<?=$value['id_saida']?>" >
                       <i data-feather="edit" class="iconEditar"></i>
