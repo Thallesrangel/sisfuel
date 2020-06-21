@@ -18,7 +18,7 @@ abstract class AmovEntrada
             $fornecedor = trim($_POST['fornecedor']);
             $quantidade = TratarDados::tratarQuantidade($_POST['quantidade']);
             $tanque = trim($_POST['tanque']);
-            $dataEntrada = date("Y-m-d H:i",strtotime($_POST['data']));
+            $dataEntrada = TratarDados::tratarDataHora($_POST['data']);
             $notaFiscal = trim($_POST['nf']);
             $motorista = trim($_POST['motorista']);
             $placa = trim($_POST['placa']);

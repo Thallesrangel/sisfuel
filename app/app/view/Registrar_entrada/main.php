@@ -21,7 +21,7 @@ $tanques = $tanques->listar($tanques);
     
       <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
-          <span>Fornecedor</span><br>
+          <label for="fornecedor">Fornecedor</label>
             <select class="form-control form-control-sm js-select" id="fornecedor"  name="fornecedor" required>
             <?php
               foreach($fornecedores as $fornecedor){
@@ -33,6 +33,24 @@ $tanques = $tanques->listar($tanques);
             </select>
           </div>  
         </div>
+
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <div class="form-group">
+          <label for="tanque">Tanque</label>
+            <select id="tanque" class="form-control form-control-sm js-select" name="tanque" required>
+            <?php
+              foreach($tanques as $tanque){
+                $idTanque =  $tanque['id_tanque'];
+                $nomeTanque =  $tanque['nome_tanque'];
+
+              ?>
+              <option value="<?= $idTanque ?>"> <?php echo $nomeTanque?> </option>
+              <?php }?>
+            </select>
+        </div>  
+      </div>
+
+
       
       <div class="col-sm-12 col-md-2 col-lg-2">
         <div class="form-group">
@@ -43,24 +61,8 @@ $tanques = $tanques->listar($tanques);
 
       <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
-          <span>Tanque</span><br>
-            <select class="form-control form-control-sm js-select" name="tanque" required>
-            <?php
-              foreach($tanques as $tanque){
-                $idTanque =  $tanque['id_tanque'];
-                $nomeTanque =  $tanque['nome_tanque'];
-
-              ?>
-              <option value="<?= $idTanque ?>"> <?php echo $nomeTanque?> </option>
-              <?php }?>
-            </select>
-          </div>  
-        </div>
-
-      <div class="col-sm-12 col-md-3 col-lg-3">
-        <div class="form-group">
-          <span>Data</span>
-          <input id="datetime" type="datetime" value="<?php echo date("d/m/Y h:i");?>" name="data" class="form-control form-control-sm" required>
+          <label for="datetime">Data</label>
+          <input id="datetime" type="text"  date-input="d/m/y h:i" name="data" class="form-control form-control-sm" required>
         </div>
       </div>
     </div>
