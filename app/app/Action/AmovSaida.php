@@ -18,10 +18,8 @@ abstract class AmovSaida
             $motorista = trim($_POST['motorista']);
             $quantidade = TratarDados::tratarQuantidade($_POST['quantidade']);
             $tanque = trim($_POST['tanque']);
-
-            $date = date_create(strtotime($_POST['data']));
-            $dataSaida = date_format($date,"Y/m/d H:i:s");
-
+            $date = date_create($_POST['data']);
+            $dataSaida = date_format($date,"Y-m-d H:i:s");
             $veiculo = trim($_POST['veiculo']);
             $quilometragem = trim($_POST['quilometragem']);
         
