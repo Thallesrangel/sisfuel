@@ -74,18 +74,19 @@ window.onload = function() {
         locale:traducao
       });
   
-      $('[date-input="d/m/y h:i:s"]').flatpickr({
+      $('[date-input="d/m/y h:i"]').flatpickr({
         enableTime: true,
-        enableSeconds: true,
+        dateFormat: "d/m/Y H:i",
+        enableSeconds: false,
         time_24hr: true,
-        dateFormat: "d/m/Y H:i:ss",
+        defaultDate: "today",
         locale:traducao
       });
   
       $('[date-input="h:i:s"]').flatpickr({
         enableTime: true,
         enableSeconds: true,
-        dateFormat: "H:i:s",
+        dateFormat: "H:i:S",
         time_24hr: true,
         locale:traducao
       });

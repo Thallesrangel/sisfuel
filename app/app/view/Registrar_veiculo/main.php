@@ -11,13 +11,6 @@ use App\model\Conexao;
     
     <div class="row">
 
-      <div class="col-sm-12 col-md-2 col-lg-2">
-        <div class="form-group">
-          <label for="placa">Veículo *</label>
-          <input maxlength="8" placeholder="Placa" type="text" name="placa" class="form-control form-control-sm" id="placa" required>
-        </div>
-      </div>
-
       <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
             <label for="tipo_veiculo">Tipo de Veículo *</label>
@@ -64,14 +57,29 @@ use App\model\Conexao;
 
       <div class="col-sm-12 col-md-2 col-lg-2">
         <div class="form-group">
-          <span>Ano Fabricação *</span>
-          <input type="date" value="<?php echo date("d/m/Y");?>" name="ano_fabricacao" date-input="d/m/y" class="form-control form-control-sm" required>
+          <label for="placa">Veículo *</label>
+          <input maxlength="8" placeholder="Ex: PSM0276" type="text" name="placa" class="form-control form-control-sm" id="placa" required>
         </div>
-      </div>           
+      </div>
+
+      <div class="col-sm-12 col-md-2 col-lg-2">
+        <div class="form-group">
+        <label for="cor">Cor</label>
+          <input id="cor" maxlength="20" placeholder="Ex: azul" type="text" name="cor" class="form-control form-control-sm">
+        </div>
+      </div>         
 
     </div>
 
     <div class="row">
+
+      <div class="col-sm-12 col-md-2 col-lg-2">
+        <div class="form-group">
+          <span>Ano Fabricação *</span>
+          <input type="date" value="<?php echo date("d/m/Y");?>" name="ano_fabricacao" date-input="d/m/y" class="form-control form-control-sm" required>
+        </div>
+      </div>  
+
       <div class="col-sm-12 col-md-2 col-lg-2">
         <div class="form-group">
           <span>Ano Modelo *</span>
@@ -88,17 +96,10 @@ use App\model\Conexao;
 
        <div class="col-sm-12 col-md-2 col-lg-2">
         <div class="form-group">
-          <span title="Capacidade tanque de combustível do veículo">Tanque(LT) *</span>
+          <span title="Capacidade do tanque de combustível do veículo conforme manual">Tanque(LT) *</span>
           <input maxlength="25" type="text" name="quantidade_tanque" class="form-control form-control-sm" required>
         </div>
       </div>  
-
-      <div class="col-sm-12 col-md-2 col-lg-2">
-        <div class="form-group">
-          <span>Cor</span>
-            <input maxlength="20" placeholder="Cor" type="text" name="cor" class="form-control form-control-sm">
-        </div>
-      </div>
 
     </div>
 

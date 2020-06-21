@@ -2,10 +2,13 @@
 namespace App\Action;
 
 use App\controller\ControllerTicket;
+use Src\traits\TratarDados;
 
 
 abstract class AticketCombustivel
 {   
+    use TratarDados;
+
     public function excluirAction($id)
     {
         $init = new ControllerTicket();
@@ -34,7 +37,7 @@ abstract class AticketCombustivel
         if (isset($_POST)){
 
             $fornecedor = trim($_POST['fornecedor']);
-            $quantidade = trim($_POST['quantidade']);
+            $quantidade = TratarDados::tratarQuantidade($_POST['quantidade']);
             $combustivel = trim($_POST['combustivel']);
             $dataEntrada = trim($_POST['data']);
             $motorista = trim($_POST['motorista']);

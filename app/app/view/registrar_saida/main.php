@@ -62,10 +62,10 @@ use App\controller\ControllerVeiculo;
           </div>  
         </div>
 
-      <div class="col-2">
+      <div class="col-3">
         <div class="form-group">
           <span>Data/Hora saída</span>
-          <input type="date" value="<?php echo date("Y-m-d");?>" name="data" class="form-control form-control-sm" required>
+          <input type="text" date-input="d/m/y h:i" name="data" class="form-control form-control-sm" required>
         </div>
       </div>
 
