@@ -23,23 +23,36 @@ abstract class Aveiculo
     # Cadastra novo veículo
     public function registrarAction()
     {   
-        if(isset($_POST['placa'])){
-            $placa = trim($_POST['placa']);
-            $renavam = trim($_POST['renavam']);
-            $fabricante = trim($_POST['fabricante']);
+        if (isset($_POST)) {
+            $placa = $_POST['placa'];
+            $renavam = $_POST['renavam'];
+            $cor = $_POST['cor'];
+            $ano_fabricacao = date("Y-m-d",strtotime($_POST['ano_fabricacao']));
+            $ano_modelo = date("Y-m-d",strtotime($_POST['ano_modelo']));
+            $quantidade_tanque = $_POST['quantidade_tanque'];
+            $chassi = $_POST['chassi'];
+            $id_modelo = $_POST['id_modelo'];
             $tipocombustivel = trim($_POST['tipoCombustivel']);
             $categoriaveiculo = trim($_POST['categoriaVeiculo']);
+            $tipo_veiculo = $_POST['tipo_veiculo'];
         } else {
             die("erro ao CADASTRAR.. Confere em Action/Aveiculo");
         }
      
         $init = new ControllerVeiculo();
-        $init->setPlaca($placa);
         $init->setIdCliente($_SESSION['id_cliente']);
+        $init->setPlaca($placa);
         $init->setRenavam($renavam);
-        $init->setFabricante($fabricante);
+        $init->setCor($cor);
+        $init->setAnoFabricao($ano_fabricacao);
+        $init->setAnoModelo($ano_modelo);
+        $init->setQuantidadeTanque($quantidade_tanque);
+        $init->setChassi($chassi);
+        $init->setModeloVeiculo($id_modelo); 
         $init->setCombustivel($tipocombustivel);
-        $init->setCatVeiculo($categoriaveiculo);
+        $init->setCategoriaVeiculo($categoriaveiculo);
+        $init->setTipoVeiculo($tipo_veiculo);
+
         $cadastrar = $init->cadastrar($init);
           
         if (isset($cadastrar)) {

@@ -39,6 +39,28 @@ class ControllerVeiculo extends ClsVeiculo
 		}
 	}
 
+	# Retorna o main da view/registrar_cartao_virtual
+	public function novo()
+	{  
+		$breadcrumb = [
+			'Início' => '',
+			'Veículo' => 'veiculo/list',
+			'Novo' => 'false'
+		];
+
+		if (in_array(6, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {
+			# composição
+			$render = new ClassRender();
+			$render->setTitle("Sisfuel App - Registrar Veículo");
+			$render->setDescription("Cartão Virtual");
+			$render->setKeyWords("sisfuel");
+			# Pasta na view
+			$render->setDir("Registrar_veiculo");
+			$render->setBreadCrumb($breadcrumb);
+			$render->renderLayout();
+		}
+	}
+
 	# Retorna o main da view/Editar_veiculo
 	public function editar()
 	{  	

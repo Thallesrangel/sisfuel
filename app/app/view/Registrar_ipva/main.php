@@ -39,7 +39,7 @@ Use App\model\Conexao;
       <div class="col-sm-12 col-md-2 col-lg-2">
         <div class="form-group">
           <span>Data Vencimento</span>
-          <input type="date" value="<?= date("d/m/Y");?>" name="data_vencimento" class="form-control form-control-sm flatpickr">
+          <input type="date" value="<?= date("d/m/Y");?>" name="data_vencimento" date-input="d/m/y" class="form-control form-control-sm">
         </div>
       </div>
 

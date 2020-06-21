@@ -10,13 +10,15 @@ abstract class ClsVeiculo extends Conexao
 	private $idCliente;
 	private $placa;
 	private $renavam;
-	private $fabricante;
-	private $tipocombustivel;
-	private $categoriaveiculo;
-
-	// Paginacao
-	private $pagina_inicial;
-	private $registo_por_pagina;
+	private $cor;
+	private $ano_fabricacao;
+	private $ano_modelo;
+	private $quantidade_tanque;
+	private $chassi;
+	private $modelo_veiculo;
+	private $tipo_combustivel;
+	private $categoria_veiculo;
+	private $tipo_veiculo;
 
 	private $strCampo;
 	private $strValor;	
@@ -36,21 +38,32 @@ abstract class ClsVeiculo extends Conexao
 	public function getRenavam(){ return $this->renavam; }	
 	public function setRenavam($renavam){ $this->renavam = $renavam; }
 
-	public function getFabricante(){ return $this->fabricante; }	
-	public function setFabricante($fabricante){ $this->fabricante = $fabricante; }
+	public function getCor(){ return $this->cor; }	
+	public function setCor($cor){ $this->cor = $cor; }
+
+	public function getAnoFabricao(){ return $this->ano_fabricacao; }	
+	public function setAnoFabricao($ano_fabricacao){ $this->ano_fabricacao = $ano_fabricacao; }
+
+	public function getAnoModelo(){ return $this->ano_modelo; }	
+	public function setAnoModelo($ano_modelo){ $this->ano_modelo = $ano_modelo; }
+
+	public function getQuantidadeTanque(){ return $this->quantidade_tanque; }	
+	public function setQuantidadeTanque($quantidade_tanque){ $this->quantidade_tanque = $quantidade_tanque; }
+
+	public function getChassi(){ return $this->chassi; }	
+	public function setChassi($chassi){ $this->chassi = $chassi; }
+
+	public function getModeloVeiculo(){ return $this->modelo_veiculo; }	
+	public function setModeloVeiculo($modelo_veiculo){ $this->modelo_veiculo = $modelo_veiculo; }
 	
-	public function getCombustivel(){ return $this->tipocombustivel; }	
-	public function setCombustivel($tipocombustivel){ $this->tipocombustivel = $tipocombustivel; }
+	public function getCombustivel(){ return $this->tipo_combustivel; }	
+	public function setCombustivel($tipo_combustivel){ $this->tipo_combustivel = $tipo_combustivel; }
 
-	public function getCatVeiculo(){ return $this->categoriaveiculo; }	
-	public function setCatVeiculo($categoriaveiculo){ $this->categoriaveiculo = $categoriaveiculo; }
+	public function getCategoriaVeiculo(){ return $this->categoria_veiculo; }	
+	public function setCategoriaVeiculo($categoria_veiculo){ $this->categoria_veiculo = $categoria_veiculo; }
 
-	// Paginacao 
-	public function getPaginaInicial(){ return $this->pagina_inicial; }
-	public function setPaginaInicial($pagina_inicial){ $this->pagina_inicial = $pagina_inicial; }
-
-	public function getRegistroPorPagina(){ return $this->registo_por_pagina; }
-	public function setRegistroPorPagina($registo_por_pagina) { $this->registo_por_pagina = $registo_por_pagina; }
+	public function getTipoVeiculo(){ return $this->tipo_veiculo; }	
+	public function setTipoVeiculo($tipo_veiculo){ $this->tipo_veiculo = $tipo_veiculo; }
 }
 
 interface itfVeiculo
@@ -73,16 +86,22 @@ class DaoVeiculo implements itfVeiculo
 	public function cadastrar(ClsVeiculo $objClass)
 	{	
 		$pdo = Conexao::getConn();
-		$sql = " INSERT INTO ".$objClass->tabela." (placa, id_cliente, renavam, id_fabricante, id_combustivel, id_categoria_veiculo)
-		 values (:placa, :id_cliente, :renavam, :id_fabricante, :id_combustivel,:id_categoria_veiculo);";
+		$sql = " INSERT INTO ".$objClass->tabela." (id_cliente, placa, renavam, cor, ano_fabricacao, ano_modelo, quantidade_tanque, chassi, id_modelo, id_combustivel, id_categoria_veiculo, id_tipo_veiculo)
+		 values (:id_cliente, :placa, :renavam, :cor, :ano_fabricacao, :ano_modelo, :quantidade_tanque, :chassi, :id_modelo, :id_combustivel, :id_categoria_veiculo, :id_tipo_veiculo);";
 
 		$stmt = $pdo->prepare($sql);
-		$stmt->bindValue(":placa", $objClass->getPlaca());
 		$stmt->bindValue(":id_cliente", $objClass->getIdCliente());
+		$stmt->bindValue(":placa", $objClass->getPlaca());
 		$stmt->bindValue(":renavam", $objClass->getRenavam());
-		$stmt->bindValue(":id_fabricante", $objClass->getFabricante());
+		$stmt->bindValue(":cor", $objClass->getCor());
+		$stmt->bindValue(":ano_fabricacao", $objClass->getAnoFabricao());
+		$stmt->bindValue(":ano_modelo", $objClass->getAnoModelo());
+		$stmt->bindValue(":quantidade_tanque", $objClass->getQuantidadeTanque());
+		$stmt->bindValue(":chassi", $objClass->getChassi());
+		$stmt->bindValue(":id_modelo", $objClass->getModeloVeiculo());
 		$stmt->bindValue(":id_combustivel", $objClass->getCombustivel());
-		$stmt->bindValue(":id_categoria_veiculo", $objClass->getCatVeiculo());
+		$stmt->bindValue(":id_categoria_veiculo", $objClass->getCategoriaVeiculo());
+		$stmt->bindValue(":id_tipo_veiculo", $objClass->getTipoVeiculo());
 
 		$stmt->execute();
 
@@ -175,7 +194,7 @@ class DaoVeiculo implements itfVeiculo
         $pdo = Conexao::getConn();
 		
 		$sql = "SELECT * FROM ".$objClass->tabela." a
-			LEFT JOIN tbfabricante_veiculo b ON (b.id_fabricante = a.id_fabricante)
+			LEFT JOIN tbmodelo_veiculo b ON (b.id_modelo = a.id_modelo)
 			LEFT JOIN tbcategoria_combustivel c ON (c.id_combustivel = a.id_combustivel)
 			LEFT JOIN tbcategoria_veiculo d ON (d.id_categoria_veiculo = a.id_categoria_veiculo)
 		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0";
@@ -193,7 +212,7 @@ class DaoVeiculo implements itfVeiculo
         $pdo = Conexao::getConn();
 		
 		$sql = "SELECT * FROM ".$objClass->tabela." a
-			LEFT JOIN tbfabricante_veiculo b ON (b.id_fabricante = a.id_fabricante)
+			LEFT JOIN tbmodelo_veiculo b ON (b.id_modelo = a.id_modelo)
 			LEFT JOIN tbcategoria_combustivel c ON (c.id_combustivel = a.id_combustivel)
 			LEFT JOIN tbcategoria_veiculo d ON (d.id_categoria_veiculo = a.id_categoria_veiculo)
 		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0";

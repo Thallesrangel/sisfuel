@@ -69,12 +69,12 @@ window.onload = function() {
         },
       };
   
-      $('.flatpickr').flatpickr({
+      $('[date-input="d/m/y"]').flatpickr({
         dateFormat: "d/m/Y",
         locale:traducao
       });
   
-      $('[data-datetime-picker]').flatpickr({
+      $('[date-input="d/m/y h:i:s"]').flatpickr({
         enableTime: true,
         enableSeconds: true,
         time_24hr: true,
@@ -82,7 +82,7 @@ window.onload = function() {
         locale:traducao
       });
   
-      $('[data-time-picker]').flatpickr({
+      $('[date-input="h:i:s"]').flatpickr({
         enableTime: true,
         enableSeconds: true,
         dateFormat: "H:i:s",
