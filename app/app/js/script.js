@@ -79,7 +79,6 @@ window.onload = function() {
         dateFormat: "d/m/Y H:i",
         enableSeconds: false,
         time_24hr: true,
-        defaultDate: "today",
         locale:traducao
       });
   
