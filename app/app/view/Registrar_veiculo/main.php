@@ -46,8 +46,8 @@ use App\model\Conexao;
               <?php
               #SQL DIRETO
               $pdo = Conexao::getConn();
-              $sql = "SELECT a.*, b.* FROM tbmodelo_veiculo a
-              INNER JOIN tbfabricante_veiculo b ON (a.id_fabricante = b.id_fabricante)";
+              $sql = "SELECT a.*, b.* FROM tbveiculo_modelo a
+              INNER JOIN tbveiculo_fabricante b ON (a.id_fabricante = b.id_fabricante)";
         
               $resultado = $pdo->query($sql);
 
@@ -136,7 +136,7 @@ use App\model\Conexao;
               <?php
               #SQL DIRETO
               $pdo = Conexao::getConn();
-              $sql = "SELECT id_categoria_veiculo, categoria_veiculo FROM tbcategoria_veiculo";
+              $sql = "SELECT id_categoria_veiculo, categoria_veiculo FROM tbveiculo_categoria";
               $resultado = $pdo->query($sql);
 
               foreach($resultado as $value){

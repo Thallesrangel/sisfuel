@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 21/06/2020 às 05:36
+-- Tempo de geração: 21/06/2020 às 05:55
 -- Versão do servidor: 10.4.11-MariaDB
 -- Versão do PHP: 7.4.6
 
@@ -177,30 +177,6 @@ INSERT INTO `tbcategoria_combustivel` (`id_combustivel`, `categoria_combustivel`
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbcategoria_veiculo`
---
-
-CREATE TABLE `tbcategoria_veiculo` (
-  `id_categoria_veiculo` int(1) NOT NULL,
-  `categoria_veiculo` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Despejando dados para a tabela `tbcategoria_veiculo`
---
-
-INSERT INTO `tbcategoria_veiculo` (`id_categoria_veiculo`, `categoria_veiculo`) VALUES
-(34, 'Oficial'),
-(35, 'Particular'),
-(36, 'Aprendizagem'),
-(38, 'Alugado'),
-(39, 'Fretado'),
-(41, 'Terceiro'),
-(42, 'Aviões');
-
--- --------------------------------------------------------
-
---
 -- Estrutura para tabela `tbclientes`
 --
 
@@ -244,31 +220,6 @@ CREATE TABLE `tbclientes_tipo` (
 INSERT INTO `tbclientes_tipo` (`id_tipo`, `cliente_tipo`) VALUES
 (1, 'Empresarial'),
 (2, 'Pessoal');
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `tbfabricante_veiculo`
---
-
-CREATE TABLE `tbfabricante_veiculo` (
-  `id_fabricante` int(11) NOT NULL,
-  `id_cliente` int(11) DEFAULT NULL,
-  `nome_fabricante` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Despejando dados para a tabela `tbfabricante_veiculo`
---
-
-INSERT INTO `tbfabricante_veiculo` (`id_fabricante`, `id_cliente`, `nome_fabricante`) VALUES
-(1, NULL, 'Ford'),
-(2, NULL, 'Scania'),
-(3, NULL, 'Jeep'),
-(4, NULL, ''),
-(5, NULL, 'Fordzinho'),
-(6, NULL, 'Fiatinho'),
-(7, NULL, 'Fsas');
 
 -- --------------------------------------------------------
 
@@ -410,28 +361,6 @@ CREATE TABLE `tbmanutencao_veiculo` (
 INSERT INTO `tbmanutencao_veiculo` (`id_manutencao`, `id_cliente`, `titulo`, `id_fornecedor`, `id_veiculo`, `id_manutencao_tipo`, `data_vencimento`, `valor`, `descricao`, `id_situacao`, `id_condicao`, `flag_excluido`) VALUES
 (1, 11, 'titulo', 17, 42, 1, '2020-06-20', '2000.00', 'descricao  manutenção', 1, 1, 0),
 (2, 11, '123', 17, 42, 1, '2020-06-20', '1.23', '123', 1, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `tbmodelo_veiculo`
---
-
-CREATE TABLE `tbmodelo_veiculo` (
-  `id_modelo` int(11) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `modelo_veiculo` varchar(220) NOT NULL,
-  `id_fabricante` int(11) NOT NULL,
-  `flag_excluido` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Despejando dados para a tabela `tbmodelo_veiculo`
---
-
-INSERT INTO `tbmodelo_veiculo` (`id_modelo`, `id_cliente`, `modelo_veiculo`, `id_fabricante`, `flag_excluido`) VALUES
-(2, 11, 'Galhardo', 2, 0),
-(3, 11, 'Pálio', 6, 0);
 
 -- --------------------------------------------------------
 
@@ -865,7 +794,7 @@ CREATE TABLE `tbveiculo` (
   `id_veiculo` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `placa` varchar(100) NOT NULL,
-  `renavam` varchar(100) DEFAULT NULL,
+  `renavam` varchar(100) NOT NULL,
   `cor` varchar(100) DEFAULT NULL,
   `ano_fabricacao` date NOT NULL,
   `ano_modelo` date NOT NULL,
@@ -884,8 +813,78 @@ CREATE TABLE `tbveiculo` (
 --
 
 INSERT INTO `tbveiculo` (`id_veiculo`, `id_cliente`, `placa`, `renavam`, `cor`, `ano_fabricacao`, `ano_modelo`, `quantidade_tanque`, `chassi`, `id_modelo`, `id_combustivel`, `id_categoria_veiculo`, `id_tipo_veiculo`, `flag_ativo`, `flag_excluido`) VALUES
-(1, 11, '12321', '123', '213', '1970-01-01', '1970-01-01', 213.00, '123213213123', 2, 43, 34, 1, 0, 0),
-(2, 11, '123123', '', '', '1970-01-01', '1970-01-01', 123.00, '', 2, 43, 34, 1, 0, 0);
+(1, 11, 'PPSP2123', '', '', '1970-01-01', '1970-01-01', 50.00, '', 2, 43, 34, 1, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbveiculo_categoria`
+--
+
+CREATE TABLE `tbveiculo_categoria` (
+  `id_categoria_veiculo` int(1) NOT NULL,
+  `categoria_veiculo` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Despejando dados para a tabela `tbveiculo_categoria`
+--
+
+INSERT INTO `tbveiculo_categoria` (`id_categoria_veiculo`, `categoria_veiculo`) VALUES
+(34, 'Oficial'),
+(35, 'Particular'),
+(36, 'Aprendizagem'),
+(38, 'Alugado'),
+(39, 'Fretado'),
+(41, 'Terceiro'),
+(42, 'Aviões');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbveiculo_fabricante`
+--
+
+CREATE TABLE `tbveiculo_fabricante` (
+  `id_fabricante` int(11) NOT NULL,
+  `id_cliente` int(11) DEFAULT NULL,
+  `nome_fabricante` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Despejando dados para a tabela `tbveiculo_fabricante`
+--
+
+INSERT INTO `tbveiculo_fabricante` (`id_fabricante`, `id_cliente`, `nome_fabricante`) VALUES
+(1, NULL, 'Ford'),
+(2, NULL, 'Scania'),
+(3, NULL, 'Jeep'),
+(4, NULL, ''),
+(5, NULL, 'Fordzinho'),
+(6, NULL, 'Fiatinho'),
+(7, NULL, 'Fsas');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbveiculo_modelo`
+--
+
+CREATE TABLE `tbveiculo_modelo` (
+  `id_modelo` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `modelo_veiculo` varchar(220) NOT NULL,
+  `id_fabricante` int(11) NOT NULL,
+  `flag_excluido` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tbveiculo_modelo`
+--
+
+INSERT INTO `tbveiculo_modelo` (`id_modelo`, `id_cliente`, `modelo_veiculo`, `id_fabricante`, `flag_excluido`) VALUES
+(2, 11, 'Galhardo', 2, 0),
+(3, 11, 'Pálio', 6, 0);
 
 -- --------------------------------------------------------
 
@@ -978,12 +977,6 @@ ALTER TABLE `tbcategoria_combustivel`
   ADD PRIMARY KEY (`id_combustivel`);
 
 --
--- Índices de tabela `tbcategoria_veiculo`
---
-ALTER TABLE `tbcategoria_veiculo`
-  ADD PRIMARY KEY (`id_categoria_veiculo`);
-
---
 -- Índices de tabela `tbclientes`
 --
 ALTER TABLE `tbclientes`
@@ -996,12 +989,6 @@ ALTER TABLE `tbclientes`
 --
 ALTER TABLE `tbclientes_tipo`
   ADD PRIMARY KEY (`id_tipo`);
-
---
--- Índices de tabela `tbfabricante_veiculo`
---
-ALTER TABLE `tbfabricante_veiculo`
-  ADD PRIMARY KEY (`id_fabricante`);
 
 --
 -- Índices de tabela `tbfornecedor`
@@ -1046,13 +1033,6 @@ ALTER TABLE `tbmanutencao_veiculo`
   ADD KEY `id_manutencao_tipo` (`id_manutencao_tipo`),
   ADD KEY `id_situacao` (`id_situacao`),
   ADD KEY `id_condicao` (`id_condicao`);
-
---
--- Índices de tabela `tbmodelo_veiculo`
---
-ALTER TABLE `tbmodelo_veiculo`
-  ADD PRIMARY KEY (`id_modelo`),
-  ADD KEY `id_fabricante` (`id_fabricante`);
 
 --
 -- Índices de tabela `tbmotorista`
@@ -1174,6 +1154,25 @@ ALTER TABLE `tbveiculo`
   ADD KEY `id_tipo_veiculo` (`id_tipo_veiculo`);
 
 --
+-- Índices de tabela `tbveiculo_categoria`
+--
+ALTER TABLE `tbveiculo_categoria`
+  ADD PRIMARY KEY (`id_categoria_veiculo`);
+
+--
+-- Índices de tabela `tbveiculo_fabricante`
+--
+ALTER TABLE `tbveiculo_fabricante`
+  ADD PRIMARY KEY (`id_fabricante`);
+
+--
+-- Índices de tabela `tbveiculo_modelo`
+--
+ALTER TABLE `tbveiculo_modelo`
+  ADD PRIMARY KEY (`id_modelo`),
+  ADD KEY `id_fabricante` (`id_fabricante`);
+
+--
 -- Índices de tabela `tbveiculo_tipo`
 --
 ALTER TABLE `tbveiculo_tipo`
@@ -1226,12 +1225,6 @@ ALTER TABLE `tbcategoria_combustivel`
   MODIFY `id_combustivel` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
--- AUTO_INCREMENT de tabela `tbcategoria_veiculo`
---
-ALTER TABLE `tbcategoria_veiculo`
-  MODIFY `id_categoria_veiculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
-
---
 -- AUTO_INCREMENT de tabela `tbclientes`
 --
 ALTER TABLE `tbclientes`
@@ -1242,12 +1235,6 @@ ALTER TABLE `tbclientes`
 --
 ALTER TABLE `tbclientes_tipo`
   MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `tbfabricante_veiculo`
---
-ALTER TABLE `tbfabricante_veiculo`
-  MODIFY `id_fabricante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tbfornecedor`
@@ -1284,12 +1271,6 @@ ALTER TABLE `tbmanutencao_tipo`
 --
 ALTER TABLE `tbmanutencao_veiculo`
   MODIFY `id_manutencao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `tbmodelo_veiculo`
---
-ALTER TABLE `tbmodelo_veiculo`
-  MODIFY `id_modelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbmotorista`
@@ -1385,7 +1366,25 @@ ALTER TABLE `tbusuarios`
 -- AUTO_INCREMENT de tabela `tbveiculo`
 --
 ALTER TABLE `tbveiculo`
-  MODIFY `id_veiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_veiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `tbveiculo_categoria`
+--
+ALTER TABLE `tbveiculo_categoria`
+  MODIFY `id_categoria_veiculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT de tabela `tbveiculo_fabricante`
+--
+ALTER TABLE `tbveiculo_fabricante`
+  MODIFY `id_fabricante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `tbveiculo_modelo`
+--
+ALTER TABLE `tbveiculo_modelo`
+  MODIFY `id_modelo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbveiculo_tipo`
@@ -1455,12 +1454,6 @@ ALTER TABLE `tbmanutencao_veiculo`
   ADD CONSTRAINT `tbmanutencao_veiculo_ibfk_5` FOREIGN KEY (`id_condicao`) REFERENCES `tbmanutencao_conservacao` (`id_conservacao`);
 
 --
--- Restrições para tabelas `tbmodelo_veiculo`
---
-ALTER TABLE `tbmodelo_veiculo`
-  ADD CONSTRAINT `tbmodelo_veiculo_ibfk_1` FOREIGN KEY (`id_fabricante`) REFERENCES `tbfabricante_veiculo` (`id_fabricante`);
-
---
 -- Restrições para tabelas `tbmov_entrada`
 --
 ALTER TABLE `tbmov_entrada`
@@ -1523,10 +1516,16 @@ ALTER TABLE `tbusuarios`
 -- Restrições para tabelas `tbveiculo`
 --
 ALTER TABLE `tbveiculo`
-  ADD CONSTRAINT `tbveiculo_ibfk_1` FOREIGN KEY (`id_modelo`) REFERENCES `tbmodelo_veiculo` (`id_modelo`),
+  ADD CONSTRAINT `tbveiculo_ibfk_1` FOREIGN KEY (`id_modelo`) REFERENCES `tbveiculo_modelo` (`id_modelo`),
   ADD CONSTRAINT `tbveiculo_ibfk_2` FOREIGN KEY (`id_combustivel`) REFERENCES `tbcategoria_combustivel` (`id_combustivel`),
-  ADD CONSTRAINT `tbveiculo_ibfk_3` FOREIGN KEY (`id_categoria_veiculo`) REFERENCES `tbcategoria_veiculo` (`id_categoria_veiculo`),
+  ADD CONSTRAINT `tbveiculo_ibfk_3` FOREIGN KEY (`id_categoria_veiculo`) REFERENCES `tbveiculo_categoria` (`id_categoria_veiculo`),
   ADD CONSTRAINT `tbveiculo_ibfk_4` FOREIGN KEY (`id_tipo_veiculo`) REFERENCES `tbveiculo_tipo` (`id_tipo_veiculo`);
+
+--
+-- Restrições para tabelas `tbveiculo_modelo`
+--
+ALTER TABLE `tbveiculo_modelo`
+  ADD CONSTRAINT `tbveiculo_modelo_ibfk_1` FOREIGN KEY (`id_fabricante`) REFERENCES `tbveiculo_fabricante` (`id_fabricante`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

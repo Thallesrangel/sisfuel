@@ -18,7 +18,7 @@ abstract class ClsModeloVeiculo extends Conexao{
 	private $strCampo;
 	private $strValor;
 
-	public $tabela = "tbmodelo_veiculo";
+	public $tabela = "tbveiculo_modelo";
 	public $keyId = "id_modelo";
 	
     public function getId(){ return $this->id; }
@@ -102,7 +102,7 @@ class DaoModeloVeiculo implements itfModeloVeiculo{
         $pdo = Conexao::getConn();
 		
         $sql = "SELECT a.*, b.* FROM ".$objClass->tabela." a
-            INNER JOIN tbfabricante_veiculo b ON (b.id_fabricante = a.id_fabricante)
+            INNER JOIN tbveiculo_fabricante b ON (b.id_fabricante = a.id_fabricante)
         WHERE flag_excluido = 0;";
 		
 		$stmt = $pdo->prepare($sql);

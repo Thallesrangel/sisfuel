@@ -194,9 +194,9 @@ class DaoVeiculo implements itfVeiculo
         $pdo = Conexao::getConn();
 		
 		$sql = "SELECT * FROM ".$objClass->tabela." a
-			LEFT JOIN tbmodelo_veiculo b ON (b.id_modelo = a.id_modelo)
+			LEFT JOIN tbveiculo_modelo b ON (b.id_modelo = a.id_modelo)
 			LEFT JOIN tbcategoria_combustivel c ON (c.id_combustivel = a.id_combustivel)
-			LEFT JOIN tbcategoria_veiculo d ON (d.id_categoria_veiculo = a.id_categoria_veiculo)
+			LEFT JOIN tbveiculo_categoria d ON (d.id_categoria_veiculo = a.id_categoria_veiculo)
 		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0";
 		
 		$stmt = $pdo->prepare($sql);
@@ -212,9 +212,9 @@ class DaoVeiculo implements itfVeiculo
         $pdo = Conexao::getConn();
 		
 		$sql = "SELECT * FROM ".$objClass->tabela." a
-			LEFT JOIN tbmodelo_veiculo b ON (b.id_modelo = a.id_modelo)
+			LEFT JOIN tbveiculo_modelo b ON (b.id_modelo = a.id_modelo)
 			LEFT JOIN tbcategoria_combustivel c ON (c.id_combustivel = a.id_combustivel)
-			LEFT JOIN tbcategoria_veiculo d ON (d.id_categoria_veiculo = a.id_categoria_veiculo)
+			LEFT JOIN tbveiculo_categoria d ON (d.id_categoria_veiculo = a.id_categoria_veiculo)
 		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0";
 		
 		$stmt = $pdo->prepare($sql);

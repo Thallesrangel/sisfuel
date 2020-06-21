@@ -18,7 +18,7 @@ abstract class ClsCatVeiculo extends Conexao{
 	private $strValor;
 	
 
-	public $tabela = "tbcategoria_veiculo";
+	public $tabela = "tbveiculo_categoria";
 	public $keyId = "id_categoria_veiculo";
 	
     public function getId(){ return $this->id; }
