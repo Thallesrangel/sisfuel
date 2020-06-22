@@ -35,6 +35,7 @@ trait TratarDados
     return str_replace(',', '.',str_replace('.', '', $quantidade));
     }   
 
+    # tratar data hora sem segundos
     public function tratarDataHora($data_hora)
     {   
         if(empty($data_hora)){

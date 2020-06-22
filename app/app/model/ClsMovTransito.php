@@ -10,13 +10,14 @@ abstract class ClsMovTransito extends Conexao{
 	private $idCliente;
 	private $fornecedor;
 	private $quantidade;
-	private $tanque;
-	private $dataEntrada;
-	private $notaFiscal;
+	private $data_entrada;
+	private $comprovante;
 	private $motorista;
 	private $placa;
+	private $tipo_combustivel;
 	private $valorUnitario;
 	private $valorTotal;
+	private $quilometragem;
 
 	# Formulário Relatório
 	private $dataInicial;
@@ -40,26 +41,29 @@ abstract class ClsMovTransito extends Conexao{
 	public function getQuantidade(){ return $this->quantidade; }	
 	public function setQuantidade($quantidade){ $this->quantidade = $quantidade; }
 
-	public function getTanque(){ return $this->tanque; }	
-	public function setTanque($tanque){ $this->tanque = $tanque; }
-
-	public function getDataEntrada(){ return $this->dataEntrada; }	
-	public function setDataEntrada($dataEntrada){ $this->dataEntrada = $dataEntrada; }
+	public function getDataTransito(){ return $this->data_entrada; }	
+	public function setDataTransito($data_entrada){ $this->data_entrada = $data_entrada; }
 	
-	public function getNotaFiscal(){ return $this->notaFiscal; }	
-	public function setNotaFiscal($notaFiscal){ $this->notaFiscal = $notaFiscal; }
+	public function getComprovante(){ return $this->comprovante; }	
+	public function setComprovante($comprovante){ $this->comprovante = $comprovante; }
+
+	public function getQuilometragem(){ return $this->quilometragem; }	
+	public function setQuilometragem($quilometragem){ $this->quilometragem = $quilometragem; }	
 
 	public function getMotorista(){ return $this->motorista; }	
 	public function setMotorista($motorista){ $this->motorista = $motorista; }
 
-	public function getPlaca(){ return $this->placa; }	
-	public function setPlaca($placa){ $this->placa = $placa; }
+	public function getTipoCombustivel(){ return $this->tipo_combustivel; }	
+	public function setTipoCombustivel($tipo_combustivel){ $this->tipo_combustivel = $tipo_combustivel; }	
 
-	public function getValorUnitario(){ return $this->valorUnitario; }	
-	public function setValorUnitario($valorUnitario){ $this->valorUnitario = $valorUnitario; }
+	public function getVeiculo(){ return $this->placa; }	
+	public function setVeiculo($placa){ $this->placa = $placa; }
 
-	public function getValorTotal(){ return $this->valorTotal; }	
-	public function setValorTotal($valorTotal){ $this->valorTotal = $valorTotal; }	
+	public function getValorUnitario(){ return $this->valor_unitario; }	
+	public function setValorUnitario($valor_unitario){ $this->valor_unitario = $valor_unitario; }
+
+	public function getValorTotal(){ return $this->valor_total; }	
+	public function setValorTotal($valor_total){ $this->valor_total = $valor_total; }
 }
 
 interface interfaceMovTransito{
@@ -81,18 +85,19 @@ class DaoMovTransito implements interfaceMovTransito{
 	{	
 		$pdo = Conexao::getConn();
 		
-		$sql = " INSERT INTO ".$objClass->tabela." (nota_fiscal, id_cliente, motorista, quantidade, data_entrada, id_fornecedor, id_tanque, placa, valor_unitario, valor_total)
-		 values (:nota_fiscal, :id_cliente, :motorista, :quantidade, :data_entrada, :id_fornecedor, :id_tanque, :placa, :valor_unitario, :valor_total);";
+		$sql = " INSERT INTO ".$objClass->tabela." (id_cliente, id_fornecedor, quantidade, data_hora, comprovante, km, id_motorista, id_combustivel, id_veiculo, valor_unitario, valor_total)
+		 values (:id_cliente, :id_fornecedor, :quantidade, :data_hora, :comprovante, :km, :id_motorista, :id_combustivel, :id_veiculo, :valor_unitario, :valor_total);";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(":id_cliente", $objClass->getIdCliente());
-		$stmt->bindValue(":nota_fiscal", $objClass->getNotaFiscal());
-		$stmt->bindValue(":motorista", $objClass->getMotorista());
-		$stmt->bindValue(":quantidade", $objClass->getQuantidade());
-		$stmt->bindValue(":data_entrada", $objClass->getDataEntrada());
 		$stmt->bindValue(":id_fornecedor", $objClass->getFornecedor());
-		$stmt->bindValue(":id_tanque", $objClass->getTanque());
-		$stmt->bindValue(":placa", $objClass->getPlaca());
+		$stmt->bindValue(":quantidade", $objClass->getQuantidade());
+		$stmt->bindValue(":data_hora", $objClass->getDataTransito());
+		$stmt->bindValue(":comprovante", $objClass->getComprovante());
+		$stmt->bindValue(":km", $objClass->getQuilometragem());
+		$stmt->bindValue(":id_motorista", $objClass->getMotorista());
+		$stmt->bindValue(":id_combustivel", $objClass->getTipoCombustivel());
+		$stmt->bindValue(":id_veiculo", $objClass->getVeiculo());
 		$stmt->bindValue(":valor_unitario", $objClass->getValorUnitario());
 		$stmt->bindValue(":valor_total", $objClass->getValorTotal());
 		$stmt->execute();
@@ -209,11 +214,11 @@ class DaoMovTransito implements interfaceMovTransito{
 	{
         $pdo = Conexao::getConn();
 		
-		$sql = "SELECT a.*, b.*, c.*, d.* FROM ".$objClass->tabela." a
+		$sql = "SELECT a.*, b.*, c.*, d.*, e.*, f.* FROM ".$objClass->tabela." a
             INNER JOIN tbclientes b ON (b.id_cliente = a.id_cliente)
             INNER JOIN tbfornecedor c ON (c.id_fornecedor = a.id_fornecedor) 
             INNER JOIN tbmotorista d ON (d.id_motorista = a.id_motorista)
-            INNER JOIN tbcategoria_combustivel e ON (a.id_combustivel = a.id_combustivel)
+            INNER JOIN tbcategoria_combustivel e ON (e.id_combustivel = a.id_combustivel)
             INNER JOIN tbveiculo f ON (f.id_veiculo = a.id_veiculo)
 		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0 ORDER BY id_transito DESC";
 		

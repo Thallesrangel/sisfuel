@@ -50,11 +50,11 @@ unset($_SESSION["mensagem"]);
                     <td><?=$value['categoria_combustivel']?></td>
                     <td><?=$value['placa']?></td>
                     <td>
-                      <a href="<?=DIRPAGE?>/movimento-transito/editar/<?=$value['id_abastecimento']?>">
+                      <a href="<?=DIRPAGE?>/movimento-transito/editar/<?=$value['id_transito']?>">
                       <i data-feather="edit" class="iconEditar"></i>
                       </a>
                         
-                      <a href="<?=DIRPAGE?>/movimento-transito/excluir/<?=$value['id_abastecimento']?>">
+                      <a href="<?=DIRPAGE?>/movimento-transito/excluir/<?=$value['id_transito']?>">
                       <i data-feather="trash" class="iconExcluir"></i>
                       </a>
                     </td>

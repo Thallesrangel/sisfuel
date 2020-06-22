@@ -75,10 +75,10 @@ class ControllerMovTransito extends ClsMovTransito
 			# composição
 			$render = new ClassRender();
 			$render->setTitle("Sisfuel App - Movimento em Trânsito");
-			$render->setDescription("Editar Abastecimento");
+			$render->setDescription("Editar Movimento Transito");
 			$render->setKeyWords("sisfuel");
 			# Pasta na view
-			$render->setDir("Editar_abastecimento");
+			$render->setDir("Editar_mov_transito");
 			$render->setBreadCrumb($breadcrumb);
 			$render->renderLayout();
 		} else {

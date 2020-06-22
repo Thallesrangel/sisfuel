@@ -27,15 +27,15 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar Movimento em Trânsito</h4>
+  <h4>Registrar Abastecimento em Trânsito</h4>
   
-  <form action="<?=DIRPAGE.'/abastecimento/registrar/'?>" method="POST">
+  <form action="<?=DIRPAGE.'/movimento-transito/registrar/'?>" method="POST">
     <div class="row">
     
       <div class="col-sm-12 col-md-3">
         <div class="form-group">
-          <span>Fornecedor</span><br>
-            <select class="form-control form-control-sm js-select" id="fornecedor"  name="fornecedor">
+          <label for="fornecedor">Fornecedor *</label>
+            <select id="fornecedor" class="form-control form-control-sm js-select" id="fornecedor" name="fornecedor">
               <?php
               foreach($fornecedores as $fornecedor){
                 $idFornecedor =  $fornecedor['id_fornecedor'];
@@ -46,25 +46,35 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
             </select>
           </div>  
         </div>
+
+
+        <div class="col-sm-12 col-md-3">
+         <div class="form-group">
+          <label for="motorista" title="Nome do motorista">Condutor *</label>
+            <select id="motorista" class="form-control form-control-sm js-select" id="motorista" name="motorista">
+            <?php
+              foreach($motoristas as $motorista){
+                $idMotorista =  $motorista['id_motorista'];
+                $nomeMotorista =  ucwords($motorista['nome_motorista']);
+              ?>
+              <option value="<?= $idMotorista ?>"> <?php echo ($nomeMotorista)?> </option>
+              <?php }?>
+            </select>
+          </div>  
+        </div>
       
+
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
-          <span>Quantidade</span><br>
-          <input  maxlength="20" type="text" name="quantidade" class="form-control form-control-sm quantidade">
+          <label for="data">Data *</label>
+          <input id="data" date-input="d/m/y h:i" type="text" name="data" class="form-control form-control-sm">
         </div>
       </div>
 
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
-          <span>Data</span><br>
-          <input type="date" value="<?php echo date("Y-m-d");?>" name="data" class="form-control form-control-sm">
-        </div>
-      </div>
-
-      <div class="col-sm-12 col-md-2">
-        <div class="form-group">
-            <span>Veículo</span><br>
-              <select class="form-control form-control-sm js-select" name="veiculo">
+            <label for="veiculo">Veículo *</label>
+              <select id="veiculo" class="form-control form-control-sm js-select" name="veiculo">
               <?php
                 foreach($veiculos as $veiculo){
                   $idVeiculo =  $veiculo['id_veiculo'];
@@ -80,40 +90,32 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
 
     <div class="row">
 
+        <div class="col-sm-12 col-md-2">
+          <div class="form-group">
+            <label for="quantidade">Quantidade *</label>
+            <input id="quantidade"  maxlength="20" type="text" name="quantidade" class="form-control form-control-sm quantidade">
+          </div>
+        </div>
+
         <div class="col-sm-12 col-md-3">
             <div class="form-group">
-            <span>Nº Comprovante</span><br>
-            <input type="number" name="comprovante" class="form-control form-control-sm">
+            <label for="comprovante">Nº Comprovante *</label>
+            <input id="comprovante" type="number" name="comprovante" class="form-control form-control-sm">
             </div>
         </div>
       
 
-        <div class="col-sm-12 col-md-3">
-         <div class="form-group">
-          <span>Motorista</span><br>
-            <select class="form-control form-control-sm js-select" id="motorista"  name="motorista">
-            <?php
-              foreach($motoristas as $motorista){
-                $idMotorista =  $motorista['id_motorista'];
-                $nomeMotorista =  ucwords($motorista['nome_motorista']);
-              ?>
-              <option value="<?= $idMotorista ?>"> <?php echo ($nomeMotorista)?> </option>
-              <?php }?>
-            </select>
-          </div>  
-        </div>
-      
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
-          <span>Quilometragem</span><br>
-          <input type="text" name="quilometragem" class="form-control form-control-sm quantidade">
+          <label for="quilometragem" title="Digite aqui KM atual informado no hodômetro do veículo.">KM Atual *</label>
+          <input id="quilometragem" type="text" name="quilometragem" class="form-control form-control-sm quantidade">
         </div>
       </div>
 
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
-          <span>Valor Un. /L</span><br>
-          <input type="text" name="valorUnitario" class="form-control form-control-sm valor-unitario">
+          <label for="valor_unitario">Valor Un./ (L) *</label>
+          <input id="valor_unitario" name="valor_unitario" class="form-control form-control-sm valor-unitario">
         </div>
       </div>
 
@@ -123,7 +125,7 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
 
         <div class="col-sm-12 col-md-3">
             <div class="form-group">
-                <span>Combustível</span><br>
+                <span>Combustível *</span><br>
                 <select class="form-control form-control-sm js-select"  name="combustivel">
                 <?php
                 foreach($combsutivelResultado as $combustivel){

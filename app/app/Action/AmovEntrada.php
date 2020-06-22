@@ -3,7 +3,6 @@
 namespace App\Action;
 
 use Src\traits\TratarDados;
-
 use App\controller\ControllerMovEntrada;
 use App\controller\ControllerMovSaida;
 use App\controller\ControllerTanque;
@@ -135,7 +134,6 @@ abstract class AmovEntrada
         $init->setNotaFiscal($nota_fiscal);
         $init->setMotorista($motorista);
         $init->setPlaca($placa);
-
         $init->setValorUnitario($valor_unitario);
 
         # Multiplica o valor unitario pela quantidade de combustivel para chegar ao valor total
