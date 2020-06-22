@@ -77,7 +77,7 @@ abstract class AmovEntrada
 
             if (isset($registrar)) {
                 $_SESSION["mensagem"] = "registrado";
-                header("Location: ".DIRPAGE."/movimento_entrada/list");
+                header("Location: ".DIRPAGE."/movimento-entrada/list");
             }
         } else {
             echo "O tanque selecionado atingiu a capacidade máxima.";
@@ -97,16 +97,16 @@ abstract class AmovEntrada
             if (intval($retorno) == 1) {
                 # Registro excluído com sucesso
                 $_SESSION["mensagem"] = "registro_excluido";
-                header("Location: ".DIRPAGE."/movimento_entrada/list");
+                header("Location: ".DIRPAGE."/movimento-entrada/list");
             } else {
                 # Houve um erro ao tentar deletar o registro
                 $_SESSION["mensagem"] = "erro_deletar";
-                header("Location: ".DIRPAGE."/movimento_entrada/list");
+                header("Location: ".DIRPAGE."/movimento-entrada/list");
             }
         } else {
             # ID não informado ou inexistente
             $_SESSION["mensagem"] = "id_inexistente";
-            header("Location: ".DIRPAGE."/movimento_entrada/list");
+            header("Location: ".DIRPAGE."/movimento-entrada/list");
         }
     }
     
@@ -145,7 +145,7 @@ abstract class AmovEntrada
 
         if (isset($alterar)) {
             $_SESSION["mensagem"] = "editado_sucesso";
-            header("Location: ".DIRPAGE."/movimento_entrada/list");
+            header("Location: ".DIRPAGE."/movimento-entrada/list");
         }
         
     }

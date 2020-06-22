@@ -21,7 +21,7 @@ class ControllerMovEntrada extends ClsMovEntrada{
 	{  	
 		$breadcrumb = [
 			'Início' => '',
-			'Movimento de Entrada' => 'movimento_entrada/list',
+			'Movimento de Entrada' => 'movimento-entrada/list',
 			'Listagem' => 'false'
 		];
 
@@ -45,7 +45,7 @@ class ControllerMovEntrada extends ClsMovEntrada{
 	{  
 		$breadcrumb = [
 			'Início' => '',
-			'Movimento de Entrada' => 'movimento_entrada/',
+			'Movimento de Entrada' => 'movimento-entrada/list',
 			'Novo' => 'false'
 		];
 
@@ -69,7 +69,7 @@ class ControllerMovEntrada extends ClsMovEntrada{
 	{  	
 		$breadcrumb = [
 			'Início' => '',
-			'Movimento de Entrada' => 'motorista/',
+			'Movimento de Entrada' => 'movimento-entrada/list',
 			'Editar' => 'false'
 		];
 

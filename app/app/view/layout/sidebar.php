@@ -7,7 +7,7 @@
 		
 		<?php if (in_array(1, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2 && $_SESSION['flag_tanque'] == 1) {?>
 			<li>
-				<a href="<?=DIRPAGE?>/movimento_entrada/list"><i data-feather="arrow-up-circle"></i> Movimento de Entrada </a>
+				<a href="<?=DIRPAGE?>/movimento-entrada/list"><i data-feather="arrow-up-circle"></i> Movimento de Entrada </a>
 			</li>
 		<?php } ?>
 		

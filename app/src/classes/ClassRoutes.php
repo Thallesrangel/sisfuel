@@ -19,7 +19,7 @@ class ClassRoutes
         ""                        =>  "ControllerHome",
         "home"                    =>  "ControllerHome",
         "categoriaveiculo"        =>  "ControllerCatModelo",
-        "movimento_entrada"       =>  "ControllerMovEntrada",
+        "movimento-entrada"       =>  "ControllerMovEntrada",
         "movimento_saida"         =>  "ControllerMovSaida",
         "movimento-transito"      => "ControllerMovTransito",
         "seguro"                  =>  "ControllerSeguro", 

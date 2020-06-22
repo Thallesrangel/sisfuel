@@ -15,7 +15,7 @@ abstract class AmanutencaoVeiculo
         if (isset($_POST)) {
             $fornecedor = trim($_POST['fornecedor']);
             $titulo = trim($_POST['titulo']);
-            $data_vencimento = $_POST['data_vencimento'];
+            $data_vencimento = TratarDados::tratarData($_POST['data_vencimento']);
             $veiculo = trim($_POST['veiculo']);
             $valor = TratarDados::tratarValorLimite($_POST['valor']);
             $situacao_pagamento = trim($_POST['situacao_pagamento']);

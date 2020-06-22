@@ -19,7 +19,6 @@ abstract class AcartaoVirtual
           # Registro excluído com sucesso
           $_SESSION["mensagem"] = "registro_excluido";
           header("Location: ".$_SERVER['HTTP_REFERER']."");
-    
         } else {
           # Houve um erro ao tentar deletar o registro
           $_SESSION["mensagem"] = "erro_deletar";

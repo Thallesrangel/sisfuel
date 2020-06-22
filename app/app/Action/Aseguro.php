@@ -2,11 +2,12 @@
 
 namespace App\Action;
 
+use Src\traits\TratarDados;
 use App\controller\ControllerSeguro;
-
 
 abstract class Aseguro
 {
+    use TratarDados;
 
     public function excluirAction($id)
     {      
@@ -38,8 +39,8 @@ abstract class Aseguro
            
             $apolice = trim($_POST['apolice']);  
             $veiculo = trim($_POST['veiculo']);
-            $data_vencimento = trim($_POST['data_vencimento']);
-            $valor = trim($_POST['valor']);
+            $data_vencimento = TratarDados::tratarData($_POST['data_vencimento']);
+            $valor = TratarDados::tratarValorLimite($_POST['valor']);
             $situacao = trim($_POST['situacao']);         
             $fornecedor = trim($_POST['fornecedor']);
         } else {

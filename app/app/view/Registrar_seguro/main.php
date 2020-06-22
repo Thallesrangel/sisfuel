@@ -13,7 +13,7 @@ $veiculos = $veiculos->listar($veiculos);
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar Seguro</h4>
+  <h4 class="h4-registrar">Registrar Seguro</h4>
   
   <form action="<?=DIRPAGE.'/seguro/registrar/'?>" method="POST">
     <div class="row">
@@ -33,24 +33,24 @@ $veiculos = $veiculos->listar($veiculos);
           </div>  
         </div>
       
-      <div class="col-2">
+      <div class="col-4">
         <div class="form-group">
           <span>Apólice</span> 
-          <input  maxlength="50" type="number" name="apolice" class="form-control form-control-sm">
+          <input maxlength="40" type="text" name="apolice" class="form-control form-control-sm">
         </div>
       </div>
 
       <div class="col-2">
         <div class="form-group">
-          <span>Data vencimento</span>
-          <input type="date" value="<?php echo date("Y-m-d");?>" name="data_vencimento" class="form-control form-control-sm">
+          <label for="data">Data vencimento *</label>
+          <input id="data" type="text" date-input="d/m/y" name="data_vencimento" class="form-control form-control-sm">
         </div>
       </div>
 
       <div class="col-3">
         <div class="form-group">
-            <span>Veículo</span> 
-              <select class="form-control form-control-sm js-select" name="veiculo">
+          <label for="veiculo">Veículo</label> 
+          <select id="veiculo" class="form-control form-control-sm js-select" name="veiculo">
               <?php
                 foreach($veiculos as $veiculo){
                   $idVeiculo =  $veiculo['id_veiculo'];
@@ -58,8 +58,8 @@ $veiculos = $veiculos->listar($veiculos);
               ?>
               <option value="<?= $idVeiculo ?>"> <?php echo $nomeVeiculo?> </option>
               <?php }?>
-            </select>
-          </div>  
+          </select>
+        </div>  
       </div>
     </div>
 

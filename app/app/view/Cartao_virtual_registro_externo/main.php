@@ -22,7 +22,7 @@ $categoria_combustiveis = $categoria_combustiveis->listar($categoria_combustivei
 <div class="starter-template height-100">
   <h4>Registrar Movimento Cartão Virtual</h4>
   
-  <form action="<?=DIRPAGE.'/movimento_entrada/registrar'?>" method="POST">
+  <form action="<?=DIRPAGE.'/movimento-entrada/registrar'?>" method="POST">
     <div class="row">
     
       <div class="col-3">

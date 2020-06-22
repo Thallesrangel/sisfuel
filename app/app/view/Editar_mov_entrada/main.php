@@ -39,7 +39,7 @@ if (count($result) > 0) {
     <h4>Editar Entrada de Combustível</h4>
     <h1>FALTA VALIDAR NA ACTION IGUAL O CADASTRAR </h1>
 
-    <form action="<?=DIRPAGE.'/movimento_entrada/alterar/'.$id_entrada?>" method="POST">
+    <form action="<?=DIRPAGE.'/movimento-entrada/alterar/'.$id_entrada?>" method="POST">
         <div class="row">
         
         <div class="col-3">

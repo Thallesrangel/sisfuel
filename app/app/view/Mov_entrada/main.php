@@ -16,7 +16,7 @@ unset($_SESSION["mensagem"]);
 
 
     <p style="float:left">
-    <a href="<?=DIRPAGE?>/movimento_entrada/novo" class="btn btn-default btn-sm btnCadastrar" alt="Incluir Cadastro" title="Incluir Cadastro">
+    <a href="<?=DIRPAGE?>/movimento-entrada/novo" class="btn btn-default btn-sm btnCadastrar" alt="Incluir Cadastro" title="Incluir Cadastro">
         Novo</a>
     </p>
     
@@ -48,11 +48,11 @@ unset($_SESSION["mensagem"]);
                     <td class="valor-unitario"><?=$value['valor_unitario']?></td>
                     <td class="valor-limite"><?=$value['valor_total']?></td>
                     <td>
-                      <a href="<?=DIRPAGE?>/movimento_entrada/editar/<?=$value['id_entrada']?>">
+                      <a href="<?=DIRPAGE?>/movimento-entrada/editar/<?=$value['id_entrada']?>">
                       <i data-feather="edit" class="iconEditar"></i>
                       </a>
                         
-                      <a href="<?=DIRPAGE?>/movimento_entrada/excluir/<?=$value['id_entrada']?>">
+                      <a href="<?=DIRPAGE?>/movimento-entrada/excluir/<?=$value['id_entrada']?>">
                       <i data-feather="trash" class="iconExcluir"></i>
                       </a>
                     </td>
@@ -72,6 +72,6 @@ unset($_SESSION["mensagem"]);
 $('tr').dblclick(function(){
   var tr = $(this).closest("tr");
   var id = tr.find("td:eq(0)").text();
-  window.location = "<?=DIRPAGE?>/movimento_entrada/editar/"+id;
+  window.location = "<?=DIRPAGE?>/movimento-entrada/editar/"+id;
 });
 </script>

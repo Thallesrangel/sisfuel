@@ -43,7 +43,7 @@ $veiculos = $veiculos->listar($veiculos);
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
           <span>Data vencimento</span>
-          <input type="date" value="<?php echo date("Y-m-d");?>" name="data_vencimento" class="form-control form-control-sm">
+          <input type="text" date-input="d/m/y" name="data_vencimento" class="form-control form-control-sm">
         </div>
       </div>
     </div>

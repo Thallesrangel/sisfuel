@@ -82,8 +82,8 @@ use App\controller\ControllerMotorista;
 
       <div class="col-2">
         <div class="form-group">
-          <span>Data</span>
-          <input type="date" value="<?php echo date("Y-m-d");?>" name="data" class="form-control form-control-sm">
+          <label for="data">Data</label>
+          <input id="data" date-input="d/m/y" type="text" name="data" class="form-control form-control-sm">
         </div>
       </div>
 

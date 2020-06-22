@@ -66,6 +66,6 @@ unset($_SESSION["mensagem"]);
 $('tr').dblclick(function(){
   var tr = $(this).closest("tr");
   var id = tr.find("td:eq(0)").text();
-  window.location = "<?=DIRPAGE?>/movimento_entrada/editar/"+id;
+  window.location = "<?=DIRPAGE?>/movimento-entrada/editar/"+id;
 });
 </script>
