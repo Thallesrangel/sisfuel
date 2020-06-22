@@ -34,10 +34,10 @@ Use App\model\Conexao;
           </div>  
         </div>
 
-        <div class="col-sm-12 col-md-3 col-lg-3">
+        <div class="col-sm-12 col-md-2 col-lg-2">
             <div class="form-group">
             <label for="validade">Validade do cartão</label>
-            <input id="validade" type="date" value="<?= date("d/m/Y");?>" name="data_validade" class="form-control form-control-sm">
+            <input id="validade" date-input="d/m/y" type="text" name="data_validade" class="form-control form-control-sm">
             </div>
         </div>
     
@@ -67,8 +67,10 @@ Use App\model\Conexao;
               </select>
             </div>
         </div>
-           
-        <div class="col-sm-12 col-md-3 col-lg-3">
+    </div>
+
+    <div class="row">
+          <div class="col-sm-12 col-md-3 col-lg-3">
             <div class="form-group">
             <label for="renovacao">Renovação automática do limite</label>
             
@@ -87,6 +89,7 @@ Use App\model\Conexao;
                 </select>
             </div>
         </div>
+                      
 
     </div>
 

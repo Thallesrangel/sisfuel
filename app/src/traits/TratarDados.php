@@ -44,5 +44,15 @@ trait TratarDados
             return date("Y-d-m h:i:s", strtotime($data_hora));
         }
     }
+
+        # tratar data
+        public function tratarData($data)
+        {   
+            if(empty($data)){
+                return date("Y-m-d");
+            } else {
+                return date("Y-d-m", strtotime($data));
+            }
+        }
     
 }

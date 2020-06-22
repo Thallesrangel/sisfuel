@@ -38,7 +38,7 @@ abstract class Aabastecimento
 
             $fornecedor = trim($_POST['fornecedor']);
             $quantidade = floatval(trim($_POST['quantidade']));
-            $dataAbastecimento = trim($_POST['data']);
+            $dataAbastecimento = TratarDados::tratarDataHora($_POST['data']);
             $veiculo = trim($_POST['veiculo']);
             $comprovante = trim($_POST['comprovante']);
             $motorista = trim($_POST['motorista']);
