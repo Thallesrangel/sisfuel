@@ -44,7 +44,6 @@ abstract class ClsFornecedor extends Conexao{
 	public function getRegistroPorPagina(){ return $this->registo_por_pagina; }
 	public function setRegistroPorPagina($registo_por_pagina) { $this->registo_por_pagina = $registo_por_pagina; }
 
-	
 }
 
 interface interfaceFornecedor{

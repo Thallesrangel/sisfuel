@@ -14,7 +14,7 @@ unset($_SESSION["mensagem"]);
 
       <h4>Fornecedor</h4>
       <p align="left">
-      <a data-toggle="modal" data-target="#exampleModal" class="btn btn-default btn-sm btnCadastrar" alt="Incluir Cadastro" title="Incluir Cadastro">
+      <a data-toggle="modal" data-target="#modal" class="btn btn-default btn-sm btnCadastrar" alt="Incluir Cadastro" title="Incluir Cadastro">
          Novo</a>
       </p>
 
@@ -57,7 +57,7 @@ unset($_SESSION["mensagem"]);
       <div id='response'></div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -78,8 +78,8 @@ unset($_SESSION["mensagem"]);
                 </div>
 
                 <div class="form-group">
-                    <label for="tipoCombustivel">Área de Atuação</label><br>
-                    <select class="form-control js-select" id="tipoCombustivel" name="area_atuacao">
+                    <label for="area_atuacao">Área de Atuação</label><br>
+                    <select class="form-control js-select" id="area_atuacao" name="area_atuacao">
                     <?php
                         #SQL DIRETO
                         $pdo = Conexao::getConn();
@@ -125,21 +125,12 @@ $('#submit').mouseout(function() {
     data: dataString,
     dataType : 'json',
     cache: false,
-    success: function (data) {
-      alert(data);
-    }
   });
+  $('#modal').modal('hide');
 });
 
-</script>
 
-<script type="text/javascript">
-	$("#cnpj").inputmask({
-  mask: ['999.999.999-99', '99.999.999/9999-99'],
-  keepStatic: true
-});
 </script>
-
 
 <!-- Script Usado para editar com dois clicks na linha-->
 <script>

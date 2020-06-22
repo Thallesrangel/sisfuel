@@ -21,7 +21,7 @@ abstract class Afornecedor{
 
     public function novoAction()
     {
-        if (isset($_POST['razaosocial'])) {
+        if (isset($_POST)) {
             $razaoSocial = trim($_POST['razaosocial']);
             $remover = array(".","/","-","*","");
             $cnpj = (int) str_replace($remover, "", $_POST['cnpj']);
