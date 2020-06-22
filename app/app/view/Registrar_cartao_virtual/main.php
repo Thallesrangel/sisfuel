@@ -20,7 +20,7 @@ Use App\model\Conexao;
 
       <div class="col-sm-12 col-md-3 col-lg-3">
         <div class="form-group">
-          <span>Motorista</span><br>
+          <label>Motorista</label>
             <select class="form-control form-control-sm js-select" name="motorista">
             <?php
               foreach($motoristas as $motorista){
@@ -36,23 +36,23 @@ Use App\model\Conexao;
 
         <div class="col-sm-12 col-md-3 col-lg-3">
             <div class="form-group">
-            <span>Validade do cartão</span>
-            <input id="datetime" type="date" value="<?= date("d/m/Y");?>" name="data_validade" class="form-control form-control-sm">
+            <label for="validade">Validade do cartão</label>
+            <input id="validade" type="date" value="<?= date("d/m/Y");?>" name="data_validade" class="form-control form-control-sm">
             </div>
         </div>
     
         <div class="col-sm-12 col-md-2 col-lg-2">
             <div class="form-group">
-            <span>Valor limite</span>
-            <input type="text" name="valor_limite" class="form-control form-control-sm valor-limite">
+            <label for="valor_limite">Valor limite</label>
+            <input id="valor_limite" type="text" name="valor_limite" class="form-control form-control-sm valor-limite">
             </div>
         </div>
         
         <div class="col-sm-12 col-md-2 col-lg-2">
             <div class="form-group">
-            <span>Situação</span><br>
+            <label for="situacao">Situação</label>
             
-                <select class="form-control form-control-sm js-select" name="situacao">
+                <select id="situacao" class="form-control form-control-sm js-select" name="situacao">
                 <?php
                 $pdo = Conexao::getConn();
                 $sql = "SELECT * FROM tbcartao_virtual_situacao";
@@ -70,9 +70,9 @@ Use App\model\Conexao;
            
         <div class="col-sm-12 col-md-3 col-lg-3">
             <div class="form-group">
-            <span>Renovação automática do limite</span>
+            <label for="renovacao">Renovação automática do limite</label>
             
-                <select class="form-control form-control-sm js-select" name="renovacao_automatica">
+                <select id="renovacao" class="form-control form-control-sm js-select" name="renovacao_automatica">
                 <?php
                 $pdo = Conexao::getConn();
                 $sql = "SELECT * FROM tbcartao_virtual_renovacao";
