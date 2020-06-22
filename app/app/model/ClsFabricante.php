@@ -12,10 +12,6 @@ abstract class ClsFabricante extends Conexao{
 	private $strCampo;
 	private $strValor;
 
-	// Paginacao
-	private $pagina_inicial;
-	private $registo_por_pagina;
-
 	public $tabela = "tbveiculo_fabricante";
 	public $keyId = "id_fabricante ";
 	

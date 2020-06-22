@@ -42,29 +42,29 @@ Use App\model\Conexao;
         </div>
     
         <div class="col-sm-12 col-md-2 col-lg-2">
-            <div class="form-group">
+          <div class="form-group">
             <label for="valor_limite">Valor limite</label>
             <input id="valor_limite" type="text" name="valor_limite" class="form-control form-control-sm valor-limite">
-            </div>
+          </div>
         </div>
         
         <div class="col-sm-12 col-md-2 col-lg-2">
             <div class="form-group">
             <label for="situacao">Situação</label>
             
-                <select id="situacao" class="form-control form-control-sm js-select" name="situacao">
-                <?php
-                $pdo = Conexao::getConn();
-                $sql = "SELECT * FROM tbcartao_virtual_situacao";
-                $resultado = $pdo->query($sql);
+              <select id="situacao" class="form-control form-control-sm js-select" name="situacao">
+              <?php
+              $pdo = Conexao::getConn();
+              $sql = "SELECT * FROM tbcartao_virtual_situacao";
+              $resultado = $pdo->query($sql);
 
-                    foreach($resultado as $value){
-                        $idSituacao =  $value['id_cartao_situacao'];
-                        $situacao =  $value['cartao_situacao'];
-                ?>
-                <option value="<?= $idSituacao ?>"> <?php echo (ucwords($situacao))?> </option>
-                <?php }?>
-                </select>
+                  foreach($resultado as $value){
+                      $idSituacao =  $value['id_cartao_situacao'];
+                      $situacao =  $value['cartao_situacao'];
+              ?>
+              <option value="<?= $idSituacao ?>"> <?php echo (ucwords($situacao))?> </option>
+              <?php }?>
+              </select>
             </div>
         </div>
            
