@@ -12,7 +12,7 @@ Use App\model\Conexao;
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar IPVA</h4>
+  <h4 class="h4-registrar">Registrar IPVA</h4>
   
   <form id="form" action="<?=DIRPAGE.'/ipva/registrar'?>" method="POST">
   

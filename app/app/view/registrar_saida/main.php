@@ -19,7 +19,7 @@ use App\controller\ControllerVeiculo;
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar saída de combustível</h4>
+  <h4 class="h4-registrar">Registrar saída de combustível</h4>
   
   <form action="<?=DIRPAGE.'/movimento_saida/registrar'?>" method="POST">
     <div class="row">

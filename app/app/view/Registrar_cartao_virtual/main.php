@@ -12,7 +12,7 @@ Use App\model\Conexao;
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar Cartão Virtual</h4>
+  <h4 class="h4-registrar">Registrar Cartão Virtual</h4>
   
   <form action="<?=DIRPAGE.'/cartao-virtual/registrar'?>" method="POST">
   

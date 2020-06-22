@@ -14,7 +14,7 @@ $tanques = $tanques->listar($tanques);
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar entrada de combustível</h4>
+  <h4 class="h4-registrar">Registrar entrada de combustível</h4>
   
   <form action="<?=DIRPAGE.'/movimento_entrada/registrar'?>" method="POST">
     <div class="row">

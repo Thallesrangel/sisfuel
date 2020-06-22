@@ -27,7 +27,7 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar Abastecimento</h4>
+  <h4 class="h4-registrar">Registrar Abastecimento</h4>
   
   <form action="<?=DIRPAGE.'/abastecimento/registrar/'?>" method="POST">
     <div class="row">

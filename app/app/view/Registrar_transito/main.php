@@ -27,7 +27,7 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar Abastecimento em Trânsito</h4>
+  <h4 class="h4-registrar">Registrar Abastecimento em Trânsito</h4>
   
   <form action="<?=DIRPAGE.'/movimento-transito/registrar/'?>" method="POST">
     <div class="row">
@@ -62,15 +62,7 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
             </select>
           </div>  
         </div>
-      
-
-      <div class="col-sm-12 col-md-2">
-        <div class="form-group">
-          <label for="data">Data *</label>
-          <input id="data" date-input="d/m/y h:i" type="text" name="data" class="form-control form-control-sm">
-        </div>
-      </div>
-
+    
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
             <label for="veiculo">Veículo *</label>
@@ -94,6 +86,14 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
           <div class="form-group">
             <label for="quantidade">Quantidade *</label>
             <input id="quantidade"  maxlength="20" type="text" name="quantidade" class="form-control form-control-sm quantidade">
+          </div>
+        </div>
+        
+
+        <div class="col-sm-12 col-md-2">
+          <div class="form-group">
+            <label for="data">Data *</label>
+            <input id="data" date-input="d/m/y h:i" type="text" name="data" class="form-control form-control-sm">
           </div>
         </div>
 

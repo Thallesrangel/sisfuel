@@ -258,3 +258,12 @@ table.dataTable thead th,
 table.dataTable thead td {
  border-bottom:1px solid #f3f4fa !important;
 }
+
+
+
+/*Título h4 usado em formulários de registros*/
+.h4-registrar{
+	padding: 2px;
+	border-bottom: 1px solid #ecf0f1;
+	color:#2d3436;
+}

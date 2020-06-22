@@ -1,7 +1,7 @@
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Solicitar Suporte Técnico</h4>
+  <h4 class="h4-registrar">Solicitar Suporte Técnico</h4>
   <form action="<?=DIRPAGE.'/suporte/registrar/'?>" method="POST">
   
     <div class="form-group">

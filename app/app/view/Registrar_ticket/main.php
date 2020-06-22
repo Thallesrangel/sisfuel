@@ -32,7 +32,7 @@ use App\controller\ControllerMotorista;
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar Ticket</h4>
+  <h4 class="h4-registrar">Registrar Ticket</h4>
   
   <form action="<?=DIRPAGE.'/ticket/registrar/'?>" method="POST">
     <div class="row">

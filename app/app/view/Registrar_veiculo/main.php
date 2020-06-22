@@ -5,7 +5,7 @@ use App\model\Conexao;
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar Veículo</h4>
+  <h4 class="h4-registrar">Registrar Veículo</h4>
   
     <form action="<?=DIRPAGE.'/veiculo/registrar/'?>" method="POST">
     

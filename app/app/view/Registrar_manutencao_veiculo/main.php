@@ -13,7 +13,7 @@ $veiculos = $veiculos->listar($veiculos);
 
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Registrar Manutenção Veículo</h4>
+  <h4 class="h4-registrar">Registrar Manutenção Veículo</h4>
   
   <form action="<?=DIRPAGE.'/manutencao/registrar/'?>" method="POST">
     <div class="row">
