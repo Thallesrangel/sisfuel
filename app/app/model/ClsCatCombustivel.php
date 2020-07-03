@@ -52,12 +52,10 @@ interface itfCatCombustivel{
 class DaoCatCombustivel implements itfCatCombustivel{
 
 	public function cadastrar(ClsCatCombustivel $objClass){
-		
-		// Cria o objeto PDO
+	
 		$pdo = Conexao::getConn();
 		
-		$sql = " INSERT INTO ".$objClass->tabela." (categoria_combustivel
-        ) values (:categoria_combustivel);";
+		$sql = " INSERT INTO ".$objClass->tabela." (categoria_combustivel) values (:categoria_combustivel);";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(":categoria_combustivel", $objClass->getNome());
