@@ -266,3 +266,16 @@ table.dataTable thead td {
 	border-bottom: 1px solid #ecf0f1;
 	color:#2d3436;
 }
+
+
+
+.boxRel{
+	border: 1px solid #95a5a6;
+	padding: 20px 0px;
+	margin-left:4px;
+	border-radius: 4px;
+}
+.boxRel:hover{
+	background-color: #1abc9c;	
+	color: #FFF;
+}

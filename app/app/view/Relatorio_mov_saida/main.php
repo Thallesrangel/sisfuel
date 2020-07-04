@@ -16,7 +16,7 @@
 ?>
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Filtros Relatório Movimento de Saída</h4>
+  <h4>Filtros | Relatório Movimento de Saída</h4>
   
 <form action="<?=DIRPAGE.'/relatorio_movimento_saida/render'?>" method="POST">
     <div class="row">
@@ -84,14 +84,15 @@
       </div>
     </div>
 
-    <input class="btn btn-success" type="submit" value="Filtrar">
+    <input class="btn btn-success" type="submit" value="Processar">
 </form>
 </div>
 
 
 <script>
-  $('select[multiple]').multiselect('#selectVeiculo')
-  $('select[multiple]').multiselect('#selectTanque')
-  $('select[multiple]').multiselect('#selectMotorista')
-  
+  $('select[multiple]').multiselect()
+
+  $('select[multiple]').each(function () {
+    $('.multiselect-checkbox').prop('checked', true);
+  });
 </script>

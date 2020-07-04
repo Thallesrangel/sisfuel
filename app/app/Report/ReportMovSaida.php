@@ -9,9 +9,6 @@ class ReportMovSaida extends FPDF
 {       
         function header()
         {   
-            $veiculos = implode (", ", $_POST['veiculo']);
-            var_dump($veiculos);
-            exit;
             $this->SetTitle("Sisvel - Movimento de saida de Combustível");
             $this->Image(DIRIMG."/logo.png",10,6);
             $this->SetFont('Arial','',12);
@@ -47,6 +44,12 @@ class ReportMovSaida extends FPDF
         {
     
             $this->SetFont('Arial', '', 7);
+
+            /*
+            $veiculos = implode (", ", $_POST['veiculo']);
+            $motoristas = implode(", ", $_POST['motorista']);
+            $tanques = implode(", ", $_POST['tanque']);
+            */
 
             $saida = new ControllerMovSaida();
             $saida = $saida->listarTodos($saida);
