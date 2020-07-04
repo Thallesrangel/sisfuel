@@ -23,7 +23,7 @@
 
       <div class="col-2">
         <div class="form-group">
-            <span>Veículos</span> 
+            <span>Veículos *</span> 
             <select id='selectVeiculo' class="form-control form-control-sm" name="veiculo[]" multiple required>
             <?php
                 foreach($veiculos as $veiculo){
@@ -38,7 +38,7 @@
 
       <div class="col-2 ml-5">
         <div class="form-group">
-            <span>Tanques</span> 
+            <span>Tanques *</span> 
             <select id='selectTanque' class="form-control form-control-sm" name="tanque[]" multiple required>
             <?php
                 foreach($tanques as $value){
@@ -54,7 +54,7 @@
 
       <div class="col-2 ml-5">
         <div class="form-group">
-            <span>Motoristas</span> 
+            <span>Motoristas *</span> 
             <select id='selectMotorista' class="form-control form-control-sm" name="motorista[]" multiple required>
             <?php
                 foreach($motoristas as $value){
@@ -71,14 +71,14 @@
     <div class="row">
       <div class="col-2">
         <div class="form-group">
-          <span>Data Inicial</span> 
+          <span>Data Inicial *</span> 
           <input type="date" name="data_inicial" value="<?=date("Y-m-d", strtotime( date( "Y-m-d", strtotime( date("Y-m-d") ) ) . "-1 month" ) )?>" class="form-control form-control-sm" required>
           </div>  
         </div>
       
       <div class="col-2">
         <div class="form-group">
-          <span>Data Final</span> 
+          <span>Data Final *</span> 
           <input type="date" name="data_final" value="<?=date("Y-m-d");?>" class="form-control form-control-sm" required>
         </div>
       </div>
@@ -95,4 +95,6 @@
   $('select[multiple]').each(function () {
     $('.multiselect-checkbox').prop('checked', true);
   });
+
+
 </script>
