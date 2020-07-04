@@ -15,7 +15,7 @@
     <script src="<?=DIRJS?>build.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>  
     <link rel="shortcut icon" href="<?=DIRIMG.'icon.png'?>">
-  
+    
     <title>Sisfuel - App</title>
 
   </head>

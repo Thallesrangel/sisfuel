@@ -29,6 +29,8 @@
   },
   "dependencies": {
     "flatpickr": "^4.6.3",
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "multi-select": "^0.3.4",
+    "sweetalert2": "^9.15.2"
   }
 }

@@ -23,11 +23,6 @@ $(document).ready( function () {
     } );
 });
 
-
-$(document).submit(function(){
-
-});
-
 $(document).ready(function(){
     $('.telefone').mask('(00) 0000-0000');
     $('.data').mask("00/00/0000", {placeholder: "__/__/____"});
@@ -51,10 +46,6 @@ let pagina = {
 window.onload = function() {
     console.log(pagina.tempo)
 }
-
-
-
-
     $(document).ready(function($){
   
       let traducao = {

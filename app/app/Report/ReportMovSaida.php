@@ -6,9 +6,12 @@ use App\controller\ControllerMovSaida;
 use App\fpdf\fpdf;
 
 class ReportMovSaida extends FPDF
-{
+{       
         function header()
-        {
+        {   
+            $veiculos = implode (", ", $_POST['veiculo']);
+            var_dump($veiculos);
+            exit;
             $this->SetTitle("Sisvel - Movimento de saida de Combustível");
             $this->Image(DIRIMG."/logo.png",10,6);
             $this->SetFont('Arial','',12);
@@ -69,3 +72,4 @@ class ReportMovSaida extends FPDF
     $pdf->headerTable();
     $pdf->viewTable();
     $pdf->Output();
+

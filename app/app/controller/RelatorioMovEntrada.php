@@ -19,6 +19,7 @@ class RelatorioMovEntrada
     {
         new ReportMovEntrada();
     }
+    
     public function form(){
         $breadcrumb = [
 			'Início' => '',

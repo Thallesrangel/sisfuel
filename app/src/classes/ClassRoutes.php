@@ -27,6 +27,7 @@ class ClassRoutes
         "fabricante"              =>  "ControllerFabricante",
         "categoria_combustivel"   =>  "ControllerCatCombustivel",
         "relatorios"              =>  "ControllerRelatorio",
+        "relatorios-abastecimentos" => "ControllerRelatorioAbastecimentos",
         "abastecimento"           =>  "ControllerAbastecimento",
         "suporte"                 =>  "ControllerSuporte",
         "usuario"                 =>  "ControllerUsuario",

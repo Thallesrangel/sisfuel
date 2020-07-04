@@ -1,5 +1,5 @@
 <div class="wrapper">
-   	<nav id="sidebar">
+   	<nav id="sidebar" style="overflow-y:auto;">
 	    <div class="sidebar-header d-flex justify-content-center">
 			<a href="<?=DIRPAGE?>"><img src="<?=DIRIMG . 'logo.png'?>"></a> 
 		</div>		
@@ -25,7 +25,7 @@
 
 		<?php if (in_array(4, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2 && $_SESSION['flag_tanque'] == 1) {?>
 			<li>
-				<a href="<?=DIRPAGE?>/metricas/list"><i data-feather="compass"></i> Relatório Abastecimentos</a>
+				<a href="<?=DIRPAGE?>/relatorios-abastecimentos/list"><i data-feather="pie-chart"></i> Relatório Abastecimentos</a>
 			</li>
 		<?php } ?>
 		
