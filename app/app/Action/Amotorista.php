@@ -1,11 +1,14 @@
 <?php
 namespace App\Action;
 
+use Src\traits\TratarDados;
 use App\controller\ControllerMotorista;
 use App\controller\ControllerUsuario;
 
 abstract class Amotorista
 {        
+    use TratarDados;
+
     public function excluirAction($id){
     
         $init = new ControllerMotorista();
@@ -34,9 +37,9 @@ abstract class Amotorista
         if (isset($_POST)) {
             $nome = trim($_POST['nome']);
             $cnh = trim($_POST['cnh']);
-            $data_vencimento_cnh = trim($_POST['vencimento_cnh']);
+            $data_vencimento_cnh = TratarDados::tratarData($_POST['vencimento_cnh']);
             $cpf = trim($_POST['cpf']);
-            $data_nascimento = trim($_POST['data_nascimento']);
+            $data_nascimento = TratarDados::tratarData($_POST['data_nascimento']);
             $email = trim($_POST['email']);
             $senha = md5($_POST['senha']);
           } else {

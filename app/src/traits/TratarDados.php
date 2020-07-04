@@ -38,21 +38,18 @@ trait TratarDados
     # tratar data hora sem segundos
     public function tratarDataHora($data_hora)
     {   
-        if(empty($data_hora)){
-            return date("Y-m-d h:i:s");
-        } else {
-            return date("Y-d-m h:i:s", strtotime($data_hora));
-        }
+        return preg_replace('#(\d{2})/(\d{2})/(\d{4})\s(.*)#', '$3-$2-$1 $4', $data_hora);
     }
 
-        # tratar data
-        public function tratarData($data)
-        {   
-            if(empty($data)){
-                return date("Y-m-d");
-            } else {
-                return date("Y-d-m", strtotime($data));
-            }
+    # tratar data
+    public function tratarData($data)
+    {   
+        if(empty($data)){
+            return date("Y-m-d");
+        } else {
+            return date('Y-m-d', strtotime(str_replace('-', '/', $data)));
+           
         }
+    }
     
 }

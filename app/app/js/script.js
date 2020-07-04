@@ -65,9 +65,10 @@ window.onload = function() {
         locale:traducao
       });
   
-      $('[date-input="d/m/y h:i"]').flatpickr({
+      $('[date-input="d/m/y h:i:s"]').flatpickr({
         enableTime: true,
-        dateFormat: "d/m/Y H:i",
+        dateFormat: "d/m/Y H:i:S",
+        defaultDate: '',
         enableSeconds: false,
         time_24hr: true,
         locale:traducao

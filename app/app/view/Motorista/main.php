@@ -82,7 +82,7 @@ unset($_SESSION["mensagem"]);
 
                   <div class="form-group">
                     <span> Vencimento CNH</span>
-                      <input type="date" name="vencimento_cnh" class="form-control quantidade">
+                      <input type="text" date-input="d/m/y" name="vencimento_cnh" class="form-control">
                   </div>
 
                   <div class="form-group">
@@ -91,7 +91,7 @@ unset($_SESSION["mensagem"]);
 
                   <div class="form-group">
                     <span> Data de Nascimento</span>
-                      <input type="date" name="data_nascimento" class="form-control data">
+                      <input type="text"  date-input="d/m/y" name="data_nascimento" class="form-control">
                   </div>
 
                   <div class="form-group">

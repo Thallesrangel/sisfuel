@@ -14,7 +14,11 @@ abstract class ClsMovSaida extends Conexao{
 	private $motorista;
 	private $veiculo;
 	private $quilometragem;
-
+	
+	// Relatório
+	private $data_inicial;
+	private $data_final;
+	
 	// Paginacao
 	private $pagina_inicial;
 	private $registo_por_pagina;
@@ -49,6 +53,15 @@ abstract class ClsMovSaida extends Conexao{
 
 	public function getQuilometragem(){ return $this->quilometragem; }	
 	public function setQuilometragem($quilometragem) { $this->quilometragem = $quilometragem; }
+
+
+	# Usado no formulário do relatório
+
+	public function getDataInicial(){ return $this->data_inicial; }	
+	public function setDataInicial($data_inicial){ $this->data_inicial = $data_inicial; }
+
+	public function getDataFinal(){ return $this->data_final; }	
+	public function setDataFinal($data_final){ $this->data_final = $data_final; }
 
 	// Paginacao 
 	public function getPaginaInicial(){ return $this->pagina_inicial; }
@@ -116,17 +129,28 @@ class DaoMovSaida implements interfaceMovSaida{
 		return $objResultado;
 	}
 
+	/*
+	*	Usado para gerar o relatório em "Relatórios Abastecimentos"
+	*/
 	public function listarTodos(ClsMovSaida $objClass){
 		
         $pdo = Conexao::getConn();
 		
 		$sql = "SELECT *, a.quantidade, a.data_hora FROM ".$objClass->tabela." a
-			INNER JOIN tbtanque b ON (b.id_tanque = a.id_tanque)
-			INNER JOIN tbmotorista c ON (c.id_motorista = a.id_motorista)
-			INNER JOIN tbveiculo d ON (d.id_veiculo = a.id_veiculo)  
-			WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0";
+				INNER JOIN tbtanque b ON (b.id_tanque = a.id_tanque)
+				INNER JOIN tbmotorista c ON (c.id_motorista = a.id_motorista)
+				INNER JOIN tbveiculo d ON (d.id_veiculo = a.id_veiculo)  
+			WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0
+			AND a.id_tanque IN (:tanques) AND a.id_motorista IN(:motoristas) AND a.id_veiculo IN (:veiculos) AND 
+			a.data_hora BETWEEN :data_inicial AND :data_final ORDER BY a.id_saida DESC";
 		
 		$stmt = $pdo->prepare($sql);
+		$stmt->bindValue(':tanques', $objClass->getTanque(), \PDO::PARAM_STR);
+		$stmt->bindValue(':motoristas', $objClass->getMotorista(), \PDO::PARAM_STR);
+		$stmt->bindValue(':veiculos', $objClass->getVeiculo(), \PDO::PARAM_STR);
+		$stmt->bindValue(':data_inicial', $objClass->getDataInicial(), \PDO::PARAM_STR);
+		$stmt->bindValue(':data_final', $objClass->getDataFinal(), \PDO::PARAM_STR);
+		
 		$stmt->execute();
 
 		$objResultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);

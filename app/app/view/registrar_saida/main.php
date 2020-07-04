@@ -65,7 +65,7 @@ use App\controller\ControllerVeiculo;
       <div class="col-3">
         <div class="form-group">
           <span>Data/Hora saída *</span>
-          <input type="text" date-input="d/m/y h:i" name="data" class="form-control form-control-sm">
+          <input type="text" date-input="d/m/y h:i:s" name="data" class="form-control form-control-sm">
         </div>
       </div>
 
