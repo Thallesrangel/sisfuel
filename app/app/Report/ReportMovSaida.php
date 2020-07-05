@@ -45,7 +45,6 @@ class ReportMovSaida extends FPDF
     
         function viewTable()
         {
-    
             $this->SetFont('Arial', '', 7);        
             $motoristas = implode(", ", $_POST['motorista']);
             $tanques = implode(", ", $_POST['tanque']);

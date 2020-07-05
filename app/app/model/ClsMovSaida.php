@@ -140,9 +140,9 @@ class DaoMovSaida implements interfaceMovSaida{
 				INNER JOIN tbtanque b ON (b.id_tanque = a.id_tanque)
 				INNER JOIN tbmotorista c ON (c.id_motorista = a.id_motorista)
 				INNER JOIN tbveiculo d ON (d.id_veiculo = a.id_veiculo)  
-			WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0
-			AND a.id_tanque IN (:tanques) AND a.id_motorista IN(:motoristas) AND a.id_veiculo IN (:veiculos) AND 
-			a.data_hora BETWEEN :data_inicial AND :data_final ORDER BY a.id_saida DESC";
+			WHERE a.id_cliente = ".$_SESSION['id_cliente']."
+			AND a.id_tanque IN(:tanques) AND a.id_motorista IN(:motoristas) AND a.id_veiculo IN(:veiculos) AND 
+			a.data_hora BETWEEN :data_inicial AND :data_final AND a.flag_excluido = 0 ORDER BY a.id_saida DESC";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':tanques', $objClass->getTanque(), \PDO::PARAM_STR);
