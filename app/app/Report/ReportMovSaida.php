@@ -45,17 +45,15 @@ class ReportMovSaida extends FPDF
     
         function viewTable()
         {
+    
             $this->SetFont('Arial', '', 7);        
-            $motoristas = implode(", ", $_POST['motorista']);
-            $tanques = implode(", ", $_POST['tanque']);
-            $veiculos = implode (", ", $_POST['veiculo']);
             $data_inicial = TratarDados::tratarDataHora($_POST['data_inicial']);
             $data_final = preg_replace('#(\d{2})/(\d{2})/(\d{4})\s(.*)#', '$3-$2-$1 $4', $_POST['data_final']);
-         
+            
             $saida = new ControllerMovSaida();
-            $saida->setMotorista($motoristas);
-            $saida->setTanque($tanques);
-            $saida->setVeiculo($veiculos);
+            $saida->setMotorista($_POST['motorista']);
+            $saida->setTanque($_POST['tanque']);
+            $saida->setVeiculo($_POST['veiculo']);
             $saida->setDataInicial($data_inicial);
             $saida->setDataFinal($data_final);
             $saida = $saida->listarTodos($saida);

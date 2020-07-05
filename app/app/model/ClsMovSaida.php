@@ -141,18 +141,16 @@ class DaoMovSaida implements interfaceMovSaida{
 				INNER JOIN tbmotorista c ON (c.id_motorista = a.id_motorista)
 				INNER JOIN tbveiculo d ON (d.id_veiculo = a.id_veiculo)  
 			WHERE a.id_cliente = ".$_SESSION['id_cliente']."
-			AND a.id_tanque IN(:tanques) AND a.id_motorista IN(:motoristas) AND a.id_veiculo IN(:veiculos) AND 
+			AND a.id_tanque IN(".implode(',', $objClass->getTanque() ).") 
+			AND a.id_motorista IN(".implode(',', $objClass->getMotorista()).")
+			AND a.id_veiculo IN(".implode(',', $objClass->getVeiculo()).") AND 
 			a.data_hora BETWEEN :data_inicial AND :data_final AND a.flag_excluido = 0 ORDER BY a.id_saida DESC";
 		
-		$stmt = $pdo->prepare($sql);
-		$stmt->bindValue(':tanques', $objClass->getTanque(), \PDO::PARAM_STR);
-		$stmt->bindValue(':motoristas', $objClass->getMotorista(), \PDO::PARAM_STR);
-		$stmt->bindValue(':veiculos', $objClass->getVeiculo(), \PDO::PARAM_STR);
+		$stmt = $pdo->prepare($sql);	
 		$stmt->bindValue(':data_inicial', $objClass->getDataInicial(), \PDO::PARAM_STR);
-		$stmt->bindValue(':data_final', $objClass->getDataFinal(), \PDO::PARAM_STR);
-		
+        $stmt->bindValue(':data_final', $objClass->getDataFinal(), \PDO::PARAM_STR);
 		$stmt->execute();
-
+		
 		$objResultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $objResultado;
