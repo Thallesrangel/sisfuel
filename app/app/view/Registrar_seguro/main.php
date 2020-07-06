@@ -54,7 +54,7 @@ $veiculos = $veiculos->listar($veiculos);
               <?php
                 foreach($veiculos as $veiculo){
                   $idVeiculo =  $veiculo['id_veiculo'];
-                  $nomeVeiculo =  $veiculo['nome_modelo'] . " - " . $veiculo['placa'];
+                  $nomeVeiculo = $veiculo['placa'];
               ?>
               <option value="<?= $idVeiculo ?>"> <?php echo $nomeVeiculo?> </option>
               <?php }?>

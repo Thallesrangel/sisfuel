@@ -121,7 +121,7 @@ use App\controller\ControllerMotorista;
                 $placa =  $placas['placa'];
               ?>
 
-              <option value="<?= $idPlaca ?>"> <?php echo $placa?> </option>
+              <option value="<?= $idPlaca ?>"> <?=$placa?> </option>
               <?php }?>
             </select>
         </div>  
