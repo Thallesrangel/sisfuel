@@ -46,7 +46,8 @@ class ReportMovEntrada extends FPDF
             $this->SetFont('Arial', '', 7);
 
             $entrada = new ControllerMovEntrada();
-            $entrada->setPlaca($_POST['veiculo']);
+            $saida->setFornecedor($_POST['fornecedor']);
+            $saida->setTanque($_POST['tanque']);
             $entrada->setDataInicial(date("Y-m-d H:i:s", strtotime($_POST['data_inicial'])));
             $entrada->setDataFinal(date("Y-m-d H:i:s", strtotime($_POST['data_final'])));
             $entrada = $entrada->listarTodos($entrada);

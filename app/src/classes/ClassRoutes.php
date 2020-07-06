@@ -59,6 +59,7 @@ class ClassRoutes
         "relatorio_tanque" => "RelatorioTanque",
         "relatorio_movimento_entrada" => "RelatorioMovEntrada",
         "relatorio_movimento_saida" => "RelatorioMovSaida",
+        "relatorio-movimento-transito" => "RelatorioMovTransito",
     );
     
         # Verifica se URL digitada (1º indice do array) tem dentro do array rota

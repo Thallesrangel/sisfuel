@@ -101,6 +101,13 @@ class ControllerMovTransito extends ClsMovTransito
 		return $objItf->listar($objClass);
 	}
 
+	# Usado nos relatórios para exibir todos as saidas de combustíveis
+	function listarTodos(ClsMovTransito $objClass)
+	{
+		$objItf = new DaoMovTransito();
+		return $objItf->listarTodos($objClass);
+	}
+
 	function deletar(ClsMovTransito $objClass){
 		$objItf = new DaoMovTransito();
 		return $objItf->deletar($objClass);

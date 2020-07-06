@@ -85,7 +85,7 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
         <div class="col-sm-12 col-md-2">
           <div class="form-group">
             <label for="quantidade">Quantidade *</label>
-            <input id="quantidade"  maxlength="20" type="text" name="quantidade" class="form-control form-control-sm quantidade">
+            <input id="quantidade"  maxlength="20" type="text" name="quantidade" class="form-control form-control-sm quantidade" required>
           </div>
         </div>
         
@@ -93,14 +93,14 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
         <div class="col-sm-12 col-md-2">
           <div class="form-group">
             <label for="data">Data *</label>
-            <input id="data" date-input="d/m/y h:i" type="text" name="data" class="form-control form-control-sm">
+            <input id="data" date-input="d/m/y h:i:s" type="text" name="data" class="form-control form-control-sm">
           </div>
         </div>
 
         <div class="col-sm-12 col-md-3">
             <div class="form-group">
             <label for="comprovante">Nº Comprovante *</label>
-            <input id="comprovante" type="number" name="comprovante" class="form-control form-control-sm">
+            <input id="comprovante" type="text" name="comprovante" class="form-control form-control-sm" required>
             </div>
         </div>
       
@@ -108,14 +108,14 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
           <label for="quilometragem" title="Digite aqui KM atual informado no hodômetro do veículo.">KM Atual *</label>
-          <input id="quilometragem" type="text" name="quilometragem" class="form-control form-control-sm quantidade">
+          <input id="quilometragem" type="text" name="quilometragem" class="form-control form-control-sm quantidade" required>
         </div>
       </div>
 
       <div class="col-sm-12 col-md-2">
         <div class="form-group">
           <label for="valor_unitario">Valor Un./ (L) *</label>
-          <input id="valor_unitario" name="valor_unitario" class="form-control form-control-sm valor-unitario">
+          <input id="valor_unitario" name="valor_unitario" class="form-control form-control-sm valor-unitario" required>
         </div>
       </div>
 

@@ -9,9 +9,9 @@
                     <li><a href="<?=DIRPAGE?>/relatorio_tanque/render">Tanque</a></li>
                     <li><a href="<?=DIRPAGE?>/relatorio_ticket_abastecimento/render">Ticket</a></li>
                     <li><a href="<?=DIRPAGE?>/relatorio_movimento_saida/form">Movimento Saída</a></li>
-                    <li><a href="<?=DIRPAGE?>/relatorio_movimento_entrada/form">Movimento Trânsito</a></li>
-                    <li><a href="<?=DIRPAGE?>/relatorio_movimento_entrada/form">Cartão Virtual</a></li>
-                    <li><a href="<?=DIRPAGE?>/relatorio_movimento_entrada/form">Abastecimento</a></li>
+                    <li><a href="<?=DIRPAGE?>/relatorio-movimento-transito/form">Movimento Trânsito</a></li>
+                    <li><a href="<?=DIRPAGE?>/relatorio_cartao-virtual/form">Cartão Virtual</a></li>
+                    <li><a href="<?=DIRPAGE?>/relatorio-abastecimento/form">Abastecimento</a></li>
                 </ul>
                 </div>
             </div>

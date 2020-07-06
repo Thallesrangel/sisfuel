@@ -20,8 +20,8 @@ abstract class ClsMovTransito extends Conexao{
 	private $quilometragem;
 
 	# Formulário Relatório
-	private $dataInicial;
-	private $dataFinal;
+	private $data_inicial;
+	private $data_final;
 
 	private $strCampo;
 	private $strValor;	
@@ -64,6 +64,14 @@ abstract class ClsMovTransito extends Conexao{
 
 	public function getValorTotal(){ return $this->valor_total; }	
 	public function setValorTotal($valor_total){ $this->valor_total = $valor_total; }
+
+	# Usado no formulário do relatório
+
+	public function getDataInicial(){ return $this->data_inicial; }	
+	public function setDataInicial($data_inicial){ $this->data_inicial = $data_inicial; }
+
+	public function getDataFinal(){ return $this->data_final; }	
+	public function setDataFinal($data_final){ $this->data_final = $data_final; }
 }
 
 interface interfaceMovTransito{
@@ -234,11 +242,17 @@ class DaoMovTransito implements interfaceMovTransito{
 	{
         $pdo = Conexao::getConn();
 		
-		$sql = "SELECT *, a.quantidade, a.data_entrada, b.*, c.*, d.* FROM ".$objClass->tabela." a
-			INNER JOIN tbtanque b ON (b.id_tanque = a.id_tanque)
-			INNER JOIN tbunidade_medida c ON (c.id_medida = b.id_medida) 
-			INNER JOIN tbfornecedor d ON (d.id_fornecedor = a.id_fornecedor) 
-		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0 AND a.data_entrada BETWEEN :data_inicial AND :data_final ORDER BY id_entrada DESC";
+		$sql = "SELECT *, a.quantidade, a.data_hora, b.*, c.*, d.*, e.* FROM ".$objClass->tabela." a
+			INNER JOIN tbfornecedor b ON (b.id_fornecedor = a.id_fornecedor)
+			INNER JOIN tbmotorista c ON (c.id_motorista = a.id_motorista)
+			INNER JOIN tbveiculo d ON (d.id_veiculo = a.id_veiculo)
+			INNER JOIN tbcategoria_combustivel e ON (e.id_combustivel = a.id_combustivel)
+			
+		WHERE a.id_cliente = ".$_SESSION['id_cliente']." 
+		AND a.id_fornecedor IN(".implode(',', $objClass->getFornecedor()).") 
+		AND a.id_motorista IN(".implode(',', $objClass->getMotorista()).")
+		AND a.id_veiculo IN(".implode(',', $objClass->getVeiculo()).")
+		AND a.flag_excluido = 0 AND a.data_hora BETWEEN :data_inicial AND :data_final ORDER BY a.id_transito DESC";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':data_inicial', $objClass->getDataInicial(), \PDO::PARAM_STR);
