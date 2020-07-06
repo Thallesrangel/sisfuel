@@ -2,14 +2,11 @@
 
 namespace App\Report;
 
-use Src\traits\TratarDados;
 use App\controller\ControllerIpva;
 use App\fpdf\fpdf;
 
 class ReportIpva extends FPDF
-{   
-    use TratarDados;
-    
+{  
     function header(){
         $this->SetTitle("Sisvel - Ipva");
         $this->Image(DIRIMG."/logo.png",10,6);

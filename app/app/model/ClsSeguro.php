@@ -14,7 +14,9 @@ abstract class ClsSeguro extends Conexao
 	private $valor;
 	private $id_situacao;
 	private $id_fornecedor;
-
+	private $data_inicial;
+	private $data_final;
+	
 	// Paginacao
 	private $pagina_inicial;
 	private $registo_por_pagina;
@@ -48,6 +50,14 @@ abstract class ClsSeguro extends Conexao
 	
 	public function getFornecedor(){ return $this->id_fornecedor; }	
 	public function setFornecedor($id_fornecedor){ $this->id_fornecedor = $id_fornecedor; }
+
+	# Usado no formulário do relatório
+
+	public function getDataInicial(){ return $this->data_inicial; }	
+	public function setDataInicial($data_inicial){ $this->data_inicial = $data_inicial; }
+
+	public function getDataFinal(){ return $this->data_final; }	
+	public function setDataFinal($data_final){ $this->data_final = $data_final; }
 
 	// Paginacao 
 	public function getPaginaInicial(){ return $this->pagina_inicial; }

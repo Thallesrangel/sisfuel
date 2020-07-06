@@ -36,9 +36,8 @@ abstract class Aipva
         if (isset($_POST)) {
             $id_veiculo = trim($_POST['veiculo']);
             $valor = TratarDados::tratarValorLimite($_POST['valor']);
-            $data_vencimento = date('Y-m-d',strtotime($_POST['data_vencimento']));
+            $data_vencimento = TratarDados::tratarData($_POST['data_vencimento']);
             $situacao = trim($_POST['situacao']);
-         
           } else {
             die("Faltam parâmetros POST");
         }

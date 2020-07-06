@@ -42,8 +42,15 @@ class ReportSeguro extends FPDF
         function viewTable()
         {
             $this->SetFont('Arial', '', 7);
+            $data_inicial = implode('-', array_reverse(explode('/', $_POST['data_inicial'])));
+            $data_final =  implode('-', array_reverse(explode('/', $_POST['data_final'])));  
 
             $seguro = new ControllerSeguro();
+            $ipva->setFornecedor($_POST['seguradora']);
+            $ipva->setSituacao($_POST['situacao']);
+            $ipva->setVeiculo($_POST['veiculo']);
+            $ipva->setDataInicial($data_inicial);
+            $ipva->setDataFinal($data_final);
             $seguro = $seguro->listarTodos($seguro);
     
             foreach ($seguro as $value) {

@@ -50,7 +50,7 @@ class ClassRoutes
         "relatorio_cartao_virtual" => "RelatorioCartaoVirtual",
         "relatorio-ipva" => "RelatorioIpva",
         "relatorio_ticket_abastecimento" => "RelatorioTicket",
-        "relatorio_seguro" => "RelatorioSeguro",
+        "relatorio-seguro" => "RelatorioSeguro",
         "relatorio_abastecimento" => "RelatorioAbastecimento",
         "relatorio_fornecedor" => "RelatorioFornecedor",
         "relatorio_motorista" => "RelatorioMotorista",

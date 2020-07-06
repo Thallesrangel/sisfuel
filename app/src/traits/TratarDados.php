@@ -47,8 +47,7 @@ trait TratarDados
         if(empty($data)){
             return date("Y-m-d");
         } else {
-            return date('Y-m-d', strtotime(str_replace('-', '/', $data)));
-           
+            return  implode('-', array_reverse(explode('/', $data)));   
         }
     }
 }

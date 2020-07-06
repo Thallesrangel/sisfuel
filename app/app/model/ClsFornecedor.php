@@ -186,13 +186,13 @@ class DaoFornecedor implements interfaceFornecedor{
 		return $objResultado;
 	}
 
-	
+	// Usado nos selects
 	public function listarSeguradoras(ClsFornecedor $objClass){
         $pdo = Conexao::getConn();
 		
 		$sql = "SELECT *, b.* FROM ".$objClass->tabela." a
 			INNER JOIN tbfornecedor_atuacao b ON (b.id_area_atuacao = a.id_area_atuacao)
-		WHERE id_cliente = ".$_SESSION['id_cliente']." AND b.id_area_atuacao = 2";
+		WHERE id_cliente = ".$_SESSION['id_cliente']." AND b.id_area_atuacao = 2 AND a.flag_excluido = 0";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();

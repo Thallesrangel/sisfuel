@@ -48,14 +48,14 @@
         <div class="col-sm-12 col-md-4">
           <h5>Seguro</h5>
           <ul>
-            <li><a target="_blank" href="<?=DIRPAGE?>/relatorio_seguro/render">Lista completa</a></li>
+            <li><a href="<?=DIRPAGE?>/relatorio-seguro/form">filtros</a></li>
           </ul>
         </div> 
 
         <div class="col-sm-12 col-md-4">
           <h5>IPVA</h5>
           <ul>
-            <li><a href="<?=DIRPAGE?>/relatorio-ipva/form">Lista completa</a></li>
+            <li><a href="<?=DIRPAGE?>/relatorio-ipva/form">filtros</a></li>
           </ul>
         </div> 
 
