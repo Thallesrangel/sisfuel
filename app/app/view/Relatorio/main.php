@@ -6,13 +6,6 @@
     <br>
       <div class="row">
         <div class="col-sm-12 col-md-4">
-          <h5>Entrada de combustível</h5>
-          <ul>
-            <li><a href="<?=DIRPAGE?>/relatorio_movimento_entrada/form">Consultar</a></li>
-          </ul>
-        </div>
-
-        <div class="col-sm-12 col-md-4">
           <h5>Usuários</h5>
           <ul>
             <li><a target="_blank" href=<?=DIRPAGE?>/relatorio_usuario/render>Lista completa</a></li>
@@ -62,7 +55,7 @@
         <div class="col-sm-12 col-md-4">
           <h5>IPVA</h5>
           <ul>
-            <li><a target="_blank" href="<?=DIRPAGE?>/relatorio_ipva/render">Lista completa</a></li>
+            <li><a href="<?=DIRPAGE?>/relatorio-ipva/form">Lista completa</a></li>
           </ul>
         </div> 
 

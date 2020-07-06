@@ -158,33 +158,6 @@
 </div>
 
 <br>
-  <hr>
-<br>
-
-<div class="container">
-  <form action="process/aLogin.php" method="POST" autocomplete="off">
-    
-    <h3 class="text-center">Validação de ticket de abastecimento</h3>
-    <div class="row d-flex justify-content-center">
-      
-      <div class="col-4 col-sm-6">
-        <div class="form-group">
-          <input class="form-control form-control-sm" type="text" name="ticketValidacao" placeholder="Digite seu código de validação" required/>
-        </div>
-      </div>	
-    </div>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-1">
-        <button type="submit" class="btn btn-primary btnExperimentar">Validar</button>
-      </div>	
-    </div>
-
-  </form>
-  
-</div>
-
-<br>
 
 <footer class="footer">
   <br>

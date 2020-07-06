@@ -48,7 +48,7 @@ class ClassRoutes
         # Controllers com prefixo - Relatorio
         "relatorio_manutencao_veiculo" => "RelatorioManutencaoVeiculo",
         "relatorio_cartao_virtual" => "RelatorioCartaoVirtual",
-        "relatorio_ipva" => "RelatorioIpva",
+        "relatorio-ipva" => "RelatorioIpva",
         "relatorio_ticket_abastecimento" => "RelatorioTicket",
         "relatorio_seguro" => "RelatorioSeguro",
         "relatorio_abastecimento" => "RelatorioAbastecimento",

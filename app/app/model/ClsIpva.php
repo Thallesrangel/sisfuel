@@ -12,6 +12,8 @@ abstract class ClsIpva extends Conexao{
 	private $dataVencimento;
 	private $valor;
 	private $idSituacao;
+	private $data_inicial;
+	private $data_final;
 
 	// Paginacao
 	private $pagina_inicial;
@@ -40,6 +42,15 @@ abstract class ClsIpva extends Conexao{
 
 	public function getSituacao(){ return $this->idSituacao; }
 	public function setSituacao($idSituacao){ $this->idSituacao = $idSituacao; }
+
+	# Usado no formulário do relatório
+
+	public function getDataInicial(){ return $this->data_inicial; }	
+	public function setDataInicial($data_inicial){ $this->data_inicial = $data_inicial; }
+
+	public function getDataFinal(){ return $this->data_final; }	
+	public function setDataFinal($data_final){ $this->data_final = $data_final; }
+	
 
 	// Paginacao 
 	public function getPaginaInicial(){ return $this->pagina_inicial; }
@@ -183,6 +194,8 @@ class DaoIpva implements interfaceIpva
 
 		return $objResultado;
 	}
+
+	# Usado em relatório 
 	public function listarTodos(ClsIpva $objClass)
 	{
         $pdo = Conexao::getConn();
@@ -190,9 +203,15 @@ class DaoIpva implements interfaceIpva
 		$sql = "SELECT *, b.*, c.* FROM ".$objClass->tabela." a
 			INNER JOIN tbpagamento_situacao b ON (b.id_situacao = a.id_situacao)
 			INNER JOIN tbveiculo c ON (c.id_veiculo = a.id_veiculo)
-		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0";
-		
+		WHERE a.id_cliente = ".$_SESSION['id_cliente']."
+		AND a.id_situacao IN(".implode(',', $objClass->getSituacao()).")
+		AND a.id_veiculo IN(".implode(',', $objClass->getIdVeiculo()).")
+		AND a.data_vencimento BETWEEN :data_inicial AND :data_final AND a.flag_excluido = 0 ORDER BY a.id_ipva DESC";
+
 		$stmt = $pdo->prepare($sql);
+		$stmt->bindValue(':data_inicial', $objClass->getDataInicial(), \PDO::PARAM_STR);
+        $stmt->bindValue(':data_final', $objClass->getDataFinal(), \PDO::PARAM_STR);
+	
 		$stmt->execute();
 
 		$objResultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
