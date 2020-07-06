@@ -36,7 +36,7 @@ $veiculos = $veiculos->listar($veiculos);
       <div class="col-4">
         <div class="form-group">
           <span>Apólice</span> 
-          <input maxlength="40" type="text" name="apolice" class="form-control form-control-sm">
+          <input maxlength="35" type="text" name="apolice" class="form-control form-control-sm">
         </div>
       </div>
 

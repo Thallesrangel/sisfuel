@@ -1,35 +1,37 @@
 <?php
   use App\controller\ControllerVeiculo;
   use App\controller\ControllerFornecedor;
-
-  // Objeto Fornecedor
-  $fornecedores = new ControllerFornecedor;
-  $fornecedores = $fornecedores->listarSeguradoras($fornecedores);
+  use App\controller\ControllerMotorista;
 
   // Objeto Veículos
   $veiculos = new ControllerVeiculo();
   $veiculos = $veiculos->listar($veiculos);
 
-  Use App\model\Conexao;
+  // Objeto Fornecedor
+  $fornecedores = new ControllerFornecedor;
+  $fornecedores = $fornecedores->listar($fornecedores);
+
+  // Objeto Motorista
+  $motoristas = new ControllerMotorista();
+  $motoristas = $motoristas->listar($motoristas);
 ?>
 <div class="container">
 <div class="starter-template height-100">
-  <h4>Filtros | Relatório Seguro</h4>
+  <h4>Filtros | Relatório de Ticket de Abastecimento</h4>
   
-<form action="<?=DIRPAGE.'/relatorio-seguro/render'?>" method="POST">
+<form action="<?=DIRPAGE.'/relatorio-ticket-abastecimento/render'?>" method="POST">
     <div class="row">
-
 
         <div class="col-2">
             <div class="form-group">
-                <span>Seguradoras *</span> 
-                <select class="form-control form-control-sm" name="seguradora[]" multiple required>
+                <span>Fornecedores *</span> 
+                <select class="form-control form-control-sm" name="fornecedor[]" multiple required>
                 <?php
-                foreach($fornecedores as $value){
-                $idSeguradora =  $value['id_fornecedor'];
-                $nomeSeguradora = $value['razao_social'];
+                    foreach ($fornecedores as $value) {
+                    $idFornecedor =  $value['id_fornecedor'];
+                    $nomeFornecedor =  $value['razao_social'];
                 ?>
-                <option value="<?= $idSeguradora ?>"> <?php echo $nomeSeguradora?> </option>
+                <option value="<?= $idFornecedor ?>"> <?=$nomeFornecedor?> </option>
                 <?php }?>
                 </select>
             </div>  
@@ -50,40 +52,35 @@
         </div>  
       </div>
 
-
-      <div class="col-sm-12 col-md-2 col-lg-3 ml-5">
+      <div class="col-2 ml-5">
         <div class="form-group">
-          <span>Situação</span><br>
-          <select class="form-control form-control-sm" name="situacao[]" multiple required>
+            <span>Motoristas *</span> 
+            <select id='selectMotorista' class="form-control form-control-sm" name="motorista[]" multiple required>
             <?php
-            $pdo = Conexao::getConn();
-            $sql = "SELECT * FROM tbpagamento_situacao";
-            $resultado = $pdo->query($sql);
-
-            foreach($resultado as $value){
-              $idSituacao =  $value['id_situacao'];
-              $situacao =  $value['situacao'];
+                foreach($motoristas as $value){
+                $idMotorista =  $value['id_motorista'];
+                $nomeMotorista =  $value['nome_motorista'];
             ?>
-            <option value="<?= $idSituacao ?>"> <?php echo (ucwords($situacao))?> </option>
+            <option value="<?= $idMotorista ?>"> <?=$nomeMotorista?> </option>
             <?php }?>
-          </select>
-        </div>
-    </div>
-
+            </select>
+        </div>  
+      </div>
+            
     </div>
     <div class="row">
 
       <div class="col-2">
         <div class="form-group">
           <span>Data Inicial *</span> 
-          <input type="date" name="data_inicial" date-input="d/m/y" class="form-control form-control-sm" required>
+          <input type="date" name="data_inicial" date-input="d/m/y h:i:s" class="form-control form-control-sm" required>
         </div>  
       </div>
     
       <div class="col-2">
         <div class="form-group">
           <span>Data Final *</span> 
-          <input type="date" name="data_final" date-input="d/m/y" class="form-control form-control-sm" required>
+          <input type="date" name="data_final" date-input="d/m/y h:i:s" class="form-control form-control-sm" required>
         </div>
       </div>
       

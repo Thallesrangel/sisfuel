@@ -32,10 +32,10 @@ class ReportSeguro extends FPDF
         { 
             $this->SetFont('Arial', 'B', 8);
             $this->Cell(14,8,'ID',1,0,'L');
-            $this->Cell(40,8,'Apolice',1,0,'L');
-            $this->Cell(25,8,'Vencimento',1,0,'L');
-            $this->Cell(18,8,'Situação',1,0,'L');
-            $this->Cell(25,8,'Seguradora',1,0,'L'); 
+            $this->Cell(55,8,'Apólice do Seguro',1,0,'L');
+            $this->Cell(20,8,'Vencimento',1,0,'L');
+            $this->Cell(30,8,'Situação',1,0,'L');
+            $this->Cell(40,8,'Seguradora',1,0,'L'); 
             $this->Ln();
         }
     
@@ -46,19 +46,19 @@ class ReportSeguro extends FPDF
             $data_final =  implode('-', array_reverse(explode('/', $_POST['data_final'])));  
 
             $seguro = new ControllerSeguro();
-            $ipva->setFornecedor($_POST['seguradora']);
-            $ipva->setSituacao($_POST['situacao']);
-            $ipva->setVeiculo($_POST['veiculo']);
-            $ipva->setDataInicial($data_inicial);
-            $ipva->setDataFinal($data_final);
+            $seguro->setFornecedor($_POST['seguradora']);
+            $seguro->setSituacao($_POST['situacao']);
+            $seguro->setVeiculo($_POST['veiculo']);
+            $seguro->setDataInicial($data_inicial);
+            $seguro->setDataFinal($data_final);
             $seguro = $seguro->listarTodos($seguro);
     
             foreach ($seguro as $value) {
                 $this->Cell(14,7, $value['id_seguro'],1,0,'L');
-                $this->Cell(40,7,$value['apolice'],1,0,'L');
-                $this->Cell(25,7,date("d/m/Y", strtotime($value['data_vencimento'])),1,0,'L');
-                $this->Cell(18,7,$value['situacao'],1,0,'L');
-                $this->Cell(25,7,$value['razao_social'],1,0,'L');
+                $this->Cell(55,7,$value['apolice'],1,0,'L');
+                $this->Cell(20,7,date("d/m/Y", strtotime($value['data_vencimento'])),1,0,'L');
+                $this->Cell(30,7,$value['situacao'],1,0,'L');
+                $this->Cell(40,7,$value['razao_social'],1,0,'L');
                 $this->Ln();
             }
             

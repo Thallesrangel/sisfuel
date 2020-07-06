@@ -18,6 +18,8 @@ abstract class ClsTicket extends Conexao
 	private $dataEntrada;
 	private $motorista;
 	private $veiculo;
+	private $data_inicial;
+	private $data_final;
 
 	// Paginacao
 	private $pagina_inicial;
@@ -49,6 +51,14 @@ abstract class ClsTicket extends Conexao
 
 	public function getVeiculo(){ return $this->veiculo; }	
 	public function setVeiculo($veiculo){ $this->veiculo = $veiculo; }
+
+	# Usado no formulário do relatório
+
+	public function getDataInicial(){ return $this->data_inicial; }	
+	public function setDataInicial($data_inicial){ $this->data_inicial = $data_inicial; }
+
+	public function getDataFinal(){ return $this->data_final; }	
+	public function setDataFinal($data_final){ $this->data_final = $data_final; }
 
 	// Paginacao 
 	public function getPaginaInicial(){ return $this->pagina_inicial; }
@@ -201,13 +211,20 @@ class DaoTicket implements itfTicket
         $pdo = Conexao::getConn();
 		
 		$sql = "SELECT * FROM ".$objClass->tabela. " a 
-			LEFT JOIN tbfornecedor b ON (b.id_fornecedor = a.id_fornecedor)
-			LEFT JOIN tbveiculo c ON (c.id_veiculo = a.id_veiculo)
-			LEFT JOIN tbcategoria_combustivel d ON (d.id_combustivel = a.id_combustivel)
-			LEFT JOIN tbmotorista e ON (e.id_motorista = a.id_motorista)
-		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0";
-		
+			INNER JOIN tbfornecedor b ON (b.id_fornecedor = a.id_fornecedor)
+			INNER JOIN tbveiculo c ON (c.id_veiculo = a.id_veiculo)
+			INNER JOIN tbcategoria_combustivel d ON (d.id_combustivel = a.id_combustivel)
+			INNER JOIN tbmotorista e ON (e.id_motorista = a.id_motorista)
+		WHERE a.id_cliente = ".$_SESSION['id_cliente']."
+			
+		AND a.id_fornecedor IN(".implode(',', $objClass->getFornecedor() ).") 
+		AND a.id_motorista IN(".implode(',', $objClass->getMotorista()).")
+		AND a.id_veiculo IN(".implode(',', $objClass->getVeiculo()).") 
+		AND a.data_entrada BETWEEN :data_inicial AND :data_final AND a.flag_excluido = 0 ORDER BY a.id_ticket DESC";
+	
 		$stmt = $pdo->prepare($sql);
+		$stmt->bindValue(':data_inicial', $objClass->getDataInicial(), \PDO::PARAM_STR);
+        $stmt->bindValue(':data_final', $objClass->getDataFinal(), \PDO::PARAM_STR);
 		$stmt->execute();
 
 		$objResultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);

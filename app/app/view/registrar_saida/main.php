@@ -4,7 +4,7 @@ use App\controller\ControllerMotorista;
 use App\controller\ControllerTanque;
 use App\controller\ControllerVeiculo;
 
-  // Objeto Fornecedor
+  // Objeto Motorista
   $motoristas = new ControllerMotorista();
   $motoristas = $motoristas->listar($motoristas);
 
@@ -12,7 +12,7 @@ use App\controller\ControllerVeiculo;
   $tanques = new ControllerTanque();
   $tanques = $tanques->listar($tanques);
 
-   // Objeto Tanque de Combustivel
+   // Objeto Veículo
    $veiculos = new ControllerVeiculo();
    $veiculos = $veiculos->listar($veiculos);
 ?>

@@ -83,7 +83,7 @@ use App\controller\ControllerMotorista;
       <div class="col-2">
         <div class="form-group">
           <label for="data">Data</label>
-          <input id="data" date-input="d/m/y" type="text" name="data" class="form-control form-control-sm">
+          <input id="data" date-input="d/m/y h:i:s" type="text" name="data" class="form-control form-control-sm">
         </div>
       </div>
 

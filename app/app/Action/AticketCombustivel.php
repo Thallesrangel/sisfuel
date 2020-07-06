@@ -39,7 +39,7 @@ abstract class AticketCombustivel
             $fornecedor = trim($_POST['fornecedor']);
             $quantidade = TratarDados::tratarQuantidade($_POST['quantidade']);
             $combustivel = trim($_POST['combustivel']);
-            $dataEntrada = trim($_POST['data']);
+            $dataEntrada = TratarDados::tratarDataHora($_POST['data']);
             $motorista = trim($_POST['motorista']);
             $veiculo = trim($_POST['veiculo']);
             

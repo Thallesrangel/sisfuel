@@ -42,10 +42,17 @@ class ReportCartaoVirtual extends FPDF
     function viewTable()
     {
         $this->SetFont('Arial', '', 7);
-        $usuario = new ControllerCartaoVirtual();
-        $usuarios = $usuario->listar($usuario);
+        $data_inicial = implode('-', array_reverse(explode('/', $_POST['data_inicial'])));
+        $data_final =  implode('-', array_reverse(explode('/', $_POST['data_final'])));  
 
-        foreach ($usuarios as $value) {
+        $cartao_virtual = new ControllerCartaoVirtual();
+        $cartao_virtual->setMotorista($_POST['motorista']);
+        $cartao_virtual->setIdSituacao($_POST['situacao']);
+        $cartao_virtual->setDataInicial($data_inicial);
+        $cartao_virtual->setDataFinal($data_final);
+        $cartao_virtual = $cartao_virtual->listarTodos($cartao_virtual);
+
+        foreach ($cartao_virtual as $value) {
             $this->Cell(20,7, $value['id_cartao'],1,0,'L');
             $this->Cell(40,7,$value['nome_motorista'],1,0,'L');
             $this->Cell(20,7,$value['valor_limite'],1,0,'L');

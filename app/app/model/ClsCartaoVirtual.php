@@ -15,6 +15,8 @@ abstract class ClsCartaoVirtual extends Conexao
 	private $valor_limite;
 	private $id_situacao;
 	private $id_renovacao;
+	private $data_inicial;
+	private $data_final;
 
 	// Paginacao
 	private $pagina_inicial;
@@ -50,6 +52,15 @@ abstract class ClsCartaoVirtual extends Conexao
 	public function getIdRenovacao(){ return $this->id_renovacao; }	
 	public function setIdRenovacao($id_renovacao){ $this->id_renovacao = $id_renovacao; }
 
+	
+	# Usado no formulário do relatório
+
+	public function getDataInicial(){ return $this->data_inicial; }	
+	public function setDataInicial($data_inicial){ $this->data_inicial = $data_inicial; }
+
+	public function getDataFinal(){ return $this->data_final; }	
+	public function setDataFinal($data_final){ $this->data_final = $data_final; }
+	
 	// Paginacao 
 	public function getPaginaInicial(){ return $this->pagina_inicial; }
 	public function setPaginaInicial($pagina_inicial){ $this->pagina_inicial = $pagina_inicial; }
@@ -69,7 +80,6 @@ interface itfCartaoVirtual
 	function listar(ClsCartaoVirtual $objClass);
 	function listarTodos(ClsCartaoVirtual $objClass);
 	function selectCombustivel(ClsCartaoVirtual $objClass);
-	function listar_combo(ClsCartaoVirtual $objClass);
 	function count(ClsCartaoVirtual $objClass);
 }
 
@@ -206,6 +216,7 @@ class DaoCartaoVirtual implements itfCartaoVirtual
 		return $objResultado;
 	}
 
+	// Usado no relatório
 	public function listarTodos(ClsCartaoVirtual $objClass)
 	{
         $pdo = Conexao::getConn();
@@ -214,10 +225,15 @@ class DaoCartaoVirtual implements itfCartaoVirtual
 			INNER JOIN tbmotorista b ON (b.id_motorista = a.id_motorista)
 			INNER JOIN tbcartao_virtual_situacao c ON (c.id_cartao_situacao = a.id_cartao_situacao) 
 			INNER JOIN tbcartao_virtual_renovacao d ON (d.id_cartao_renovacao = a.id_cartao_renovacao)
-		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0";
+		WHERE a.id_cliente = ".$_SESSION['id_cliente']." 
+		AND a.id_motorista IN(".implode(',', $objClass->getMotorista()).")
+		AND a.id_cartao_situacao IN(".implode(',', $objClass->getIdSituacao()).")
+		AND a.data_validade BETWEEN :data_inicial AND :data_final AND a.flag_excluido = 0 ORDER BY a.id_cartao DESC";
 		
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute();//Executa A Query
+		$stmt->bindValue(':data_inicial', $objClass->getDataInicial(), \PDO::PARAM_STR);
+        $stmt->bindValue(':data_final', $objClass->getDataFinal(), \PDO::PARAM_STR);
+		$stmt->execute();
 
 		$objResultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
@@ -236,18 +252,6 @@ class DaoCartaoVirtual implements itfCartaoVirtual
 		$objResultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $objResultado;
-	}
-
-	public function listar_combo(ClsCartaoVirtual $objClass)
-	{
-        $pdo = Conexao::getConn();
-		
-		$sql = "select id, name from ".$objClass->tabela." where id not in (1) order by name asc;";
-
-		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
-
-		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	}
 
 	public function count(ClsCartaoVirtual $objClass)
