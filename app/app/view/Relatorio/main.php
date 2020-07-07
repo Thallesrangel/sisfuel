@@ -41,7 +41,7 @@
         <div class="col-sm-12 col-md-4">
           <h5>Abastecimentos</h5>
           <ul>
-            <li><a target="_blank" href="<?=DIRPAGE?>/relatorio_abastecimento/render">Filtros</a></li>
+            <li><a target="_blank" href="<?=DIRPAGE?>/relatorio-abastecimento/form">Filtros</a></li>
           </ul>
         </div> 
 

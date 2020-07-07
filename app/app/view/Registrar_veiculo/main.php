@@ -97,7 +97,7 @@ use App\model\Conexao;
        <div class="col-sm-12 col-md-2 col-lg-2">
         <div class="form-group">
           <span title="Capacidade do tanque de combustível do veículo conforme manual">Tanque(LT) *</span>
-          <input maxlength="25" type="text" name="quantidade_tanque" class="form-control form-control-sm" required>
+          <input maxlength="25" type="text" name="quantidade_tanque" class="form-control form-control-sm quantidade" required>
         </div>
       </div>  
 

@@ -5,9 +5,7 @@ $usuarios = $usuario->listar($usuario);
 ?>
 <div class="container">
 <div class="starter-template height-100">
-
-      <h4>Usuários</h4>
-      <p align="left">
+      <p>
       <a href="<?=DIRPAGE?>/usuario/novo" class="btn btn-default btn-sm btnCadastrar" alt="Incluir Cadastro" title="Incluir Cadastro">
         Novo</a>
       </p>

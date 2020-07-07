@@ -12,8 +12,7 @@ unset($_SESSION["mensagem"]);
 ?>
 <div class="container">
 <div class="starter-template height-100">
-      <h4>Lista de veiculos</h4>
-      <p align="left">
+      <p>
       <a href="<?=DIRPAGE?>/veiculo/novo" class="btn btn-default btn-sm btnCadastrar" alt="Incluir Cadastro" title="Incluir Cadastro">
         Novo</a>
       </p>

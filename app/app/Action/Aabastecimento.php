@@ -2,10 +2,12 @@
 
 namespace App\Action;
 
+use Src\traits\TratarDados;
 use App\controller\ControllerAbastecimento;
 
 abstract class Aabastecimento
 {   
+    use TratarDados;
 
     public function excluirAction($id)
     {      

@@ -51,7 +51,7 @@ class ClassRoutes
         "relatorio-ipva" => "RelatorioIpva",
         "relatorio-ticket-abastecimento" => "RelatorioTicket",
         "relatorio-seguro" => "RelatorioSeguro",
-        "relatorio_abastecimento" => "RelatorioAbastecimento",
+        "relatorio-abastecimento" => "RelatorioAbastecimento",
         "relatorio-fornecedor" => "RelatorioFornecedor",
         "relatorio_motorista" => "RelatorioMotorista",
         "relatorio-veiculo" => "RelatorioVeiculo",

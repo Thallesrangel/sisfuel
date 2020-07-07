@@ -12,8 +12,7 @@ unset($_SESSION["mensagem"]);
 <div class="container">
 <div class="starter-template  height-100">
 
-      <h4>Motoristas</h4>
-      <p align="left">
+      <p>
       <a data-toggle="modal" data-target="#exampleModal" class="btn btn-default btn-sm btnCadastrar" alt="Incluir Cadastro" title="Incluir Cadastro">
          Novo</a>
       </p>
