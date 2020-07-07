@@ -14,8 +14,6 @@ unset($_SESSION["mensagem"]);
 
 <div class="container">
   <div class="starter-template height-100">
-
-    <h4>IPVA</h4>
     <p style="float:left">
     <a href="<?=DIRPAGE?>/ipva/novo" class="btn btn-default btn-sm btnCadastrar" alt="Incluir Cadastro" title="Incluir Cadastro">
         Novo</a>
@@ -39,7 +37,7 @@ unset($_SESSION["mensagem"]);
                 <tr>
                     <td><?=strtoupper($value['placa'])?></td>
                     <td><?=date("d/m/Y", strtotime($value['data_vencimento']));?></td>
-                    <td><?=$value['valor']?></td>
+                    <td>R$: <span class="valor-limite"><?=$value['valor']?></span></td>
                     <td><?=$value['situacao']?></td>
                     <td>
                       <a href="<?=DIRPAGE?>/ipva/editar/<?=$value['id_ipva']?>">

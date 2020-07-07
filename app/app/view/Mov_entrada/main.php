@@ -45,8 +45,8 @@ unset($_SESSION["mensagem"]);
                     <td><span class="quantidade"><?=$value['quantidade']?></span> - <?=$value['abreviacao_medida']?></td>
                     <td><?=$value['nota_fiscal']?></td>
                     <td><?=date("d/m/Y H:i", strtotime($value['data_entrada']));?></td>
-                    <td class="valor-unitario"><?=$value['valor_unitario']?></td>
-                    <td class="valor-limite"><?=$value['valor_total']?></td>
+                    <td>R$: <span class="valor-unitario"><?=$value['valor_unitario']?></span></td>
+                    <td>R$: <span class="valor-limite"><?=$value['valor_total']?></span></td>
                     <td>
                       <a href="<?=DIRPAGE?>/movimento-entrada/editar/<?=$value['id_entrada']?>">
                       <i data-feather="edit" class="iconEditar"></i>
