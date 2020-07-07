@@ -9,8 +9,6 @@ unset($_SESSION["mensagem"]);
 ?>
 <div class="container">
   <div class="starter-template height-100">
-
-    <h4>Suporte Técnico</h4>
       <p>
         <button class="btn btn-default btn-sm btnCadastrar" onclick="window.location.href='<?=DIRPAGE?>/suporte/novo/'">Novo</button>
       </p>

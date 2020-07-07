@@ -17,14 +17,14 @@
         <div class="col-sm-12 col-md-4">
           <h5>Veículos</h5>
           <ul>
-            <li><a target="_blank" href="<?=DIRPAGE?>/relatorio_veiculo/render">Filtros</a></li>
+            <li><a href="<?=DIRPAGE?>/relatorio-veiculo/form">Filtros</a></li>
           </ul>
         </div>
 
         <div class="col-sm-12 col-md-4">
           <h5>Fornecedor</h5>
           <ul>
-            <li><a target="_blank" href="<?=DIRPAGE?>/relatorio_fornecedor/render">Filtros</a></li>
+            <li><a href="<?=DIRPAGE?>/relatorio-fornecedor/form">Filtros</a></li>
           </ul>
         </div>
 

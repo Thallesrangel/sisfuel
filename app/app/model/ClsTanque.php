@@ -186,7 +186,9 @@ class DaoTanque implements itfTanque{
 		$sql = "SELECT * FROM ".$objClass->tabela." a
 			INNER JOIN tbcategoria_combustivel b ON (b.id_combustivel = a.id_combustivel)
 			INNER JOIN tbunidade_medida c ON (c.id_medida = a.id_medida) 
-		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0";
+		WHERE a.id_cliente = ".$_SESSION['id_cliente']." 
+		AND a.id_combustivel IN(".implode(',', $objClass->getCombustivel()).") 
+		AND a.flag_excluido = 0";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();

@@ -19,6 +19,8 @@ abstract class ClsVeiculo extends Conexao
 	private $tipo_combustivel;
 	private $categoria_veiculo;
 	private $tipo_veiculo;
+	private $data_inicial;
+	private $data_final;
 
 	private $strCampo;
 	private $strValor;	
@@ -64,6 +66,14 @@ abstract class ClsVeiculo extends Conexao
 
 	public function getTipoVeiculo(){ return $this->tipo_veiculo; }	
 	public function setTipoVeiculo($tipo_veiculo){ $this->tipo_veiculo = $tipo_veiculo; }
+
+	# Usado no formulário do relatório
+
+	public function getDataInicial(){ return $this->data_inicial; }	
+	public function setDataInicial($data_inicial){ $this->data_inicial = $data_inicial; }
+
+	public function getDataFinal(){ return $this->data_final; }	
+	public function setDataFinal($data_final){ $this->data_final = $data_final; }
 }
 
 interface itfVeiculo
@@ -211,13 +221,22 @@ class DaoVeiculo implements itfVeiculo
 	{	
         $pdo = Conexao::getConn();
 		
-		$sql = "SELECT * FROM ".$objClass->tabela." a
-			LEFT JOIN tbveiculo_modelo b ON (b.id_modelo = a.id_modelo)
-			LEFT JOIN tbcategoria_combustivel c ON (c.id_combustivel = a.id_combustivel)
-			LEFT JOIN tbveiculo_categoria d ON (d.id_categoria_veiculo = a.id_categoria_veiculo)
-		WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND a.flag_excluido = 0";
-		
-		$stmt = $pdo->prepare($sql);
+		$sql = "SELECT a.*, b.*, c.*, d.*, e.* FROM ".$objClass->tabela." a
+			INNER JOIN tbveiculo_modelo b ON (b.id_modelo = a.id_modelo)
+			INNER JOIN tbcategoria_combustivel c ON (c.id_combustivel = a.id_combustivel)
+			INNER JOIN tbveiculo_categoria d ON (d.id_categoria_veiculo = a.id_categoria_veiculo)
+			INNER JOIN tbveiculo_fabricante e ON(e.id_fabricante = b.id_fabricante)
+		WHERE a.id_cliente = ".$_SESSION['id_cliente']." 
+
+		AND a.id_modelo IN(".implode(',', $objClass->getModeloVeiculo() ).")
+		AND a.id_categoria_veiculo IN(".implode(',', $objClass->getCategoriaVeiculo() ).")
+		AND a.id_tipo_veiculo IN(".implode(',', $objClass->getTipoVeiculo()).")
+		AND a.id_combustivel IN(".implode(',', $objClass->getCombustivel()).") 
+		AND a.ano_fabricacao BETWEEN :data_inicial AND :data_final AND a.flag_excluido = 0 ORDER BY a.id_veiculo DESC";
+	
+		$stmt = $pdo->prepare($sql);	
+		$stmt->bindValue(':data_inicial', $objClass->getDataInicial(), \PDO::PARAM_STR);
+		$stmt->bindValue(':data_final', $objClass->getDataFinal(), \PDO::PARAM_STR);
 		$stmt->execute();
 
 		$objResultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);

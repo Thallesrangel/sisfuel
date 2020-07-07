@@ -39,6 +39,7 @@ class ReportTanque extends FPDF
 
         $this->SetFont('Arial', '', 7);
         $tanque = new ControllerTanque();
+        $tanque->setCombustivel($_POST['combustivel']);
         $tanque = $tanque->listarTodos($tanque);
 
         foreach($tanque as $value) {

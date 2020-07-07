@@ -38,6 +38,7 @@ class ReportFornecedor extends FPDF
 
         $this->SetFont('Arial', '', 7);
         $fornecedores = new ControllerFornecedor();
+        $fornecedores->setAreaAtuacao($_POST['atuacao']);
         $fornecedores = $fornecedores->listarTodos($fornecedores);
 
         foreach($fornecedores as $value) {

@@ -21,7 +21,7 @@ class ControllerSuporte extends ClsSuporte{
 	{  	
 		$breadcrumb = [
 			'Início' => '',
-			'Suporte' => 'suporte/list',
+			'Suporte Técnico' => 'suporte/list',
 			'Listagem' => 'false'
 		];
 

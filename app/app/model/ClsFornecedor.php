@@ -176,7 +176,9 @@ class DaoFornecedor implements interfaceFornecedor{
 		
 		$sql = "SELECT *, b.* FROM ".$objClass->tabela." a
 			INNER JOIN tbfornecedor_atuacao b ON (b.id_area_atuacao = a.id_area_atuacao)
-		WHERE id_cliente = ".$_SESSION['id_cliente']." AND flag_excluido = 0";
+		WHERE id_cliente = ".$_SESSION['id_cliente']." 
+		AND a.id_area_atuacao IN(".implode(',', $objClass->getAreaAtuacao()).") 
+		AND flag_excluido = 0";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();

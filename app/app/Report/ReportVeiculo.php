@@ -2,11 +2,14 @@
 
 namespace App\Report;
 
+use Src\traits\TratarDados;
 use App\controller\ControllerVeiculo;
 use App\fpdf\fpdf;
 
 class ReportVeiculo extends FPDF
 {   
+    use TratarDados;
+
     function header(){
         $this->SetTitle("Sisvel - Veiculos");
         $this->Image(DIRIMG."/logo.png",10,6);
@@ -39,7 +42,18 @@ class ReportVeiculo extends FPDF
     function viewTable(){
 
         $this->SetFont('Arial', '', 7);
+
+        $data_inicial = TratarDados::tratarData($_POST['data_inicial']);
+        $data_final =  TratarDados::tratarData($_POST['data_final']);
+
         $veiculo = new ControllerVeiculo();
+        $veiculo->setModeloVeiculo($_POST['modelo']);
+        $veiculo->setCategoriaVeiculo($_POST['categoria']);
+        $veiculo->setTipoVeiculo($_POST['tipo']);
+        $veiculo->setCombustivel($_POST['combustivel']);
+        $veiculo->setDataInicial($data_inicial);
+        $veiculo->setDataFinal($data_final);
+
         $veiculo = $veiculo->listarTodos($veiculo);
 
         foreach($veiculo as $value) {
