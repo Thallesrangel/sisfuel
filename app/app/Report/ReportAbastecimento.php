@@ -2,11 +2,14 @@
 
 namespace App\Report;
 
+use Src\traits\TratarDados;
 use App\controller\ControllerAbastecimento;
 use App\fpdf\fpdf;
 
 class ReportAbastecimento extends FPDF
-{
+{   
+    use TratarDados;
+
         function header(){
             $this->SetTitle("Sisvel - Abastecimento");
             $this->Image(DIRIMG."/logo.png",10,6);
@@ -44,11 +47,21 @@ class ReportAbastecimento extends FPDF
         function viewTable(){
     
             $this->SetFont('Arial', '', 7);
+            $data_inicial = TratarDados::tratarDataHora($_POST['data_inicial']);
+            $data_final = preg_replace('#(\d{2})/(\d{2})/(\d{4})\s(.*)#', '$3-$2-$1 $4', $_POST['data_final']);
 
             $abastecimento = new ControllerAbastecimento();
+            $abastecimento->setFornecedor($_POST['fornecedor']);
+            $abastecimento->setVeiculo($_POST['veiculo']);
+            $abastecimento->setMotorista($_POST['motorista']);
+            $abastecimento->setCombustivel($_POST['combustivel']);
+            $abastecimento->setDataInicial($data_inicial);
+            $abastecimento->setDataFinal($data_final);
+
             $abastecimento = $abastecimento->listarTodos($abastecimento);
     
-            foreach($abastecimento as $value) {
+            foreach ($abastecimento as $value) {
+
                 $this->Cell(14,7, $value['id_abastecimento'],1,0,'L');
                 $this->Cell(40,7,$value['razao_social'],1,0,'L');
                 $this->Cell(25,7,$value['cnpj'],1,0,'L');
