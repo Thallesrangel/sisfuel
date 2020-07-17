@@ -44,6 +44,7 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
               <option value="<?= $idFornecedor ?>"> <?php echo ($nomeFornecedor)?> </option>
               <?php }?>
             </select>
+            <a href="#">Registrar</a>
           </div>  
         </div>
 

@@ -103,7 +103,7 @@ class DaoModeloVeiculo implements itfModeloVeiculo{
 		
         $sql = "SELECT a.*, b.* FROM ".$objClass->tabela." a
             INNER JOIN tbveiculo_fabricante b ON (b.id_fabricante = a.id_fabricante)
-        WHERE flag_excluido = 0;";
+        WHERE a.id_cliente = ".$_SESSION['id_cliente']." AND flag_excluido = 0;";
 		
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();//Executa A Query

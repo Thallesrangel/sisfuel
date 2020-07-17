@@ -22,6 +22,12 @@
 				<a href="<?=DIRPAGE?>/movimento-transito/list"><i data-feather="compass"></i> Movimento em Trânsito</a>
 			</li>
 		<?php } ?>
+
+		<?php if (in_array(3, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2 && $_SESSION['flag_tanque'] == 0) {?>
+			<li>
+				<a href="<?=DIRPAGE?>/abastecimento/list"><i data-feather="truck"></i> Abastecimento</a>
+			</li>
+		<?php } ?>
 		
 		<?php if (in_array(5, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2 && $_SESSION['id_tipo'] == 1) {?>
 			<li>
@@ -33,12 +39,6 @@
 			<li>
    				<a href="<?=DIRPAGE?>/cartao-virtual/list"><i data-feather="credit-card"></i> Cartão virtual</a>
    			</li>
-		<?php } ?>
-
-		<?php if (in_array(3, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2 && $_SESSION['id_tipo'] == 2) {?>
-			<li>
-				<a href="<?=DIRPAGE?>/abastecimento/list"><i data-feather="truck"></i> Abastecimento</a>
-			</li>
 		<?php } ?>
 
 			<li>
@@ -79,7 +79,7 @@
    				</ul> 
    			</li>
 
-		 <?php if (in_array(4, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2 && $_SESSION['flag_tanque'] == 1) {?>
+		 <?php if (in_array(4, $_SESSION['permissoes']) OR $_SESSION['nivel'] == 2) {?>
 			<li>
 				<a href="<?=DIRPAGE?>/relatorios-abastecimentos/list"><i data-feather="pie-chart"></i> Relatório Abastecimentos</a>
 			</li>

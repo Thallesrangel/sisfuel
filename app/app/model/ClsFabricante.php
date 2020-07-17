@@ -139,7 +139,7 @@ class DaoFabricante implements itfFabricante{
 	public function listar(ClsFabricante $objClass)
 	{
         $pdo = Conexao::getConn();
-		$sql = "SELECT * FROM ".$objClass->tabela.";";
+		$sql = "SELECT * FROM ".$objClass->tabela." WHERE id_cliente = ".$_SESSION['id_cliente']." AND flag_excluido = 0";
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
 		$objResultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);

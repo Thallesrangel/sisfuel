@@ -46,7 +46,7 @@
     </div>
 
     <div class="col-md-8 col-sm-12">
-      <img class="img-fluid" src="public/img/banner.png">
+      <img class="img-fluid" src="public/img/banner.svg">
     </div>
   </div>
 </div>

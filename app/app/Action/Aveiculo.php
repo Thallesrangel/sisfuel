@@ -1,10 +1,12 @@
 <?php
 namespace App\Action;
 
+use Src\traits\TratarDados;
 use App\controller\ControllerVeiculo;
 
 abstract class Aveiculo
-{
+{   
+    use TratarDados;
     # Exclui um veículo
     public function excluirAction($id)
     {    
@@ -29,7 +31,7 @@ abstract class Aveiculo
             $cor = $_POST['cor'];
             $ano_fabricacao = date("Y-m-d",strtotime($_POST['ano_fabricacao']));
             $ano_modelo = date("Y-m-d",strtotime($_POST['ano_modelo']));
-            $quantidade_tanque = $_POST['quantidade_tanque'];
+            $quantidade_tanque = TratarDados::tratarQuantidade($_POST['quantidade_tanque']);
             $chassi = $_POST['chassi'];
             $id_modelo = $_POST['id_modelo'];
             $tipocombustivel = trim($_POST['tipoCombustivel']);

@@ -116,7 +116,7 @@ $combsutivelResultado = $combsutivel->listar($combsutivel);
 
       <div class="col-2">
         <div class="form-group">
-          <span>Valor unitária *</span>
+          <span>R$ unitário *</span>
           <input type="text" name="valorUnitario" class="form-control form-control-sm valor-unitario">
         </div>
       </div>
